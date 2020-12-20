@@ -6,9 +6,11 @@ app = Flask(__name__)
 
 menus = [
     {"id":1, "name":"Expresso", "price":3800},
-    {"id":2, "name":"Expresso", "price":3800},
-    {"id":3, "name":"Expresso", "price":3800},
+    {"id":2, "name":"Americano", "price":4100},
+    {"id":3, "name":"Cafe Mocha", "price":4600},
 ]
+
+id_index = 4
 
 @app.route('/')
 def hello_flask():
@@ -22,14 +24,17 @@ def get_menus():
 # POST /menus | 자료를 자원에 추가한다.
 @app.route('/menus', methods=['POST'])
 def create_menu(): # request가 JSON이라고 가정
+    global id_index
+
     # 전달받은 자료를 menus 자원에 추가
     request_data = request.get_json() # request에 Client가 Server로 부터 POST 요청할 때 담겨진 자료를 parsing
     # {"name": ... , "price" : ...}
     new_menu = {
-        "id" : 4,
+        "id" : id_index,
         "name" : request_data['name'],
         "price" : request_data['price'],
     }
+    id_index += 1
     menus.append(new_menu)
     return jsonify(new_menu)
 
