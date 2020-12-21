@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, request, render_template
+from flask import url_for, Flask, jsonify, request, render_template, redirect, Response
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
@@ -8,10 +9,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
+#db.create_all()
 class Menu(db.Model):
     __table_name__ = 'menu'
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
     price = db.Column(db.Integer, unique=False, nullable=False)
 
@@ -22,28 +23,42 @@ class Menu(db.Model):
     def __repr__(self):
         return f"'{self.name}', '{self.price}'"
 
-@app.route('/', methods=['GET'])
-def home():
-    return render_template("index.html")
 
-@app.route('/menus')
-def get_menus():
-    return jsonify({'menus':menus})
+@app.route('/', methods=['GET', 'POST'])
+def menu():
+    if request.method == 'POST':
+        name = request.form['name']
+        price = int(request.form['price'])
+        menu = Menu(name=name, price=price)
+        db.session.add(menu)
+        db.session.commit()
+        menus = Menu.query.all()
+        return redirect(url_for("menu", menus=menus))
 
-@app.route('/menus', methods=['POST'])
-def create_menu():
-    request_data = request.get_json()
-    
-    menus.append(new_menu)
-    return jsonify(new_menu)
+    else:
+        menus = Menu.query.all()
+        return render_template("index.html", menus=menus)
 
-@app.route('/menu', methods=['PUT'])
+@app.route('/update', methods=['PUT'])
 def update_menu():
-    return
+    id = request.form['id']
+    name = request.form['name']
+    price = request.form['price']
+    menu = Menu.query.filter_by(id=id).first()
+    menu.name = name
+    menu.price = price
+    db.session.commit()
+    return redirect('/')
 
-@app.route('/menu', methods=['DELETE'])
+
+@app.route('/delete', methods=['DELETE'])
 def delete_menu():
-    return
+    id = request.form['id']
+    menu = Menu.query.filter_by(id=id).first()
+    db.session.delete(menu)
+    db.session.commit()
+    return redirect('/')
+
 
 
 if __name__ == "__main__":

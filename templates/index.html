@@ -1,8 +1,25 @@
 <html>
   <body>
     <form method="POST" action="/">
-      <input type="text" name="title">
+      <input type="text" name="name">
+      <input type="number" name="price">
       <input type="submit" value="Add">
     </form>
+
+    <h1>Menu</h1>
+    {% for menu in menus%}
+    <form method="post" action="/update">
+      <input type="text" value="{{menu.id}}" name="id">
+      <input type="text" value="{{menu.name}}" name="name">
+      <input type="number" value="{{menu.price}}" name="price">
+      <input type="hidden" name="_method" value="Put"/>
+      <input type="submit" value="Update">
+    
+    </form>
+    <form method="post" action="/delete?id={{menu.id}}">
+      <input type="hidden" name="_method" value="delete"/>
+      <input type="submit" value="Delete">
+    </form>
+    {% endfor %}
   </body>
 </html>
