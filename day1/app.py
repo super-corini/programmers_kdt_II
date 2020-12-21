@@ -49,17 +49,10 @@ def put_menu(id):
 #DELETE
 @app.route("/menus/<int:id>", methods=['DELETE'])
 def delete_menu(id):
-    # 중간에 번호가 삭제 되면, 번호 순서가 없으니까
-    # 삭제하고 뒷번호 앞당겨주기
-    # 사이즈가 커지면 정말 비효율적일 듯
-    i=0
-    while i<len(menus):
+    for i in range(len(menus)):
         if menus[i]['id']==id:
-            delete_item=menus.pop(i)
-        menus[i]['id']=i+1
-        i+=1
-    if delete_item:
-        return jsonify(menus)
+            menus.pop(i)
+            return jsonify(menus)
     else:
         return "not exist ID"
 
