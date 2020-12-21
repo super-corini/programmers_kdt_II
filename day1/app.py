@@ -23,7 +23,7 @@ def get_menus():
 def post_menu():
     request_data = request.get_json()
     new_menu = {
-        "id": 4,
+        "id": menus[-1]["id"] + 1,
         "name": request_data["name"],
         "price": request_data["price"],
     }
