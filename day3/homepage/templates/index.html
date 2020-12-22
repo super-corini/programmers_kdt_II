@@ -1,0 +1,68 @@
+{#ref https://codepen.io/_elletownsend/pen/qBaBRWy#}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>K</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+</head>
+
+<body>
+	<section class="profile_container">
+		<div class="profile_img_section">
+			<img class="profile_img-LG" src="{% static 'k.jpg' %}"  alt="oooooooops"/>
+			<div class="flag_wrapper">
+				<img class="flag" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/flag-south-korea_1f1f0-1f1f7.png" alt="South Korean Flag" />
+			</div>
+		</div>
+
+		<div class="profile_desc_section">
+			<h2>{{ title }}</h2>
+			<h3>{{ subTitle }}</h3>
+			<p class="description">{{ description }}</p>
+
+			<div class="interests">
+                {% for item in stack %}
+				    <span class="interests_item">{{ item }}</span>
+                {% endfor %}
+			</div>
+		</div>
+
+	</section>
+
+	<div class="info">
+		<ul>
+			<li>
+				<div class="link_img_wrapper">
+					<img class="link_img" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/round-pushpin_1f4cd.png" alt="">
+				</div>
+				<p>{{ location }}</p>
+			</li>
+			<li>
+				<div class="link_img_wrapper">
+					<img class="link_img" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/speaking-head_1f5e3-fe0f.png" alt="">
+				</div>
+				<p>{{ lang}}</p>
+			</li>
+			<li>
+				<div class="link_img_wrapper">
+					<img class="link_img" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/globe-with-meridians_1f310.png" alt="">
+				</div>
+				<p>{{ website }}</p>
+			</li>
+		</ul>
+	</div>
+</body>
+
+</html>
+
+
