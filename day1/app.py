@@ -1,57 +1,72 @@
-from flask import Flask, jsonify, request
+import os
+from flask import Flask, jsonify, request, abort
+from flask_restful import Resource, Api
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from models import (db, Menu)
+from serializer import MenuSchema
+
 
 app = Flask(__name__)
-
-menus = [
-    {"id":1, "name":"Espresso", "price":3800},
-    {"id":2, "name":"Espresso", "price":4100},
-    {"id":3, "name":"Espresso", "price":4600},
-]
+api = Api(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://eon:eon@localhost/coffee'
+db.init_app(app)
+migrate = Migrate(app, db)
 
 @app.route('/')
 def hello_flask():
-    return "Hello World!"
+    return "Hello COFFEE!"
+
+def query_serializer(schema, query_result):
+    ret = []
+    for result in query_result:
+        ret.append(schema.dump(result))
+    return ret
 
 
-# GET /menus
-@app.route('/menus')
-def get_menus():
-    return jsonify({"menus" : menus})
+class Menus(Resource):
+    def get(self):
+        menus_data = Menu.query.all()
+        return jsonify(query_serializer(MenuSchema(),menus_data))
 
-# POST /menus 
-@app.route('/menus', methods=['POST'])
-def create_menus():
-    request_data = request.get_json()
-    new_menu = {
-        "id" : menus[-1]['id']+1,
-        "name" : request_data['name'],
-        "price" : request_data['price'],
-    }
-    menus.append(new_menu)
-    return jsonify(new_menu)
+    def post(self):
+        data = request.get_json()
+        try :
+            name = data['name']
+            price = data['price']
+        except Exception as e:
+            print(e)
+            abort(400)
+        
+        try:
+            new_menu = Menu(name, price)
+            db.session.add(new_menu)
+            db.session.commit()
+        except Exception as e:
+            abort(500, e)
+        
+        return jsonify({"message": "Add successfully!"})
 
-# POST /menus/id
-@app.route('/menus/<id>', methods=['PUT'])
-def update_menus(id):
-    request_data = request.get_json()
-    for i in range(len(menus)):
-        if menus[i]['id'] == int(id):
-            menus[i]['name'] = request_data['name']
-            menus[i]['price'] = request_data['price']
-            break
+    def put(self, id):
+        request_data = request.get_json()
+        menu = Menu.query.filter_by(id=id).first()
+        if not menu:
+            abort(400, 'Not existed!')
+        menu.name = request_data['name']
+        menu.price = request_data['price']
+        db.session.commit()
+        return jsonify({"message": "Update successfully!"})
 
-    return jsonify(menus[i])
+    def delete(self, id):
+        menu = Menu.query.filter_by(id=id).first()
+        if not menu:
+            abort(400, 'Not existed!')
+        db.session.delete(menu)
+        db.session.commit()
+        return jsonify({"message": "Delete successfully!"})
 
-# Delete /menus/id
-@app.route('/menus/<id>', methods=['DELETE'])
-def delete_menus(id):
-    for i in range(len(menus)):
-        if menus[i]['id'] == int(id):
-            deleted_menu = menus[i]
-            del menus[i]
-            break
 
-    return jsonify(deleted_menu)
+api.add_resource(Menus, '/menu', '/menu/<id>')
 
 
 if __name__ == '__main__':
