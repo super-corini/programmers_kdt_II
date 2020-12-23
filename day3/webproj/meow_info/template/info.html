@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introducing Meow the cat</title>
+</head>
+<body>
+    <h2>우리야옹이 이쁜야옹이 우리야옹이 착한야옹이</h2>
+    <p>Hello 야옹!</p>
+    <img src="/static/images/용안.jpg">
+    <p>이름 : {{ cat_name|upper }}</p> <!-- django 변수 -->
+    <p>야옹이 생일: {{ cat_birth }}</p> <!-- django 변수 -->
+    <p>취미 : 하루종일 잠자기</p>
+    <p>특기 :</p>
+    <ul>
+        {% for sp in spaciality %}
+        <li>{{ sp }}</li>
+        {% endfor %}
+    </ul>
+    <h2>취미생활을 즐기시는 야옹님</h2>
+    <img src="/static/images/주무시는모습_2.jpg" width="300"><img src="/static/images/주무시는모습_1.jpg", width="500">
+    <h2>잠들지 않았다. 닝겐.</h2>
+    <img src="/static/images/안잔다_닝겐.jpg" width="400">
+
+</body>
+</html>
