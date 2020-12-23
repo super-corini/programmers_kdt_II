@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Python django example</title>
+    </head>
+
+    <body>
+        <h1>Hello</h1>
+        <p>blah blah blah</p>
+        <p>{{ my_name|upper }}</p>
+        {% for element in my_list %}
+            {% if element|divisibleby:"2" %}
+                <p> {{ element }}</p>
+            {% endif %}
+        {% endfor %}
+        
+    </body>
+
+</html>
