@@ -1,4 +1,5 @@
-<img width="1440" alt="port" src="https://user-images.githubusercontent.com/29560815/103002675-a6164e00-4572-11eb-880c-197b3c4bc361.png">  
+![portploiogif](https://user-images.githubusercontent.com/29560815/103003403-183b6280-4574-11eb-8b4d-45aa48c562e7.gif)  
+
 # Day 3 - Django로 자기소개 페이지 만들기
 
 ### 필수 과제 : 아이엠 그라운드 자기소개 하기
