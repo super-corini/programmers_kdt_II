@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KGT AI WEEK4 Day 4</title>
+</head>
+
+<body>
+    
+    <h1>목차</h1>
+    <ol>
+        <h2>1. 이름</h2>
+        <h2>2. 나이</h2>
+        <h2>3. 취미</h2>
+    </ol>
+    <hr />
+    <h2>이름</h2>
+    <p>{{ my_name }}</p>
+    <h2>나이</h2>
+    <p>{{ my_age }}</p>
+    <h2>취미</h2>
+    <ul>
+        {% for hob in my_hobby %}
+            <li>{{ hob }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
