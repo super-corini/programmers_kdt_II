@@ -1,0 +1,38 @@
+body {
+    background-color: #8977ad;
+    padding-top: 300px;
+}
+
+h1, ul {
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+hr {
+    margin: 0 30px;
+}
+
+.profile {
+    background-color: white;
+    border-top: 10px solid #6b5892;
+    border-bottom: 10px solid #6b5892;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 900px;
+
+    text-align: center;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 75px;
+    margin-top: -100px;
+}
+
+.text{
+    color: gray;
+    text-align: left;
+    font-size: 1.2em;
+    list-style: none;
+}
+
