@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>KGT AI WEEK4 Day 4</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/inedx.css">
+
+    <title>KGT Week4 Day3</title>
 </head>
 
 <body>
-    
     <h1>목차</h1>
     <ol>
-        <h2>1. 이름</h2>
-        <h2>2. 나이</h2>
-        <h2>3. 취미</h2>
+        <h2><one>1. 이름</one></h2>
+        <h2><two>2. 나이</two></h2>
+        <h2><three> 3. 취미 </three></h2>
     </ol>
     <hr />
-    <h2>이름</h2>
-    <p>{{ my_name }}</p>
-    <h2>나이</h2>
-    <p>{{ my_age }}</p>
-    <h2>취미</h2>
-    <ul>
+    <h2><one>이름</one></h2>
+    <div id = 'name'>{{ my_name }}</div>
+    <h2><two>나이</two></h2>
+    <div id = 'age'>{{ my_age }}</div>
+    <h2 id><three>취미</three></h2>
+    <ul id = 'hobby'>
         {% for hob in my_hobby %}
-            <li>{{ hob }}</li>
+            <label id = '{{ hob }}'><input type = "checkbox" id = '{{ hob }}'/>{{ hob }}</label>
         {% endfor %}
     </ul>
 
+    <script type = "text/javascript" src = "../static/javascript/index.js"></script>
 </body>
 
 </html>
