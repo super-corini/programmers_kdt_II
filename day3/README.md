@@ -1,4 +1,4 @@
-![portploiogif](https://user-images.githubusercontent.com/29560815/103003403-183b6280-4574-11eb-8b4d-45aa48c562e7.gif)  
+![portploiogif](https://user-images.githubusercontent.com/29560815/103006823-b0861700-4575-11eb-83e5-68255fb42eaf.gif)  
 
 # Day 3 - Django로 자기소개 페이지 만들기
 
