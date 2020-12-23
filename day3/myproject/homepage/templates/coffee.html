@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Henry</title>
+    <link rel="stylesheet" href="{% static 'css/coffee.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Cafe Henry</h1>
+    <div class="container">
+        {% for coffee in coffee_list %}
+        <div class='card'>
+            <div class="info">
+                <div class="card_name">{{coffee.name}}</div>
+                <div class="card_price">￦ {{coffee.price}}</div>
+                <div class="card_ice">
+                    {% if coffee.is_ice == True %}
+                        Iced
+                    {% else %}
+                        Hot
+                    {% endif %}
+                </div>
+            </div>
+            <div class="func">
+                <div class="card_stock">Stock: {{coffee.stock}} cup(s)</div>
+                <div class="control">
+                    <a class='edit' href='edit/{{coffee.pk}}'>edit</a>
+                    <a class='delete' href='delete/{{coffee.pk}}'>delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <form method='POST'>
+            <h2>Add new</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type='submit'>save</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

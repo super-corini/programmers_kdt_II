@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index
+from homepage.views import index, coffee_view, coffee_update, coffee_delete
 
 urlpatterns = [
     path("", index),
+    path("coffee/", coffee_view),
+    path("coffee/edit/<int:pk>", coffee_update),
+    path("coffee/delete/<int:pk>", coffee_delete),
     path("admin/", admin.site.urls),
 ]
