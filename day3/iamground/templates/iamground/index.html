@@ -1,0 +1,32 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% bootstrap_css %}
+  <title>IamGround</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4 text-center">Hello I'm Jinpyo.</h1>
+        <figure class="figure">
+          <img src="{% static 'korea.jpg' %}" class="figure-img img-fluid rounded" alt="...">
+          <figcaption class="figure-caption">A photo in Cheong-Ju.</figcaption>
+        </figure>
+        <p class="lead">I love korea.</p>
+        <p class="lead">I don't speak English.</p>
+        <p class="lead">But I want speak English very well.</p>
+        <p class="lead">Sometimes I drink coffee.</p>
+        <p class="lead">It's over.</p>
+      </div>
+    </div>
+  </div>
+  
+  {% bootstrap_javascript jquery='full' %}
+</body>
+</html>
