@@ -1,0 +1,25 @@
+* {
+    font-family: 'Poor Story', cursive;
+}
+
+body {
+    background-color: #9b070f;
+}
+
+h1, h2 {
+    color: white;
+    text-align: center;
+    margin: 5% 0;
+}
+
+.container {
+    background-color: ivory;
+    box-shadow: 0px 0px 10px 0px white;
+
+    width: 300px;
+
+    margin: auto;
+    padding: 30px;
+
+    color: brown;
+}
