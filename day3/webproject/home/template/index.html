@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>1기 이석영입니다!</title>
+
+        <style>
+            .wrap{
+                margin : auto;
+                width : 500px;
+            }
+
+            .content{
+                width :700px;
+                margin : auto;
+            }
+        </style>
+
+
+
+    </head>
+
+<body>
+
+<div class="wrap">
+
+    <h1>Let me introduce myself !!!</h1>
+
+    {% load static %}
+    <img src="{% static 'seokyeong.jpg' %}" alt="My image", width="400px">
+
+    <h2>이름 : <span style="font-weight: bold">이석영</span></h2>
+    <h3>좋아하는 것 : 축구, <span style="color: blue">맛있는 음식</span></h3>
+</div>
+
+<p><div class="content"><span style="font-size: 20px">새로운 것들을 많이 알게되어 힘들지만 재미있게 강의 듣고있습니다.</p>
+<p>좋은 강의 준비해주셔서 감사합니다! 끝까지 포기하지않고 완주하겠습니다.</p>
+<p>참고로 사진은 제가 북유럽 여행 중 찍은 사진으로 핀란드였던 것 같은데,</p>
+<p>빨리 코로나가 진정되어 다시 여행갈 수 있었으면 좋겠네요^^</divspan></div></p>
+
+
+
+
+<!--    {% for element in my_list %}-->
+<!--        {% if not element|divisibleby:"2" %}-->
+<!--            <p>{{ element }}</p>-->
+<!--        {% endif %}-->
+<!--    {% endfor %}-->
+
+
+
+</body>
+
+</html>
