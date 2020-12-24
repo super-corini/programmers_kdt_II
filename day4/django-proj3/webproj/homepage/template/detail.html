@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ChaeLin's Cozy Cafe</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link href="../assets/css/fontawesome.css" rel="stylesheet" />
+    <link href="../assets/css/tooplate-chilling-cafe.css" rel="stylesheet" />
+<!--
+Tooplate 2118 Chilling Cafe
+https://www.tooplate.com/view/2118-chilling-cafe
+-->
+  </head>
+  <body>
+    <div class="tm-container">
+      <div class="tm-text-white tm-page-header-container">
+        <i class="fas fa-mug-hot fa-2x tm-page-icon"></i>
+        <h1 class="tm-page-header" style='cursor:pointer;' onclick="location.href='{% url 'coffee_view' %}';">ChaeLin's Cozy Cafe</h1>
+      </div>
+      <div class="tm-main-content">
+        <div id="tm-intro-img"></div>
+        <!-- Coffee Menu -->
+        <section class="tm-section">
+          <h2 class="tm-section-header">Menu details</h2>
+          <div class="tm-responsive-table">
+            <h2>{{ coffee.name }}</h2>
+            <h4>price : {{ coffee.price }}</h4>
+            <h4>description : {{ coffee.menu_description }}</h4>
+          </div>
+        </section>
+
+        <!-- About our cafe -->
+        <section class="tm-section tm-section-small">
+          <h2 class="tm-section-header">About our cafe</h2>
+          <p style="text-align: center;">
+            Welcome to my cozy cafe. This layout is a mobile and tablet friendly.<br>
+            You can add, edit and delete cafe drinks. :-)<br>
+            Contact me by email : gomgomtoto@gmail.com<br>
+            Contact me by github : https://github.com/ChaeLinYeo<br>
+            Have a nice day and merry cristmas!<br>
+            2020.12.24<br>
+          </p>
+        </section>
+        <hr />
+      </div>
+    </div>
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script>
+      $(function() {
+        // Adjust intro image height based on width.
+        $(window).resize(function() {
+          var img = $("#tm-intro-img");
+          var imgWidth = img.width();
+
+          // 640x425 ratio
+          var imgHeight = (imgWidth * 425) / 640;
+
+          if (imgHeight < 300) {
+            imgHeight = 300;
+          }
+
+          img.css("min-height", imgHeight + "px");
+        });
+      });
+    </script>
+  </body>
+</html>
