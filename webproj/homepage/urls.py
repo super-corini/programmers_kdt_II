@@ -15,9 +15,11 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from .views import index
+from .views import index, coffee_view, phone_view
 
 app_name = 'homepage'
 urlpatterns = [
-    path('', index),  # 127.0.0.1
+    path('', index, name='index'),  # 127.0.0.1
+    path('coffee/', coffee_view, name='coffee'),  # 127.0.0.1/coffee
+    path('phone/', phone_view, name='phone'),  # 127.0.0.1/phone
 ]
