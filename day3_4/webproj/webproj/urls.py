@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index
+from homepage.views import index, coffee_view, coffee_edit, coffee_delete
 from meow_info.views import info
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # 127.0.0.1/admin/
     path('', index),  # 127.0.0.1/
+    path("coffee/",coffee_view),
+    path("coffee/<pk>/edit", coffee_edit, name='edit'),
+    path("coffee/<pk>/delete", coffee_delete, name='delete'),
     path('info/', info),  # 127.0.0.1/info/
 ]
