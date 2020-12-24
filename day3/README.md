@@ -1,3 +1,6 @@
+![portgif](https://user-images.githubusercontent.com/29560815/103006955-e3c8a600-4575-11eb-842a-015b95a13755.gif)
+<br>
+
 # Day 3 - Django로 자기소개 페이지 만들기
 
 ### 필수 과제 : 아이엠 그라운드 자기소개 하기
