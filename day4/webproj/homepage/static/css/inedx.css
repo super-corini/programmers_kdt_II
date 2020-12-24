@@ -1,0 +1,80 @@
+body {
+    padding-left: 10px;
+    background-color: lightblue;
+}
+
+
+ol{
+    padding-left: 10px;
+    background-color: cornflowerblue;
+}
+
+
+h1 {
+    color: #FCA205;
+    text-align: center;
+    margin-left: 0px;
+}
+
+
+li{
+    cursor:pointer;
+}
+
+
+#name {
+    font-size: 20px;
+    font-family: 'helvetica neue', helvetica, sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 2px solid rgba(0,0,200,0.6);
+    background: rgba(0,0,200,0.3);
+    color: rgba(0,0,200,0.6);
+    box-shadow: 1px 1px 2pxrgba(0,0,200,0.4);
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: inline-block;
+    cursor:pointer;
+}
+
+#age {
+    font-size: 20px;
+    font-family: 'helvetica neue', helvetica, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid rgba(1, 24, 15, 0.6);
+    background:  rgba(1, 24, 15, 0.3);
+    color: rgba(1, 24, 15, 0.6);
+    box-shadow: 1px 1px 2pxrgba(0,0,200,0.4);
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: inline-block;
+    cursor:pointer;
+}
+
+
+one {
+    padding-left: 10px;
+    color: #CCAB37;
+    text-align: center;
+}
+
+
+two {
+    padding-left: 10px;
+    color: #37ABCC;
+    text-align: center;
+}
+
+
+three {
+    padding-left: 10px;
+    color: #CA3CB7;
+    text-align: center;
+}
+
+br {
+    color: black;
+    border: 10px
+}
