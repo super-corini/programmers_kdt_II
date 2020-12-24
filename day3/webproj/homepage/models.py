@@ -15,3 +15,11 @@ class Coffee(models.Model):
     price = models.IntegerField(default=0)
     is_ice = models.BooleanField(default=False)
 
+class Chicken(models.Model):
+    
+    def __str__(self):
+        return self.name
+    name = models.CharField(default="", null=False, max_length=30) 
+    price = models.IntegerField(default=0)
+    num = models.IntegerField(default=0)
+

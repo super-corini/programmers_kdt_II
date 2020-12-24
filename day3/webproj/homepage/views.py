@@ -1,6 +1,6 @@
 from django.shortcuts import HttpResponse, render
-from .models import Coffee
-from .forms import CoffeeForm
+from .models import Coffee, Chicken
+from .forms import CoffeeForm, ChickenForm
 
 # Create your views here.
 def index(request):
@@ -20,6 +20,14 @@ def coffee_view(request):
     form = CoffeeForm()
     return render(request, 'coffee.html', {"coffee_list" : coffee_all , "coffee_form" : form})
 
+def chicken_view(request):
+    chicken_list = []
+    chicken_all = Chicken.objects.all()
+    return render(request, 'chicken.html', {"chicken_list" : chicken_all })
+    
+
+
 def intro(request):
     return render(request, 'introduce.html', {})
+
 

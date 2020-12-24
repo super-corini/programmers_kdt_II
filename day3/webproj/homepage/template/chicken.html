@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Chicken List</title>
+    </head>
+
+    <body>
+        <h1>My Chicken List</h1>
+        {% for chicken in chicken_list %}
+            <li>{{ chicken.name }} {{ chicken.price }} &nbsp; 남은 수량 : {{ chicken.num }}마리</li>
+        {% endfor %}
+
+    </body>
+
+</html>
