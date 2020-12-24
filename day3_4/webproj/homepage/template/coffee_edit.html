@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Coffee Info</title>
+</head>
+<body>
+    <form method="POST">{% csrf_token %}
+        {{ coffee_form.as_p }}
+        <button type="submit" >Save</button>
+    </form>
+</body>
+</html>

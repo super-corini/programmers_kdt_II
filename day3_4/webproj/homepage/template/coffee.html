@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee List</title>
+</head>
+<body>
+
+    <h1>Coffee List</h1>
+    <ul>
+    {% for coffee in coffee_list %}
+        <li>{{ coffee.name }}, {{ coffee.price }} {% if coffee.is_ice %} , ICE {% else %} , HOT {% endif %}, {{ coffee.stock }}
+            <a href="{% url 'edit' coffee.id %}">수정</a> <!-- 수정을 위한 url로 이동하는 link 삽입 -->
+            <a href="{% url 'delete' coffee.id %}">삭제</a> <!-- 삭제를 위한 url로 이동하는 link 삽입 -->
+        </li>
+    {% endfor %}
+    </ul>
+    <form method="POST">{% csrf_token %}
+        {{ coffee_form.as_p }}
+        <button type="submit" >Save</button>
+    </form>
+
+
+
+</body>
+</html>
