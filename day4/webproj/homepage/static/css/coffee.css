@@ -1,0 +1,117 @@
+.add_coffee {
+    display: none;
+}
+
+.btn_del > form {
+    display: inline;
+}
+
+.put_coffee {
+    display: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    background-color: #006633;
+    z-index: -1;
+    padding: 0 15px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+img {
+    height: 80%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+    letter-spacing: 3px;
+    font-size: 32px;
+    font-weight: 10;
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+body {
+    background-color: #e8e4d8;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 30px;
+}
+.menu > li {
+    display: inline;
+    width: 300px;
+    font-size: 20px;
+    margin: 15px;
+}
+.menu_line {
+    display: flex;
+    justify-content: space-between;
+}
+
+form {
+    display: flex;
+    font-size: 12px;
+}
+
+form > p {
+    margin: 5px;
+}
+
+form > p > input {
+    width: 80px;
+    margin: 0 3px;
+}
+
+.add_form, .put_form {
+    border-bottom: 1px solid gray;
+}
+
+button {
+    border: none; 
+    outline: 0;
+    background-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn_del > form > button {
+    color: rgb(211, 40, 10);
+}
+.btns {
+    font-size: 15px;
+    color: gray;
+}
+.btn_put {
+    color: gray;
+}
+
+.btns {
+    display: none;
+}
+
+.controller {
+    margin: 5px;
+    margin-left: 10px;
+}
+
