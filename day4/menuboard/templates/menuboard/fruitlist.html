@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block content %}
+    <p>this is fruit list page</p>
+    {% for fruit in fruits %}
+        <img src="{% static fruit.img.url %}" alt={{ fruit.img }}>
+        <p>이름: {{ fruit.name }}</p>
+        <p>가격: {{ fruit.price }}원</p>
+        <p>재고: {{ fruit.stock }}개</p>
+        <form action="{% url 'menuboard:fruit_update_delete' fruit.pk %}" method="delete">
+            <button type="submit" class="btn btn-danger btn-sm">삭제</button>
+        </form>
+    {% endfor %}
+
+    <form action='' method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ create_form.as_p }}
+        <button type="submit" class="btn btn-primary btn-sm">등록</button>
+    </form>
+{% endblock content %}
