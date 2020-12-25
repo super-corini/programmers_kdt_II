@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Python django example</title>
+        <link rel="stylesheet" href="{% static 'index/index.css'%}">
+    </head>
+    
+    <body>
+        <h1 class = 'siteName'>Introduce Myself</h1>
+        <div class = "discription">
+            <div class = imgBox>
+                <img src = "{% static 'index/dh.jpeg'%}" alt = "image1" class = "imgMain" id = "imgMain">
+                <br>
+                <input type="button" value = "Change" onclick = "
+                var target = document.getElementById('imgMain');
+                var src1 = `{% static 'index/dh.jpeg'%}`;
+                var src2 = `{% static 'index/dh2.jpeg'%}`;
+                if(target.alt == 'image2'){
+                    target.alt = 'image1';
+                    target.src = src1;
+                }
+                else{
+                    target.alt = 'image2';
+                    target.src = src2;
+                }
+                "/>
+            </div>
+
+            <div class = "contents">
+                <h1>{{my_name}}</h1>
+                <div style= "color: gray">Programmers AI School</div>
+                <ul>
+                    <li>Name: 안도헌</li>
+                    <li>Occupation: 취준생</li>
+                    <li>State: AI 공부중</li>
+                    <li>Now: web 과제중</li>
+                </ul>
+            </div>
+
+            
+        </div>
+
+
+        <div class = "below">
+            <h2>site</h2>
+            <a href="https://github.com/Doheon">Github</a>
+            <a href="https://doheon.github.io/">Blog</a>
+            <a href="https://www.notion.so/2a63422d131f463c82eb5524bd84a705">Team Notion</a>
+            <a href=""></a>
+        </div>
+
+    </body>
+</html>

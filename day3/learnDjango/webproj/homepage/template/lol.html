@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>LOL Champion List</title>
+        <link rel="stylesheet" href="{% static 'lol/lol.css'%}">
+    </head>
+
+    <body>
+        <h1 class = 'siteName'>LOL Champion List</h1>
+
+        <div class = 'datas'>
+            <h2 style = "text-align: center">Champions</h2>
+            {% for lolchamp in lolchamp_list  %}
+                <div class = 'box'>
+                    <div class = 'contents'>
+                        <div class = 'items'>
+                            <div class = 'item'> Champion </div>
+                            <div class = 'item'> Position </div>
+                            <div class = 'item'> Role </div>
+                            <div class = 'item'> Price </div>
+                        </div>
+
+                        <div class = 'items'>
+                            <div class = 'item'> {{lolchamp.name}} </div>
+                            <div class = 'item'> {{lolchamp.position}} </div>
+                            <div class = 'item'> {{lolchamp.role}} </div>
+                            <div class = 'item'> {{lolchamp.price}} </div>
+                        </div>
+                    </div>
+
+                    <div class = 'buttons'>
+
+                        <button value = "{{lolchamp.id}}" onclick="
+                        var id = this.value;
+                        var target = document.getElementById(id);
+                        var state = target.style.display
+                        if ( state == 'block'){
+                            target.style.display = 'none';
+                        }
+                        else{
+                            target.style.display = 'block';
+                        }
+                        "/> edit </button>
+
+                        
+                        <form method = "POST">{% csrf_token %}
+                            <input type="hidden" name = "_method" value = "delete">
+                            <input type="hidden" name = "id" value = "{{lolchamp.id}}">
+                            <button type = "submit">delete</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class = 'edit' id = '{{lolchamp.id}}'>
+                    <h2>Edit Data</h2>
+                    <form method = "POST">{% csrf_token %}
+                        <input type="hidden" name = "_method" value = "put">
+                        <input type="hidden" name = "id" value = "{{lolchamp.id}}">
+                        {{lolchamp_form.as_p}}
+                        <button type = "submit">save</button>
+                    </form>
+                </div>
+
+            {% endfor %}
+        </div>
+        
+        <div class = 'post'>
+            <h2>Post Data</h2>
+            <form method = "POST">{% csrf_token %}
+                {{lolchamp_form.as_p}} 
+                <button type = "submit">Save</button>
+            </form>
+        </div>
+
+    </body>
+</html>
