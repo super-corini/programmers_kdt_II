@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <td colspan="col">제목</td>
+                <td>{{ post.title }}</td>
+            </tr>
+            <tr>
+                <td colspan="col">글쓴이</td>
+                <td>{{ post.author }}</td>
+            </tr>
+            <tr>
+                <td colspan="col">날짜</td>
+                <td>{{ post.date }}</td>
+            </tr>
+            <tr>
+                <td colspan="col" class ="p_content">내용</td>
+                <td>{{ post.content }}</td>
+            </tr>
+
+            </thead>
+        </table>
+
+    </div>
+
+    # post update
+    <div class="r_buttons">
+        <a href="{% url 'update' post.pk %}">
+            <input class="btn btn-info" type="button" value="수정하기">
+        </a>
+
+        <a href="{% url 'delete' post.pk %}">
+            <input class="btn btn-info" type="button" value="삭제하기">
+        </a>
+    </div>
+
+    <div class="l_buttons">
+        <a href="{% url 'home'%}">
+            <input class="btn btn-info" type="button" value="목록으로">
+        </a>
+    </div>
+
+</body>
+</html>

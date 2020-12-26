@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BOARD</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" style="width:15%">#</th>
+                <th scope="col">제목</th>
+                <th scope="col" style="width:25%">글쓴이</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for post in posts.all %}
+                <tr>
+                <td>####</td>
+                <td>
+                    <a href="{% url 'detail' post.pk %}">
+                        {{ post.title|truncatechars:20 }}
+                    </a>
+                </td>
+                <td>{{ post.author }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+<br><br>
+<a href="{% url 'create' %}">새글쓰기</a>
+<br>-----------------------------------------------------<br>
+<p><a href="{% url 'homepage' %}">Go Profile</a><p/>
+
+</body>
+</html>

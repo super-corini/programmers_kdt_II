@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="enkr">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee List</title>
+</head>
+<body>
+<h1>My Coffee List</h1>
+{%  for coffee in coffee_list %}
+    <p>{{  coffee.name }}
+        {% if coffee.is_ice %}
+            (Ice)
+        {% else %}
+            (Hot)
+        {% endif %}
+        : {{ coffee.price }}원
+
+<a href="{% url 'coffee_delete' coffee.pk %}">
+    <input class="btn btn-info" type="button" value="Delete">
+</a>
+
+</p>
+
+{% endfor %}
+<p>----------------------------------------</p>
+<h2>커피 등록</h2>
+<form action = '' method="POST">{% csrf_token %}
+    {{ coffee_form.as_p }}
+    <button type="reset">Reset</button> &nbsp&nbsp <button type="submit">Save</button>
+</form>
+<p><a href="{% url 'homepage' %}">Go Profile</a><p/>
+
+
+</body>
+</html>

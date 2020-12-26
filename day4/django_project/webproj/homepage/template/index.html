@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <title>Python django example</title>
+</head>
+<body>
+    <img src="{% static 'homepage/jsp.PNG' %}" alt="My Image" style="text-align: left">
+    <h1 style="color:lawngreen;">Who Am I</h1>
+    <p style="font-size: 18px; line-height: 45px">
+        이름: 박진섭(KDT 1기: parkbony)<br>
+        blog: <a href = "https://blog.naver.com/parkbony" target = "url" > 작성 진행중... </a><br>
+        관심 분야: CNN, RNN<br>
+        다짐: 서로 협력해서 좋은 프로젝트 완성했으면 좋겠습니다!! 화이팅입니다!!
+    </p>
+    <h2>Coffee Shop</h2>
+    <p>
+        <a href="{% url 'coffee_shop' %}">Go Coffee Shop</a>
+    </p>
+    <h2>Test Blog</h2>
+    <p>
+        <a href="{% url 'test_blog' %}">Go test blog</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# server launching
+python manage.py runserver ip:port
+
+# model을 만든 다음에 해야할 내용
+python manage.py makemigrations homepage/  # like git add homepage
+python manage.py migrate
+
+
+python manage.py collectstatic

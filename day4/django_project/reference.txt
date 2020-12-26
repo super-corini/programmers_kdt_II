@@ -1,0 +1,6 @@
+1.http request 참조
+https://eunjin3786.tistory.com/133
+
+2. django structure settings
+    template: template folder로 pycharm에서 인식한다.
+    source folders: folder를 source(app)으로 pycharm에서 인식한다.
