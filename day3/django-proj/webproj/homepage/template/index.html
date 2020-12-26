@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>python  django example</title>
+        
+    </head>
+    
+    <body>
+        
+        <h1> hi!</h1>        
+        <p>blah blah blah</p>
+        <p>{{my_name |length}}</p>
+        {% for element in my_list %}
+            {% if element > 2 %}
+               <p>이번 차례 : {{element}}</p>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
