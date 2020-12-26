@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Macaron List</title>
+        
+    </head>
+    
+    <body>
+        
+        <h1>welcome to Ting's Macaron</h1>        
+        
+        {% if not macaron_list %}
+            ❗ 메뉴가 존재하지 않습니다! 메뉴를 등록해주세요 :)
+        {% endif %}
+        <table>
+            <th>Menu</th>
+            <th>Price</th>
+            <th>amount</th>
+            {% for macaron in macaron_list %}
+                <tr>
+                    <td>{{macaron.name}}</td>
+                    <td>\{{macaron.price}}</td>
+                    <td align="center">#</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
