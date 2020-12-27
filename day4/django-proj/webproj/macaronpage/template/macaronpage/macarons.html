@@ -1,28 +1,126 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% load static %}
         <title>Macaron List</title>
-        
+        <style>
+            body {
+                position: relative;
+                z-index: 1;
+            }
+            html::before {
+                background: url("{% static 'macaronpage/macaron.jpg' %}");
+                background-size: cover;
+                /* opacity: 0.8; */
+                content: "";
+                position: absolute;
+                top:0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: -1;
+                opacity: 0.3!important; filter:alpha(opacity=30);
+            }
+
+            body {
+                position: relative;
+            }
+        </style>
     </head>
     
     <body>
         
         <h1>welcome to Ting's Macaron</h1>        
-        
         {% if not macaron_list %}
             ❗ 메뉴가 존재하지 않습니다! 메뉴를 등록해주세요 :)
         {% endif %}
         <table>
             <th>Menu</th>
             <th>Price</th>
-            <th>amount</th>
+            <th>Amount</th>
             {% for macaron in macaron_list %}
-                <tr>
-                    <td>{{macaron.name}}</td>
-                    <td>\{{macaron.price}}</td>
-                    <td align="center">#</td>
-                </tr>
+            <tr>
+                <td><span id="{{macaron.id}}_name">{{macaron.name}}</span></td>
+                <td>\ <span id="{{macaron.id}}_price">{{macaron.price}}</span></td>
+                <td align="center"><span id="{{macaron.id}}_amount">{{macaron.amount}}</span></td>
+                <td><input class="btn_edit" type="button" value="Edit" 
+                            onclick="onClick_put('{{macaron.id}}', '{{macaron.name}}','{{macaron.price}}', '{{macaron.amount}}')"></td>
+                <td><form method="post" action="/macarons/{{macaron.id}}/">
+                    {% csrf_token %}
+                    <input class="btn_edit" type="submit" name="_method" value="delete"></form>
+                </td>
+                <td><input id="input_edit_{{macaron.id}}" type="hidden" name="btn_editing" value="edit.."></td>
+            </tr>
             {% endfor %}
         </table>
-    </body>
+        
+        <div id="edit_room"></div>
+
+        <hr>
+        
+        <h3>Add Macaron Menu</h3>
+        <form method="post">{% csrf_token %}
+            {{macaron_form.as_p}}
+            <button type="submit">add</button>
+        </form>
+        <script>
+            function onClick_put(id, name, price, amount) {
+                // 버튼 사라지게 하기
+                var hide_target = document.getElementsByClassName('btn_edit');
+                for (let i = 0; i < hide_target.length; i++) {
+                    const element = hide_target[i];
+                    element.type = 'hidden';
+                }
+                var appear_target = document.getElementById('input_edit_' + id);
+                appear_target.type = 'submit';
+                
+                document.getElementById('edit_room').appendChild(document.createTextNode("<수정할 내용 입력> Menu, Price, Amount"));
+            
+                var form = document.createElement("form");
+                form.setAttribute("method", "post");
+                form.setAttribute("action", "/macarons/"+ id+ "/");
+                // form.append('{% csrf_token %}')
+                
+                // csrf 토큰 설정
+                var input_token = document.createElement('input');
+                input_token.type = 'hidden';
+                input_token.name = 'csrfmiddlewaretoken';
+                input_token.value = '{{ csrf_token }}';
+                form.appendChild(input_token);
+                
+                // input_name 설정
+                var input_name = document.createElement("input");
+                input_name.setAttribute("type", "text");
+                input_name.setAttribute("name", "name");
+                input_name.value = name;
+                form.append(input_name);
+                
+                // input_price 설정
+                var input_price = document.createElement("input");
+                input_price.setAttribute("type", "text");
+                input_price.setAttribute("name", "price");
+                input_price.value = price;
+                form.append(input_price);
+                
+                // input_amount 설정
+                var input_amount = document.createElement("input");
+                input_amount.setAttribute("type", "text");
+                input_amount.setAttribute("name", "amount");
+                input_amount.value = amount;
+                form.append(input_amount);
+                
+                // input_put (submit) 설정
+                var input_put = document.createElement("input");
+                input_put.setAttribute("type", "submit");
+                input_put.setAttribute("name", "_method");
+                input_put.setAttribute("id", "input_edit_"+id);
+                input_put.value = "put";
+                form.append(input_put);
+
+                // document.body.appendChild(form);
+                document.getElementById('edit_room').appendChild(form);
+                // form.submit();
+            }
+        </script>
+        </body>
 </html>

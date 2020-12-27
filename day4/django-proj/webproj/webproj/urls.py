@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from homepage.views import index, coffee_view
 from intropage.views import introduce
-from macaronpage.views import macaron_list
+from macaronpage.views import macaron_list, edit
 
 urlpatterns = [
     path('coffee/', coffee_view),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', introduce),
     path('macarons/', macaron_list),
+    path('macarons/<int:id>/', edit),
 ] 
