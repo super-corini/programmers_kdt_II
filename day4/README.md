@@ -1,3 +1,4 @@
+![cafe](https://user-images.githubusercontent.com/29560815/103095877-800dae00-4645-11eb-86ec-55fc99704ef4.gif)  
 # Day 4 - Django로 동적 웹 페이지 만들기
 
 ### 필수 과제 : 재고 관리 List 구현하기
