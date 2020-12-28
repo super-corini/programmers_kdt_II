@@ -17,16 +17,97 @@
                 <div class="card h-100">
                     <img src="{{ fruit.imgsrc }}" class="card-img-top" alt={{ fruit }}>
                     <div class="card-body">
-                        <h5 class="card-title">{{ fruit.name }}</h5>
-                        <p>가격: {{ fruit.price }}원</p>
-                        <p>재고: {{ fruit.stock }}개</p>
+                        <h5 id="fruit-name-{{ fruit.pk }}" class="card-title">{{ fruit.name }}</h5><br>
+                        가격: <b id="fruit-price-{{ fruit.pk }}">{{ fruit.price }}</b>원<br>
+                        재고: <b id="fruit-stock-{{ fruit.pk }}">{{ fruit.stock }}</b>개
                     </div>
-                    <form class="ml-3 mb-3" action="{% url 'menuboard:fruit_update_delete' fruit.pk %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger btn-sm">삭제</button>
-                    </form>
+                    <div class="d-flex">
+                        <form class="ml-3 mb-3" action="{% url 'menuboard:fruit_delete' fruit.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">삭제</button>
+                        </form>
+                        <form class="ml-3 mb-3 edit-form" data-fruit-id="{{ fruit.pk }}">
+                            <button class="btn btn-warning btn-sm">수정</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    const forms = document.querySelectorAll(".edit-form")
+
+    forms.forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault()
+            console.log(event.target.dataset)
+            const fruitId = event.target.dataset.fruitId
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken').value
+            if (form.innerText == '수정') {
+                const fruitName = document.querySelector(`#fruit-name-${fruitId}`)
+                const fruitPrice = document.querySelector(`#fruit-price-${fruitId}`)
+                const fruitStock = document.querySelector(`#fruit-stock-${fruitId}`)
+
+                console.log(fruitName.innerText)
+                const nameInput = document.createElement("input")
+                nameInput.value = fruitName.innerText
+                fruitName.parentNode.replaceChild(nameInput, fruitName)
+
+                const priceInput = document.createElement("input")
+                priceInput.value = fruitPrice.innerText
+                fruitPrice.parentNode.replaceChild(priceInput, fruitPrice)
+
+                const stockInput = document.createElement("input")
+                stockInput.value = fruitStock.innerText
+                fruitStock.parentNode.replaceChild(stockInput, fruitStock)
+
+                console.log(form.innerHTML)
+
+                form.innerHTML = '<button class="btn btn-warning btn-sm">완료</button>'
+
+            } else {
+                axios.post(`http://127.0.0.1:8000/fruits/${fruitId}/update/`, {}, {
+                    headers: {
+                    'X-CSRFToken': csrftoken
+                    }
+                })
+                .then(function (res) {
+                    console.log(res.data)
+                    const count = res.data.count
+                    const liked = res.data.liked
+
+                    console.log(fruitName)
+                    //likeIconColor.style.color = 'crimson'
+                })
+                .catch(function (err) {
+                    console.log(err)
+                })
+            }
+        })
+    })
+
+
+
+
+
+
+    const saves = document.querySelectorAll(".edit-save")
+
+    saves.forEach(function (save) {
+        save.addEventListener('submit', function (event) {
+            event.preventDefault()
+            console.log(event.target.dataset)
+            const fruitId = event.target.dataset.fruitId
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken').value
+
+            const fruitName = document.querySelector(`#fruit-name-${fruitId}`)
+            const fruitPrice = document.querySelector(`#fruit-price-${fruitId}`)
+            const fruitStock = document.querySelector(`#fruit-stock-${fruitId}`)
+
+        })
+    })
+  </script>
 {% endblock content %}
