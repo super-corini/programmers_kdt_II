@@ -1,0 +1,16 @@
+{% load static %}
+
+{% block content %}
+
+<div class = 'container'>
+    <form method = 'POST'>
+        {% csrf_token %}
+        {{coffee_form.as_p}}
+        <button type = "submit">수정하기</button>
+        <a href = "{% url 'delete' coffee.pk %}">
+        <button type = "button">삭제하기</button></a>
+    </form>
+
+</div>
+
+{% endblock content %}
