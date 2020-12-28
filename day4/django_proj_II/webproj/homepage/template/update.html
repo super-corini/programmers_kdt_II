@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bakery Inventory management system</title>
+    </head>
+
+    <body>
+        <h1>SuJin Bakery Inventory List 🛒</h1>
+        <h4>NAME / PRICE / STOCK</h4>
+            <p>✔ {{ bakery_form.id }} [{{ bakery_form.name }}] / {{ bakery_form.price }}₩ / {{ bakery_form.stock }}</p>
+            </p>
+        <p>------------------------------------------</p>
+
+        <h4>💚 Update Info 💚</h4>
+        <form method="POST">{% csrf_token %}
+            <input class="input_field" type="text" placeholder="bakery_name" name="name" value="{{ bakery_form.name }}"><br>
+            <input class="input_field" type="number" placeholder="bakery_price" name="price" value="{{ bakery_form.price }}"><br>
+            <input class="input_field" type="number" placeholder="bakery_stock" name="stock" value="{{ bakery_form.stock }}"><br>
+            <button class="write_button">Update</button>
+        </form>
+
+    </body>
+</html>

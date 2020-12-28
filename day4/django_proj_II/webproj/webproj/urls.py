@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index, bakery_view
+from homepage import views
 
 urlpatterns = [
-    path('', index), # 127.0.0.1/
-    path('bakery/', bakery_view, name='GET'),  # 127.0.0.1/bakery/
-    path('bakery/', bakery_view, name='POST'),
+    path('', views.index), # 127.0.0.1/
+    path('bakery/', views.bakery_view, name='GET'),  # 127.0.0.1/bakery/
+    path('bakery/', views.bakery_view, name='POST'),
+    path('bakery/<int:pk>', views.bakery_update, name='PUT'),
+    path('bakery/<int:pk>/delete', views.bakery_delete, name='DELETE'),
     path('admin/', admin.site.urls), #127.0.0.1/admin
 ]

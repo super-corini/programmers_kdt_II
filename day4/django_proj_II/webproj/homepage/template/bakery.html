@@ -8,8 +8,8 @@
         <h1>SuJin Bakery Inventory List 🛒</h1>
         <h4>NAME / PRICE / STOCK</h4>
         {% for bakery in bakery_list %}
-            <li>✔ {{ bakery.id }} [{{ bakery.name }}] / {{ bakery.price }}₩ / {{ bakery.stock }}</p>
-            </li>
+            <p>✔ {{ bakery.id }} [{{ bakery.name }}] / {{ bakery.price }}₩ / {{ bakery.stock }}</p>
+            </p>
 
         {% endfor %}
 
