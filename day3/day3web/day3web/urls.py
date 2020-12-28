@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index, kor
+from homepage.views import index, kor, coffee_view, delete, update_load, update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('kor/', kor),
+    path('coffee/', coffee_view),
+    path('coffee/delete/', delete, name = 'delete'),
+    path('coffee/update_load/', update_load, name = 'update_load'),
+    path('coffee/update_load/update', update, name = 'update'),
 ]

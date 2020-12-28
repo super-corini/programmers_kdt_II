@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRUD day 4 assignment</title>
+    </head>
+
+    <body>
+        <h1>CRUD</h1>
+        {% for coffee in coffee_list %}
+            <ul> 
+                <li>PK = {{coffee.pk}} : 
+                    name = {{coffee.name}} : 
+                    price = {{coffee.price}} : 
+                    is_ice = {{coffee.is_ice}}</li>
+            </ul>
+        {% endfor %}
+        <br>
+        <!-- CRUD 중 C 부분, 필수과제 -->
+        <h2>Create</h2>
+        <form method="POST">{% csrf_token %}
+            {{ coffee_form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+
+        <!-- CRUD 중 U 부분, Load시 PK를 기준으로 Load하고 업데이트 합니다. -->
+        <h2>Update</h2>
+        <form action="update_load">
+            <input type="text" name="id">
+            <button type="submit">Load</button>
+        </form>
+        <form method="POST", action="update">{% csrf_token %}
+            {{ update_form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+
+        <!-- CRUD 중 D 부분, PK를 기준으로 Delete 실시합니다. -->
+        <h2>Delete</h2>
+        <form action="delete">
+            <label>target pk</label>
+            <input type="text" name="id">
+            <button type="submit">Delete</button>
+        </form>
+    </body>
+</html>
