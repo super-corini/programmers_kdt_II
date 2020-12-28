@@ -2,23 +2,31 @@
 
 {% load bootstrap4 %}
 
-{% load static %}
-
 {% block content %}
     <p>this is fruit list page</p>
-    {% for fruit in fruits %}
-        <img src="{% static fruit.img.url %}" alt={{ fruit.img }}>
-        <p>이름: {{ fruit.name }}</p>
-        <p>가격: {{ fruit.price }}원</p>
-        <p>재고: {{ fruit.stock }}개</p>
-        <form action="{% url 'menuboard:fruit_update_delete' fruit.pk %}" method="delete">
-            <button type="submit" class="btn btn-danger btn-sm">삭제</button>
-        </form>
-    {% endfor %}
-
-    <form action='' method="post" enctype="multipart/form-data">
+    <form action='' method="post">
         {% csrf_token %}
-        {{ create_form.as_p }}
+        메뉴명: <p>{{ create_form.name }}</p>
+        개당 가격: <p>{{ create_form.price }}</p>
+        재고: <p>{{ create_form.stock }}</p>
         <button type="submit" class="btn btn-primary btn-sm">등록</button>
     </form>
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for fruit in fruits %}
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img src="{{ fruit.imgsrc }}" class="card-img-top" alt={{ fruit }}>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ fruit.name }}</h5>
+                        <p>가격: {{ fruit.price }}원</p>
+                        <p>재고: {{ fruit.stock }}개</p>
+                    </div>
+                    <form class="ml-3 mb-3" action="{% url 'menuboard:fruit_update_delete' fruit.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">삭제</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
