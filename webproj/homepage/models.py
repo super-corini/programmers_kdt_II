@@ -20,8 +20,8 @@ class PhoneCompany(models.Model):
 
 class Phone(models.Model):
     name = models.CharField(max_length=100)
-    price = models.IntegerField(max_length=100)
-    company = models.ManyToManyField(PhoneCompany)
+    price = models.IntegerField()
+    company = models.ForeignKey(PhoneCompany, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name

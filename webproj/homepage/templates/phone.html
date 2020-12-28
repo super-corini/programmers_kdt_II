@@ -6,22 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
-
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Phone Page</title>
+    <script>
+        var ths = null;
+
+        function editBtn(){
+
+          cur_id = document.phone_form.phone_form_id.value
+
+          if (cur_id > 0) {
+
+              $.ajax({
+                    url: cur_id,
+                    method: "PUT",
+                    dataType: "json",
+                    data: $("#phone_form").serialize(),
+
+                    success: function(response){
+                        alert(response.msg);
+                        $('#phone_'+cur_id).find("#phone_name").text(response.name);
+                        $('#phone_'+cur_id).find("#phone_price").text(response.price);
+                        $('#phone_'+cur_id).find("#phone_company").text(response.company_name);
+                        $('#phone_'+cur_id).find("#phone_company_value").text(response.company);
+
+                    }
+              });
+
+          } else {
+            alert('Please select one from the list!')
+          }
+        }
+
+
+        function penBtn(ths){
+            ths = $(ths).parent("li");
+
+            document.phone_form.phone_form_id.value = ths.find("#phone_id").text()
+            document.phone_form.name.value = ths.find("#phone_name").text()
+            document.phone_form.price.value = ths.find("#phone_price").text()
+            document.phone_form.company.value = ths.find("#phone_company_value").text();
+        }
+
+
+      	function deleteBtn(ths){
+            ths = $(ths).parent("li");
+            var id = ths.find("#phone_id").text();
+
+            $.ajax({
+                  url: id,
+                  method: "DELETE",
+                  dataType: "json",
+                  success: function(response){
+                      alert(response.msg);
+                      ths.remove();
+                  }
+            });
+        }
+
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{% url 'homepage:index' %}">Home</a>
+      <a class="navbar-brand" href="{% url 'homepage:phone' %}">Phone</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'homepage:phone' %}">Phone
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'homepage:index' %}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'homepage:coffee' %}">Coffee</a>
@@ -33,23 +91,52 @@
         <div class="row mb-5">
       <div class="col-lg-6">
         <h3>Phone Form</h3>
-          <form method="POST">{% csrf_token %}
-            {{ phone_form.as_p }}
+        <form id="phone_form" name="phone_form" method="POST">{% csrf_token %}
+          <fieldset>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">id</label>
+              <div class="col-sm-10">
+                <input type="text" readonly="" class="form-control-plaintext" id="phone_form_id" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Name</label>
+              {{ phone_form.name }}
+              <small id="emailHelp" class="form-text text-muted">Input Phone's name</small>
+            </div>
+            <div class="form-group">
+              <label>Price</label>
+              {{ phone_form.price }}
+            </div>
+            <div class="form-group">
+              <label>Company select</label>
+              {{ phone_form.company }}
+            </div>
+            </fieldset>
+          <button class="btn btn-outline-primary" type="submit">Save</button>
+          <button class="btn btn-outline-primary" type="reset">Reset</button>
+          <button class="btn btn-outline-primary" type="button" onclick="editBtn();">Edit</button>
+        </form>
 
-          <button type="submit">Save</button>
-          </form>
       </div>
       <div class="col-lg-6">
         <h3>Phone List</h3>
         <ul>
             {% for phone in phone_list %}
-            <li> {{ phone.pk }} / {{ phone.name }} / {{ phone.price }} / {{ phone.company.get }}</li>
+            <li id="phone_{{ phone.pk }}">
+              <span id="phone_id">{{ phone.pk }}</span> /
+              <span id="phone_name">{{ phone.name }}</span> /
+              <span id="phone_price">{{ phone.price }}</span> /
+              <span id="phone_company">{{ phone.company }}</span>
+              <span id="phone_company_value" hidden>{{ phone.company.id }}</span>
 
+            <button class="btn btn-outline-primary btn-sm" type="button" onclick="penBtn(this);"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-outline-primary btn-sm" type="button" onclick="deleteBtn(this);"><i class="fas fa-times"></i></button>
+            </li>
             {% endfor %}
         </ul>
       </div>
-    </div>
-
+        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
