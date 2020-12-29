@@ -1,4 +1,5 @@
 from django.http.response import JsonResponse
+import json
 from django.shortcuts import render, redirect
 from .models import Fruit
 from .forms import FruitForm
@@ -45,19 +46,20 @@ def fruit_create_read(request):
 # Update
 @require_POST
 def fruit_update(request, pk):
+    # request.body를 json형태로 바꿔줌.
+    # request.POST와는 다르게 .dict() 메서드를 사용할 수 없기 때문.
+    data = json.loads(request.body.decode('utf-8'))
+    print(data)
     fruit = get_object_or_404(Fruit, pk=pk)
-    print(request.POST)
-    name = quote(request.POST["name"])
+    name = quote(data["name"])
     response = urlopen(f'https://terms.naver.com/search.nhn?query={name}')
     soup = BeautifulSoup(response, 'html.parser')
-    request_dict = request.POST.dict()
-    request_dict['imgsrc'] = soup.select("div.thumb_area img")[0]["data-src"]
-    form = FruitForm(request_dict, instance=fruit)
+    data['imgsrc'] = soup.select("div.thumb_area img")[0]["data-src"]
+    form = FruitForm(data, instance=fruit)
+    print(form)
     if form.is_valid():
         form.save()
-        form_dict = form.dict()
-        print(form_dict)
-        return JsonResponse(form_dict)
+        return JsonResponse(data)
 
 
 # Delete

@@ -3,23 +3,34 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    <p>this is fruit list page</p>
-    <form action='' method="post">
-        {% csrf_token %}
-        메뉴명: <p>{{ create_form.name }}</p>
-        개당 가격: <p>{{ create_form.price }}</p>
-        재고: <p>{{ create_form.stock }}</p>
-        <button type="submit" class="btn btn-primary btn-sm">등록</button>
-    </form>
+    <h1 class="my-5 text-center">Menu Board</h1>
     <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+            <div class="card h-100 d-flex justify-content-center align-items-center">
+                <br>
+                <h4>상품 추가하기</h4><br>
+                <form action='' method="post">
+                    {% csrf_token %}
+                    메뉴명: <p>{{ create_form.name }}</p>
+                    개당 가격: <p>{{ create_form.price }}</p>
+                    재고: <p>{{ create_form.stock }}</p>
+                    <button type="submit" class="btn btn-primary btn-sm">등록</button>
+                </form>
+                <br>
+            </div>
+        </div>
         {% for fruit in fruits %}
             <div class="col mb-4">
                 <div class="card h-100">
-                    <img src="{{ fruit.imgsrc }}" class="card-img-top" alt={{ fruit }}>
-                    <div class="card-body">
-                        <h5 id="fruit-name-{{ fruit.pk }}" class="card-title">{{ fruit.name }}</h5><br>
-                        가격: <b id="fruit-price-{{ fruit.pk }}">{{ fruit.price }}</b>원<br>
-                        재고: <b id="fruit-stock-{{ fruit.pk }}">{{ fruit.stock }}</b>개
+                    <img id="fruit-imgsrc-{{ fruit.pk }}" src="{{ fruit.imgsrc }}" class="card-img-top" alt={{ fruit }}>
+                    <div id="fruit-{{ fruit.pk }}" class="card-body">
+                        <h5 id="fruit-name-{{ fruit.pk }}" class="card-title">{{ fruit.name }}</h5>
+                        <input id="fruit-name-{{ fruit.pk }}-input" style="display: none" type="text">
+                        <br>
+                        가격: <b id="fruit-price-{{ fruit.pk }}">{{ fruit.price }}</b>
+                        <input id="fruit-price-{{ fruit.pk }}-input" style="display: none" type="text">원<br>
+                        재고: <b id="fruit-stock-{{ fruit.pk }}">{{ fruit.stock }}</b>
+                        <input id="fruit-stock-{{ fruit.pk }}-input" style="display: none" type="text">개
                     </div>
                     <div class="d-flex">
                         <form class="ml-3 mb-3" action="{% url 'menuboard:fruit_delete' fruit.pk %}" method="post">
@@ -41,46 +52,74 @@
     const forms = document.querySelectorAll(".edit-form")
 
     forms.forEach(function (form) {
+
         form.addEventListener('submit', function (event) {
             event.preventDefault()
             console.log(event.target.dataset)
             const fruitId = event.target.dataset.fruitId
-            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken').value
+            const fruitName = document.querySelector(`#fruit-name-${fruitId}`)
+            const fruitPrice = document.querySelector(`#fruit-price-${fruitId}`)
+            const fruitStock = document.querySelector(`#fruit-stock-${fruitId}`)
+            const nameInput = document.querySelector(`#fruit-name-${fruitId}-input`)
+            const priceInput = document.querySelector(`#fruit-price-${fruitId}-input`)
+            const stockInput = document.querySelector(`#fruit-stock-${fruitId}-input`)
+
+            // 만약 수정버튼에 '수정'이라 쓰여있으면 데이터를 바꿀 수 있는 입력폼으로 변환
+            // 수정버튼 누르면 '완료' 버튼으로 바뀜
             if (form.innerText == '수정') {
-                const fruitName = document.querySelector(`#fruit-name-${fruitId}`)
-                const fruitPrice = document.querySelector(`#fruit-price-${fruitId}`)
-                const fruitStock = document.querySelector(`#fruit-stock-${fruitId}`)
-
-                console.log(fruitName.innerText)
-                const nameInput = document.createElement("input")
+                
                 nameInput.value = fruitName.innerText
-                fruitName.parentNode.replaceChild(nameInput, fruitName)
+                fruitName.style.display = 'none'
+                nameInput.style.display = 'inline'
 
-                const priceInput = document.createElement("input")
                 priceInput.value = fruitPrice.innerText
-                fruitPrice.parentNode.replaceChild(priceInput, fruitPrice)
+                fruitPrice.style.display = 'none'
+                priceInput.style.display = 'inline'
 
-                const stockInput = document.createElement("input")
                 stockInput.value = fruitStock.innerText
-                fruitStock.parentNode.replaceChild(stockInput, fruitStock)
+                fruitStock.style.display = 'none'
+                stockInput.style.display = 'inline'
 
                 console.log(form.innerHTML)
 
                 form.innerHTML = '<button class="btn btn-warning btn-sm">완료</button>'
 
-            } else {
-                axios.post(`http://127.0.0.1:8000/fruits/${fruitId}/update/`, {}, {
+            // 수정버튼에 '완료'라고 쓰여있으면 입력한 데이터를 저장하는 로직 실행
+            } else if (form.innerText == '완료') {
+
+                const csrftoken = document.querySelector('[name=csrfmiddlewaretoken').value
+                axios.post(`http://127.0.0.1:8000/fruits/${fruitId}/update/`, {
+                    // 두 번째 입력칸에는 '전송할 데이터'가 들어감.
+                    // 받을때에는 request.POST가 아닌 request.body!!
+                    name: nameInput.value,
+                    price: priceInput.value,
+                    stock: stockInput.value
+                }, {
                     headers: {
-                    'X-CSRFToken': csrftoken
+                        'X-CSRFToken': csrftoken,
                     }
                 })
                 .then(function (res) {
+                    // res.data는 json형태로 받았음.
                     console.log(res.data)
-                    const count = res.data.count
-                    const liked = res.data.liked
 
-                    console.log(fruitName)
-                    //likeIconColor.style.color = 'crimson'
+                    fruitName.innerText = res.data.name
+                    fruitName.style.display = 'inline'
+                    nameInput.style.display = 'none'
+
+                    fruitPrice.innerText = res.data.price
+                    fruitPrice.style.display = 'inline'
+                    priceInput.style.display = 'none'
+
+                    fruitStock.innerText = res.data.stock
+                    fruitStock.style.display = 'inline'
+                    stockInput.style.display = 'none'
+
+                    const fruitImgsrc = document.querySelector(`#fruit-imgsrc-${fruitId}`)
+                    console.log(fruitImgsrc.src)
+                    fruitImgsrc.src = res.data.imgsrc
+
+                    form.innerHTML = '<button class="btn btn-warning btn-sm">수정</button>'
                 })
                 .catch(function (err) {
                     console.log(err)
