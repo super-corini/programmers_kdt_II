@@ -1,3 +1,4 @@
+
 from flask import Flask, jsonify, request
 from queue import PriorityQueue
 
@@ -59,3 +60,4 @@ def delete_menu(id):
 
 if __name__ == '__main__':
     app.run()
+
