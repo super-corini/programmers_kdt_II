@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Bread Stock</title>
+</head>
+<body>
+    <ul>
+        <li><p>{{ bread.name }} : {{ bread.count }}</p></li>
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        {{ bread_form.as_p }}
+        <button type="submit" formaction="/breads/{{ bread.id }}/" >Save</button>
+    </form>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" formaction="/breads/{{ bread.id }}/delete/" value="Delete"/>
+    </form>
+</body>
+</html>
