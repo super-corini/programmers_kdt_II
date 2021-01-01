@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Urban by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Django example</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+	</head>
+	<body>
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>KDT INTRO</h1>
+					</header>
+					<from action="/intro" class="button big scrolly" method="GET">
+						<input type="submit" value="INTRO">
+					</from>
+					<!-- <a href="#main" class="button big scrolly">GET STARTED</a> -->
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="https://github.com/Airvw" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:airvw14@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						<li><a href="https://airvw.github.io/" class="icon fa-tags"><span class="label">Blog</span></a></li>
+					</ul>
+					<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+				</div>
+			</footer>
+			
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/skel.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

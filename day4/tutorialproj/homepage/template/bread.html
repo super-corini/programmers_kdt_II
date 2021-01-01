@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread Stock</title>
+</head>
+<body>
+    <h1>My Bread Stock</h1>
+    <ul>
+        {% for bread in bread_stock %}
+            <li>{{ bread.name }} : {{ bread.count }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        {{ bread_form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
