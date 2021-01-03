@@ -43,7 +43,9 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.ap-northeast-2.compute.amazonaws.com',
+]
 
 
 # Application definition
@@ -141,8 +143,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
-<< << << < HEAD
 ]
-== == == =
-]
->> >>>> > 33fa5194079c5dae3dc9cfa15e2381a14d3884d6
