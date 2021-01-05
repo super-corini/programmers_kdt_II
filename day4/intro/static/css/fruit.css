@@ -1,0 +1,9 @@
+body {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
