@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee List</title>
+</head>
+<body>
+    <div class = "col">
+        <h1> My Coffee List</h1>
+        <table>
+            <colgroup>
+                <col width="20%" />
+                <col width="20%" />
+                <col width="20%" />
+                <col width="*" />
+                <col width="20%" />
+            </colgroup>
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Stock</td>
+        </tr>
+        </thead>
+        <tbody>
+            {% for coffee in coffee_list %}
+            <tr align = "left">
+                <td>{{ coffee.name }}</td><td>{{ coffee.price }}</td><td>{{ coffee.stock }}</td></tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+        <h1> Add Menu </h1>
+        <form method = "POST">{% csrf_token %}
+            {{ coffee_form.as_p }}
+            <button type = "submit">Save</button>
+        </form>
+
+        <h1> Edit Menu </h1>
+        <form method = "PUT">{% csrf_token %}
+            {{ coffee_form.as_p }}
+            <button type = "submit">EDIT</button>
+        </form>
+
+        <h1> Delete Menu </h1>
+        <form method = "DELETE">{% csrf_token %}
+            {{ coffee_form.name }}
+            <button type = "submit">DELETE</button>
+        </form>
+    </div>
+</body>
+</html>
