@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>World Happiness Report</title>
+    <style>
+      table {
+        width: 100%;
+      }
+      table, th, td {
+        border: 1px solid #bcbcbc;
+      }
+    </style>
+
+  </head>
+  <style>
+    body {
+        height: 100vh;
+
+        /*background-image: url("02.jpg");
+
+            background-repeat: no-repeat;
+
+            background-position: center;
+
+            background-size: cover;*/
+        background: url("https://miro.medium.com/max/6676/1*x_63htcQx3QGZhj2uWZZaA.png") no-repeat center/cover;
+    }
+    </style>
+  <body>
+    <div class="bgimg">
+    <h1 align="center">World Happiness Report</h1>
+    <br>
+    <h2>1. 데이터 살펴보기 : <button style='cursor:pointer;' onclick="location.href='{% url 'explore_1' %}';">click</button></h2>
+    <br>
+    <h2>2. 가설 수립, 검정</h2>
+    <li>가설 수립하기 : <button style='cursor:pointer;' onclick="location.href='{% url 'establish_2' %}';">click</button></li>
+    <li>가설 검정하기 : <button style='cursor:pointer;' onclick="location.href='{% url 'test_2' %}';">click</button></li>
+
+
+    <br>
+    <br>
+
+
+    <h2>3. Another EDA Inspiration : <button style='cursor:pointer;' onclick="location.href='{% url 'eda_3' %}';">click</button></h2>
+    </div>
+</body>
+</html>
