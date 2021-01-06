@@ -1,48 +1,219 @@
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <title>World Happiness Report</title>
-    <style>
-      table {
-        width: 100%;
-      }
-      table, th, td {
-        border: 1px solid #bcbcbc;
-      }
-    </style>
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-  </head>
-  <style>
-    body {
-        height: 100vh;
+<head>
+  <title>World Happiness Report</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv=“X-UA-Compatible” content=“IE=edge”>
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicons/home.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicons/home.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicons/home.png">
+  <link rel="manifest" href="/static/images/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/static/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!-- favicons -->
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/styles/custom-responsive-style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <script type="text/javascript" src="/static/script/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/static/script/all-plugins.js"></script>
+  <script type="text/javascript" src="/static/script/plugin-active.js"></script>
+</head>
 
-        /*background-image: url("02.jpg");
-
-            background-repeat: no-repeat;
-
-            background-position: center;
-
-            background-size: cover;*/
-        background: url("https://miro.medium.com/max/6676/1*x_63htcQx3QGZhj2uWZZaA.png") no-repeat center/cover;
-    }
-    </style>
-  <body>
-    <div class="bgimg">
-    <h1 align="center">World Happiness Report</h1>
-    <br>
-    <h2>1. 데이터 살펴보기 : <button style='cursor:pointer;' onclick="location.href='{% url 'explore_1' %}';">click</button></h2>
-    <br>
-    <h2>2. 가설 수립, 검정</h2>
-    <li>가설 수립하기 : <button style='cursor:pointer;' onclick="location.href='{% url 'establish_2' %}';">click</button></li>
-    <li>가설 검정하기 : <button style='cursor:pointer;' onclick="location.href='{% url 'test_2' %}';">click</button></li>
-
-
-    <br>
-    <br>
-
-
-    <h2>3. Another EDA Inspiration : <button style='cursor:pointer;' onclick="location.href='{% url 'eda_3' %}';">click</button></h2>
+<body>
+  <!-- Header starts here -->
+  <header id="Header">
+    <nav class="main-navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="logo">
+              <a href="#"><img src="/static/images/home.png" alt="Logo"></a>
+            </div>
+          </div>
+          <div class="col text-right">
+            <div class="menu-wrap">
+              <div id="nav-icon1">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="#HeroBanner" class="smooth-scroll">Home</a></li>
+        <li><a href="explore_1" class="smooth-scroll">데이터 살펴보기</a></li>
+        <li><a href="establish_2" class="smooth-scroll">가설 수립하기 </a></li>
+        <li><a href="test_2" class="smooth-scroll">가설 검증하기 </a></li>
+        <li><a href="eda_3" class="smooth-scroll">Another EDA Inspiration </a></li>
+      </ul>
     </div>
+  </header>
+  <!-- Header ends here -->
+  <!-- Banner starts here -->
+  <section id="HeroBanner">
+    <div id="BannerSlider" class="owl-carousel">
+      <div class="item">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="banner-text">
+                <h1>World Happiness Report EDA<br /> Programmers AI School Monthly Project </h1>
+                <p> World Happiness Report over 2015~2019
+                  <br /> 전세계 행복 지수 추이와 행복에 영향을 미치는 요소들,
+                  <br /> 그리고 이 요소들 간의 여러 가설들을 세워보고 
+                  <br /> 옳은지 검증해봅니다. </p>
+                <div class="bannet-cta">
+                  <div class="cta-1">
+                    <a href="https://github.com/ChaeLinYeo">GitHub</a>
+                  </div>
+                  <div class="cta-2">
+                    <a href="https://www.kaggle.com/unsdsn/world-happiness">Data</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <!-- Banner ends here -->
+  <!-- Features section starts here -->
+  <section id="Gain">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+          <div class="each-icon box-1" onclick="location.href='{% url 'explore_1' %}';">
+            <div class="icon-wrap">
+              <i class="fa fa-cogs"></i>
+            </div>
+            <div class="icon-text">
+              <h3>1. 데이터 살펴보기</h3>
+              <p>Kaggle로부터 데이터셋을 받아 행복에 영향을 주는 요소들을 하나씩 살펴보고 전처리를 통해 분석에 알맞은 형태로 만듭니다.</p>
+              <div class="cta">
+                <a title="Read More" href="explore_1"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+          <div class="each-icon box-2" onclick="location.href='{% url 'establish_2' %}';">
+            <div class="icon-wrap">
+              <i class="fa fa-chart-pie"></i>
+            </div>
+            <div class="icon-text">
+              <h3>2. 가설 수립하기</h3>
+              <p>상관계수를 바탕으로 가설을 세워봅니다.</p>
+              <div class="cta">
+                <a title="Read More" href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+          <div class="each-icon box-3" onclick="location.href='{% url 'test_2' %}';">
+            <div class="icon-wrap">
+              <i class="fa fa-tachometer-alt"></i>
+            </div>
+            <div class="icon-text">
+              <h3>3. 가설 검증하기</h3>
+              <p>다양한 plot을 통해 가설을 검증해봅니다.</p>
+              <div class="cta">
+                <a title="Read More" href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+          <div class="each-icon box-4" onclick="location.href='{% url 'eda_3' %}';">
+            <div class="icon-wrap">
+              <i class="fa fa-cubes"></i>
+            </div>
+            <div class="icon-text">
+              <h3>4. Another EDA Inspiration</h3>
+              <p>Kaggle 데이터 설명에 있는 Inspiration에 따라 추가적인 분석을 진행해봅니다.</p>
+              <div class="cta">
+                <a title="Read More" href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Features section ends here -->
+  <!-- Laptop section starts here -->
+  <section id="Laptop">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <div class="laptop-text">
+            <h2>Context<br class="d-none d-lg-none d-xl-block" /></h2>
+            <p>
+              World Happiness Report는 세계 행복 상태에 대한 획기적인 설문 조사입니다. 
+              첫 번째 보고서는 2012 년, 두 번째 보고서는 2013 년, 세 번째 보고서는 2015 년, 네 번째 보고서는 2016 년 업데이트에 발표되었습니다. 
+              행복도별로 155 개국을 차지한 2017 년 세계 행복은 3 월 20 일 국제 행복의 날을 기념하는 행사에서 유엔에서 공개됐습니다. 
+              이 보고서는 정부, 조직 및 시민 사회가 정책 결정 결정을 알리기 위해 점점 더 행복 지표를 사용함에 따라 전 세계적으로 인정 받고 있습니다. 
+              경제학, 심리학, 설문 조사 분석, 국가 통계, 보건, 공공 정책 등 여러 분야의 선도적인 전문가들이 웰빙 측정을 국가의 발전을 평가하는 데 효과적으로 사용할 수있는 방법을 설명합니다. 
+              이 보고서는 오늘날 세계의 행복 상태를 검토하고 새로운 행복 과학이 행복의 개인 및 국가적 차이를 어떻게 설명하는지 보여줍니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Laptop section ends here -->
+  <!-- Footer section starts here -->
+  <footer id="Footer">
+    <div class="container text-center">
+      <div class="footer-text ">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="copy-right">
+              <p>© Small Business, Inc.</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-right">
+            <div class="social-share">
+              <ul>
+                <li>
+                  <a href="https://github.com/ChaeLinYeo"><i class="fab fa-github"></i></a>
+                </li>
+                <li>
+                  <a href="https://chaelinyeo.github.io/"><i class="fab fa-user"></i></a>
+                </li>
+                <li>
+                  <a href="gomgomtoto@gmail.com"><i class="fab fa-envelope"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-pinterest"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="designed">Designed by <a href="https://www.position2.com/" target="_blank">Position2</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer section ends here -->
 </body>
+
 </html>
