@@ -1,0 +1,29 @@
+#### Exerciese
+
+1. 어떤 벡터가 주어졌을 때 L2 norm을 구하는 함수 get_L2_norm()을 작성하세요
+
+
+- **매개변수** : 1차원 벡터
+- **반환값** : 인자로 주어진 벡터가 singular하면 True, non-singular하면 False를 반환
+
+x=np.array([[1,4],[2,3]])
+def get_L2_norm(x):
+    return np.linalg.norm(x)
+get_L2_norm(x)
+
+
+
+2. 어떤 행렬이 singular matrix인지 확인하는 함수 is_singular() 을 작성하세요
+
+
+- **매개변수** : 2차원 벡터(np.array)
+- **변환값** : 인자로 주어진 벡터가 singular하면 True, non-singular하면 False 반환
+
+
+def is_singular(x):
+    if np.array_equal(x@np.linalg.inv(x),np.eye(2,dtype=float)):
+        return False
+    else:
+        return True
+x= np.array([[1,4],[2,3]])
+is_singular(x)
