@@ -10,6 +10,8 @@ menus = [
     {"id":3, "name":"CafeLatte","price":4600}
 ]
 
+i = 4
+
 @app.route('/')
 def hello_flask():
     return "Hello World!"
@@ -23,12 +25,14 @@ def get_menus():
 @app.route('/menus', methods=['POST'])
 def create_menu():
     # 전달받은 자료를 menus 자원에 추가
+    global i
     request_data = request.get_json()
     new_menu = {
-        "id" : 4,
+        "id" : i,
         "name" : request_data['name'],
         "price" : request_data['price']
     }
+    i += 1
     menus.append(new_menu)
     return jsonify(new_menu)
 
