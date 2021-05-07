@@ -1,0 +1,4 @@
+__pycache__
+app.db
+images/
+app_db.py
