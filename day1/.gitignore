@@ -1,4 +1,4 @@
 __pycache__
 app.db
-images/
+# images/
 app_db.py
