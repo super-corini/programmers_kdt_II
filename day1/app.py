@@ -38,12 +38,12 @@ def menus():
         new_menu = Menu(name=request_data['name'], price=request_data['price'])
         db.session.add(new_menu)
 
-        new_menu = Menu.query.filter_by(name=request_data['name']).first()
+        new_menu = Menu.query.filter_by(name=request_data['name']).first_or_404()
         return {"id":new_menu.id, "name":new_menu.name, "price":new_menu.price}
 
 @app.route('/menu/<int:id>', methods=['PUT', 'DELETE'])
 def edit_menu(id):
-    edit_menu = Menu.query.filter_by(id=id).first()
+    edit_menu = Menu.query.filter_by(id=id).first_or_404()
 
     if request.method == 'PUT':
         request_data = request.get_json()
