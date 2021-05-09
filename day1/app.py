@@ -35,5 +35,31 @@ def create_menus():
     return jsonify(new_menu)
 
 
+@app.route('/menus/<int:id>', methods=['PUT'])
+def update_menus(id):
+    idx = get_index(id)
+    if idx != -1:
+        request_data = request.get_json()
+        menus[idx].update(dict(request_data))
+        return jsonify(menus[idx])
+    return jsonify({"menus": menus})
+
+
+@app.route('/menus/<int:id>', methods=['DELETE'])
+def delete_menus(id):
+    idx = get_index(id)
+    if idx != -1:
+        del menus[idx]
+    return jsonify({"menus": menus})
+
+
+def get_index(id):
+    for i in range(len(menus)):
+        if id == menus[i].get('id'):
+            return i
+    # 해당 index 값이 없을 때 예외처리 필요
+    return -1
+
+
 if __name__ == '__main__':
     app.run()
