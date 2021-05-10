@@ -31,33 +31,33 @@ def my_view_func(name):
 
 1. MYSQL menus 테이블 정보
 
-- ![tableInfo](./Screenshots/tableInfo.JPG)
+![tableInfo](./Screenshots/tableInfo.JPG)
 
 2. POST를 통해 데이터를 추가 후 결과
 
-- ![POST](./Screenshots/POST.JPG)
+![POST](./Screenshots/POST.JPG)
 
 3. POST를 통해 데이터를 추가 후 GET을 통해 확인
 
-- ![GET_POST](./Screenshots/POST.JPG)
+![GET_POST](./Screenshots/POST.JPG)
 
-- 이후 데이터베이스 조회를 통해 menus 상태 확인
-  ![menus](./Screenshots/menus.JPG)
+4. 이후 데이터베이스 조회를 통해 menus 상태 확인
+   ![menus](./Screenshots/menus.JPG)
 
-- PUT 존재하는 ID가 주어진 경우
-  ![PUT_success](./Screenshots/PUT_success.JPG)
+5. PUT 존재하는 ID가 주어진 경우
+   ![PUT_success](./Screenshots/PUT_success.JPG)
 
-- PUT 존재하지 않는 ID가 주어진 경우
-  ![PUT_fail](./Screenshots/PUT_fail.JPG)
+6. PUT 존재하지 않는 ID가 주어진 경우
+   ![PUT_fail](./Screenshots/PUT_fail.JPG)
 
-- GET을 통해 PUT 결과 확인
-  ![GET_PUT](./Screenshots/GET_PUT.JPG)
+7. GET을 통해 PUT 결과 확인
+   ![GET_PUT](./Screenshots/GET_PUT.JPG)
 
-- DELETE 존재하는 ID가 주어진 경우
-  ![DELETE_success](./Screenshots/DELETE_success.JPG)
+8. DELETE 존재하는 ID가 주어진 경우
+   ![DELETE_success](./Screenshots/DELETE_success.JPG)
 
-- DELETE 존재하지 않는 ID가 주어진 경우
-  ![DELETE_fail](./Screenshots/DELETE_fail.JPG)
+9. DELETE 존재하지 않는 ID가 주어진 경우
+   ![DELETE_fail](./Screenshots/DELETE_fail.JPG)
 
-- GET을 통해 DELETE 결과 확인
-  ![GET_DELETE](./Screenshots/GET_DELETE.JPG)
+10. GET을 통해 DELETE 결과 확인
+    ![GET_DELETE](./Screenshots/GET_DELETE.JPG)
