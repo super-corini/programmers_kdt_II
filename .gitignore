@@ -1,0 +1,11 @@
+# tmp파일 무시
+.ipynb_checkpoints
+
+#config file 무시
+config.py
+
+#SQL.py 무시
+SQL.py
+
+#pycache
+__pycache__/
