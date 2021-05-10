@@ -26,3 +26,15 @@ def my_view_func(name):
 - 수업에서 다룬 API는 서버를 재시작하면 모든 정보가 리셋되는 치명적인 문제가 있었습니다. 이를 해결하기 위해 데이터만을 저장하는 **데이터베이스**를 도입하여 Flask과 연동할 필요가 생겼습니다.
 - SQL과 ORM 중 하나를 선택하여 데이터베이스와 Flask app을 연동해봅시다. (즉, 자원에 CRUD가 발생하면 이 정보가 데이터베이스에 저장되어야합니다.)
 - 이 과제는 필수 과제, 보너스 과제 I 이후에 진행되어야 합니다.
+
+**ScreenShot**
+![tableInfo](/Screenshots/tableInfo.jpg)
+![POST](/Screenshots/POST.jpg)
+![GET_POST](/Screenshots/POST.jpg)
+![menus](/Screenshots/menus.jpg)
+![PUT_success](/Screenshots/PUT_success.jpg)
+![PUT_fail](/Screenshots/PUT_fail.jpg)
+![GET_PUT](/Screenshots/GET_PUT.jpg)
+![DELETE_success](/Screenshots/DELETE_success.jpg)
+![DELETE_fail](/Screenshots/DELETE_fail.jpg)
+![GET_DELETE](/Screenshots/GET_DELETE.jpg)
