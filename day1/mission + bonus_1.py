@@ -46,7 +46,7 @@ def create_menu():  # request가 JSON이라고 가정
 
 # PUT /menus/<int:id> | 자료를 자원에서 수정한다.
 @app.route('/menus/<int:id>', methods=['PUT'])
-def update_id(id):
+def update_menu(id):
     request_data = request.get_json()
 
     for menu in menus:
@@ -61,7 +61,7 @@ def update_id(id):
 
 # DELETE /menus/<int:id> | 자료를 자원에서 삭제한다.
 @app.route('/menus/<int:id>', methods=['DELETE'])
-def delete_id(id):
+def delete_menu(id):
     for i, menu in enumerate(menus):
         if menu['id'] == id:
             return jsonify(menus.pop(i))
