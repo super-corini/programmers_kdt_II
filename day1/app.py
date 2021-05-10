@@ -6,6 +6,7 @@ menus = [
     {"id":2, "name":"Americano", "price":4100}, 
     {"id":3, "name":"CafeLatte", "price":4600}
 ]
+next_id = 4 # 다음에 추가될 menu의 id 값 저장
 
 @app.route('/')
 def hello_code():
@@ -20,13 +21,17 @@ def get_menus():
 # POST /menu
 @app.route('/menu', methods=['POST']) 
 def create_menu():
-    request_data = request.get_json()
+    global next_id # 전역변수 next_id 사용 
+    request_data = request.get_json()  
     new_menu = {
-        "id": 4,
+        "id": next_id,
         "name": request_data['name'],
         "price": request_data['price']
     }
     menus.append(new_menu)
+    
+    next_id += 1 # next_id update
+    
     return jsonify(new_menu)
 
 
