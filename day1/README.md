@@ -14,6 +14,9 @@
 def my_view_func(name):
     return name
 ```
+
+---
+
 #### TIL
 
 - `import jsonify`: python dictionary type을 json이라는 java script에서 사용하는 data 저장방식으로 바꿔주기 위해 사용하는 모듈
@@ -38,6 +41,31 @@ def my_view_func(name):
     : `request`모듈을 사용하여 사용자가 입력한 정보를 `get_jason()` 함수로 parsing하여 dictionary type으로 변환하여 `request_data`에 담는다.
       - 사용자가 입력한 정보는 JSON이라고 가정
       - {"name": ..., "price": ....}의 형태
+
+- `PUT`: 자원을 수정할 때 사용
+
+  - `@app.route('/menus/<int:id>', methods=['PUT'])`  
+    -  `menus` 자원에 접근하고 `id`는 정수값 전달
+    - `PUST` 메소드를 사용할 때 라우팅
+
+  - `def update_menu(id):` 자원(메뉴)을 수정하는 함수
+    - 해당 id 값을 가진 `menu`의 `name`과 `price`를 수정
+    - 받아온 데이터는 `POST`와 같이 JSON임을 가정 (ex) {"name": ..., "price": ...}
+    - 값을 수정하고 수정된 `menus`를 반환
+    - 해당 id가 없다면 for-else문을 통해 에러 메시지 출력
+
+- `DELETE`: 자원을 삭제할 때 사용
+
+  - `@app.route('/menus/<int:id>', methods=['DELETE'])`  
+    - `menus` 자원에 접근하고, 정수값 `id` 전달
+    - `DELETE` 메소드를 사용할 때 라우팅
+
+  - `def delete_menu(id):` 자원(메뉴)을 수정하는 함수
+    - 해당 id 값을 찾아 해당 dictionary 삭제
+    - 삭제하고, 삭제된 `menus`를 반환
+    - 해당 id가 없다면 for-else문을 통해 에러메시지 출력
+
+---
 
 ### 보너스 과제 I: ID야 움직여라 얍!
 
