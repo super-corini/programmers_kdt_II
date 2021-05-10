@@ -34,28 +34,40 @@ def create_menu():  #request가 JSON이라고 가정
     return jsonify(new_menu)
 
 # PUT /menus/<int:id> | PUT -> 자료를 자원에 갱신(업데이트) 한다.
-@app.route('/menus/<id_num>', methods=['PUT'])
-def update_menu(id_num):
+@app.route('/menus/<int:id>', methods=['PUT'])
+def update_menu(id):
     # 전달받은 자료를 menus 자원에 갱신
     request_data = request.get_json()  # {"name" : ... , "price": ...}
     # request를 쓰면 알아서 client의 요청이 담긴다. 
+    
     update_menu = {
-        "id" : id_num,
+        "id" : id,
         "name" : request_data['name'],
         "price" : request_data['price']
     }
-    return jsonify(update_menu)
+
+    for menu in menus :
+        if menu['id'] == id :
+            menu['name'] = request_data['name']
+            menu['price'] = request_data['price']
+            break
+    else:
+        return "NOT FOUND ID"
+
+    return jsonify({"menus": menus})
 
 # DELETE /menus/<int:id> | DELETE -> 자료를 자원에 삭제한다.
-@app.route('/menus/<id_num>', methods=['DELETE'])
-def delete_menu(id_num):
+@app.route('/menus/<int:id>', methods=['DELETE'])
+def delete_menu(id):
     # 전달받은 id를 menus 자원에서 삭제
-    # 전달받은 자료를 menus 자원에 갱신
+    for i, menu in enumerate(menus):
+        if menu['id'] == id:
+            menus.pop(i)
+            break
+    else:
+        return "NOT FOUND ID"
 
-    # id가 같은 값을 찾아서 삭제한다.
-    return jsonify(id_num)
-
-
+    return jsonify({"menus": menus})
 
 
 if __name__ == '__main__':   #  app.py를 내가 직접적으로 실행할 때 해당 로직 사용
