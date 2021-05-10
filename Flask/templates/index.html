@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="ko">
+<html>
+
+<head>
+    <title>Flask</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script defer type="text/javascript" src="{{url_for('static',filename='script/flask.js')}}"></script>
+</head>
+
+
+<body>
+       
+    <div class="header">
+        <p>Flask</p>
+    </div>
+    
+    <div class="box">
+        <div class="listview">
+            <table id="table" >
+                <thead>
+                <tr id='cols'>
+                    <td id='td1'>id</td>
+                    <td id='td2'>name</td>
+                    <td id='td3'>price</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in menulist %}
+                <tr id="uncheck" onclick="javascript:clickTrEvent(this)">
+                    <td >{{i['id']}}</td>
+                    <td>{{i['name']}}</td>
+                    <td id="price">{{i['price']}}</td>
+                </tr>   
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="control">
+            <div class="btn">
+                <form name="menus" action="/menu" method ="GET">
+                <input type="button" id="view" value="보기" onclick="clickTrEvent(this)">
+                </form>
+                <input type="button" id="create" value="추가" onclick="clickTrEvent(this)">
+                <input type="button" id="update" value="편집" onclick="clickTrEvent(this)">
+                <input type="button" id="delet" value="삭제" onclick="clickTrEvent(this)">
+            </div>
+            <form name="sub1" enctype="multipart/form-data" action="" method ="POST">
+            <div class="clickdata" id="clickdata" >
+                id : <input type="text" name="lid" id='lid'><br>
+                name : <input type="text" name="lname" id='lname'><br>
+                price : <input type="text" name="lprice" id='lprice'>
+                <input type="button" id="maker" name="maker" value="확인" onclick="clickTrEvent(this)">
+            </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
