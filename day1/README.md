@@ -29,14 +29,17 @@ def my_view_func(name):
 
 ## **ScreenShot**
 
-- MYSQL menus 테이블 정보
-  ![tableInfo](./Screenshots/tableInfo.JPG)
+1. MYSQL menus 테이블 정보
 
-- POST를 통해 데이터를 추가 후 결과
-  ![POST](./Screenshots/POST.JPG)
+- ![tableInfo](./Screenshots/tableInfo.JPG)
 
-- POST를 통해 데이터를 추가 후 GET을 통해 확인
-  ![GET_POST](./Screenshots/POST.JPG)
+2. POST를 통해 데이터를 추가 후 결과
+
+- ![POST](./Screenshots/POST.JPG)
+
+3. POST를 통해 데이터를 추가 후 GET을 통해 확인
+
+- ![GET_POST](./Screenshots/POST.JPG)
 
 - 이후 데이터베이스 조회를 통해 menus 상태 확인
   ![menus](./Screenshots/menus.JPG)
