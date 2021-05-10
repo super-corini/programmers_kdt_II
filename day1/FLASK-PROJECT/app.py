@@ -13,7 +13,7 @@ menus = [
     {"id": 2, "name": "Americano", "price": 4100},
     {"id": 3, "name": "CafeLatte", "price": 4600},
 ]
-
+next_id = len(menus)+1
 
 # 홈 디렉토리
 @app.route('/')
@@ -32,17 +32,19 @@ def get_menus():
 # POST /menus   | 자료를 자원에 추가한다.
 @app.route('/menus', methods=['POST'])
 def create_menus():
+    global next_id
     # request가 JSON이라고 가정
     request_data = request.get_json()  # {"id": ..., "name": ..., "price": ...},
     # request는 자동적으로 클라이언트가 서버에 POST로 요쳥할 때 담긴 자료가 있음
     # 이를 get_jason()으로 파싱해서 딕셔너리 형태로 담음
     new_menu = {
-        "id": len(menus) + 1,
+        "id": next_id,
         "name": request_data['name'],
         "price": request_data['price'],
     }
     # 전달받은 자료를 menus 자원에 추가
     menus.append(new_menu)
+    next_id += 1
     return jsonify(new_menu)
 
 
