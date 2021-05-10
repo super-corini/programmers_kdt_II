@@ -24,7 +24,7 @@ def get_menus():
 def create_menu():
     request_data = request.get_json()
     new_menu = {
-        "id": 4,
+        "id": len(menus)+1,
         "name": request_data['name'],
         "price": request_data['price']
     }
@@ -53,6 +53,8 @@ def update_menu(id):
 def delete_menu(id):
     for i in range(len(menus)):
         if menus[i]["id"] == id:
+            for j in range(i+1, len(menus)):
+                menus[j]["id"] = j
             menus.pop(i)
             break
     else:
