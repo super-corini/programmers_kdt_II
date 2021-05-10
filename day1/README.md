@@ -42,22 +42,29 @@ def my_view_func(name):
 ![GET_POST](./Screenshots/POST.JPG)
 
 4. 이후 데이터베이스 조회를 통해 menus 상태 확인
-   ![menus](./Screenshots/menus.JPG)
+
+![menus](./Screenshots/menus.JPG)
 
 5. PUT 존재하는 ID가 주어진 경우
-   ![PUT_success](./Screenshots/PUT_success.JPG)
+
+![PUT_success](./Screenshots/PUT_success.JPG)
 
 6. PUT 존재하지 않는 ID가 주어진 경우
-   ![PUT_fail](./Screenshots/PUT_fail.JPG)
+
+![PUT_fail](./Screenshots/PUT_fail.JPG)
 
 7. GET을 통해 PUT 결과 확인
-   ![GET_PUT](./Screenshots/GET_PUT.JPG)
+
+![GET_PUT](./Screenshots/GET_PUT.JPG)
 
 8. DELETE 존재하는 ID가 주어진 경우
-   ![DELETE_success](./Screenshots/DELETE_success.JPG)
+
+![DELETE_success](./Screenshots/DELETE_success.JPG)
 
 9. DELETE 존재하지 않는 ID가 주어진 경우
-   ![DELETE_fail](./Screenshots/DELETE_fail.JPG)
+
+![DELETE_fail](./Screenshots/DELETE_fail.JPG)
 
 10. GET을 통해 DELETE 결과 확인
-    ![GET_DELETE](./Screenshots/GET_DELETE.JPG)
+
+![GET_DELETE](./Screenshots/GET_DELETE.JPG)
