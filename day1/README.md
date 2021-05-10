@@ -14,6 +14,30 @@
 def my_view_func(name):
     return name
 ```
+#### TIL
+
+- `import jsonify`: python dictionary type을 json이라는 java script에서 사용하는 data 저장방식으로 바꿔주기 위해 사용하는 모듈
+
+- `import request`: HTTP request를 다룰 수 있는 모듈
+
+
+- `GET`: 자료를 가지고 올 때 사용
+
+  - `@app.route('/menus')`
+    - `menus`의 자원에 접근하고, `GET` 메소드(default값)를 사용할 때 라우팅
+
+    - `def get_menus():` 자원(메뉴)을 얻어오는 함수
+    - `jsonify({"menus": menus})`: Python의 List type은 jsonify를 이용하여 변환할 수 없기 때문에 list를 dictionary type에 담아서 jsonify 메소드로 json type으로 변환하여 반환
+
+- `POST`: 자료를 자원에 추가할 때 사용
+
+  - `@app.route('/menus', method=['POST'])`
+    - `menus` 자원에 접근하고, `POST` 메소드를 사용할 때 라우팅
+    - `def create_menu():` 자원(메뉴)을 추가하는 함수
+    - `request_data = request.get_json()`  
+    : `request`모듈을 사용하여 사용자가 입력한 정보를 `get_jason()` 함수로 parsing하여 dictionary type으로 변환하여 `request_data`에 담는다.
+      - 사용자가 입력한 정보는 JSON이라고 가정
+      - {"name": ..., "price": ....}의 형태
 
 ### 보너스 과제 I: ID야 움직여라 얍!
 
