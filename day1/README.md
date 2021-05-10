@@ -27,7 +27,7 @@ def my_view_func(name):
 - SQL과 ORM 중 하나를 선택하여 데이터베이스와 Flask app을 연동해봅시다. (즉, 자원에 CRUD가 발생하면 이 정보가 데이터베이스에 저장되어야합니다.)
 - 이 과제는 필수 과제, 보너스 과제 I 이후에 진행되어야 합니다.
 
-**ScreenShot**
+## **ScreenShot**
 
 1. MYSQL menus 테이블 정보
    ![tableInfo](./Screenshots/tableInfo.JPG)
