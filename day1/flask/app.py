@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, current_app
+from flask import Flask, jsonify, request
 from sqlalchemy import create_engine, text
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def hello_flask():
 def get_menus():
     total_data=app.database.execute(text("""
         SELECT *
-        FROM menu
+        FROM menus
     """)).fetchall()
     menus=[]
     for id, name, price in total_data:
@@ -29,7 +29,7 @@ def get_menus():
 def create_menu():
     request_data = request.get_json() 
     request_id = app.database.execute(text("""
-        INSERT INTO menu(
+        INSERT INTO menus(
             name,
             price
         ) VALUES (
@@ -42,7 +42,7 @@ def create_menu():
             id,
             name,
             price
-        FROM menu
+        FROM menus
         WHERE id =:menu_id
     """), {
         'menu_id' : request_id
@@ -62,7 +62,7 @@ def update_menu(id):
     check_id = app.database.execute(text("""
         SELECT
             id
-        FROM menu
+        FROM menus
         WHERE id =:menu_id
     """), {
         'menu_id' : id
@@ -71,7 +71,7 @@ def update_menu(id):
         return "Error! ID:{} doesn't exist".format(id)
     request_data['id']=id
     app.database.execute(text("""
-        UPDATE menu
+        UPDATE menus
         SET
             name=:name,
             price=:price
@@ -85,7 +85,7 @@ def delete_menu(id):
     check_id = app.database.execute(text("""
         SELECT
             id
-        FROM menu
+        FROM menus
         WHERE id =:menu_id
     """), {
         'menu_id' : id
@@ -94,7 +94,7 @@ def delete_menu(id):
     if not check_id:
         return "Error! ID:{} doesn't exist".format(id)
     app.database.execute(text("""
-        DELETE FROM menu
+        DELETE FROM menus
         WHERE
             id=:menu_id
     """), {
