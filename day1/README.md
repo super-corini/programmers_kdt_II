@@ -28,13 +28,13 @@ def my_view_func(name):
 - 이 과제는 필수 과제, 보너스 과제 I 이후에 진행되어야 합니다.
 
 **ScreenShot**
-![tableInfo](./Screenshots/tableInfo.jpg)
-![POST](./Screenshots/POST.jpg)
-![GET_POST](./Screenshots/POST.jpg)
-![menus](./Screenshots/menus.jpg)
-![PUT_success](./Screenshots/PUT_success.jpg)
-![PUT_fail](./Screenshots/PUT_fail.jpg)
-![GET_PUT](./Screenshots/GET_PUT.jpg)
-![DELETE_success](./Screenshots/DELETE_success.jpg)
-![DELETE_fail](./Screenshots/DELETE_fail.jpg)
-![GET_DELETE](./Screenshots/GET_DELETE.jpg)
+![tableInfo](./Screenshots/tableInfo.JPG)
+![POST](./Screenshots/POST.JPG)
+![GET_POST](./Screenshots/POST.JPG)
+![menus](./Screenshots/menus.JPG)
+![PUT_success](./Screenshots/PUT_success.JPG)
+![PUT_fail](./Screenshots/PUT_fail.JPG)
+![GET_PUT](./Screenshots/GET_PUT.JPG)
+![DELETE_success](./Screenshots/DELETE_success.JPG)
+![DELETE_fail](./Screenshots/DELETE_fail.JPG)
+![GET_DELETE](./Screenshots/GET_DELETE.JPG)
