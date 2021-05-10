@@ -55,4 +55,4 @@ def delete_menu(id):
     return jsonify(curs.fetchall())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
