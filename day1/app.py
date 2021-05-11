@@ -1,10 +1,12 @@
 '''
-Bonus 2. 데이터베이스 연동하기
+Mandatory : CRUD 만들기
+Bonus 1 : id 번호 변경하여 추가하기
+Bonus 2 : 데이터베이스 연동하기
 '''
 
 import os
 
-from flask import Flask, json, jsonify, request, Response
+from flask import Flask, json, jsonify, request, redirect, url_for, abort
 from models import *
 
 app = Flask(__name__)
@@ -27,6 +29,9 @@ def get_menus() :
 def create_menu() :
     request_data = request.get_json()
 
+    #new_menu = {'id':len(menus)+1, 'name':request_data['name'], 'price':request_data['price']}
+    # Bonus 1 : menus의 아이템 개수를 체크하여 +1 한 것을 id번호로 부여
+
     new_item = Item(request_data['name'], request_data['price'])
     
     db.session.add(new_item)
@@ -34,31 +39,39 @@ def create_menu() :
 
     return jsonify(new_item.to_json())
 
+# Mandatory
 # PUT /menus -> Update
 @app.route('/menus/<int:id>', methods=['PUT'])
 def update_menu(id) :
     request_data = request.get_json()
 
-    update_item = search_by_id(id)
-    update_item.name = request_data['name']
-    update_item.price = request_data['price']
+    try :
+        update_item = search_by_id(id)
+        update_item.name = request_data['name']
+        update_item.price = request_data['price']
+        
+    except MissingIdException :
+        abort(400)
 
     db.session.commit()
     return jsonify(update_item.to_json())
 
+# Mandatory
 #DELETE /menus -> Delete
 @app.route('/menus/<int:id>', methods=['DELETE'])
 def del_menu(id) :
-    del_item = search_by_id(id)
+    try :
+        del_item = search_by_id(id)
+        db.session.delete(del_item)
+    except MissingIdException :
+        abort(400)
 
-    db.session.delete(del_item)
     db.session.commit()
-
     return get_menus()
 
 @app.errorhandler(400)
-def handle_400(e) :
-    raise Exception('Bad Request')
+def bad_request(error) :
+    return '400 Bad Request'
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 dbfile = os.path.join(base_dir, 'db.sqlite')
