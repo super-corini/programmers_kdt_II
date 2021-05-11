@@ -9,4 +9,21 @@ DAY 1 과제를 진행하면서 겪었던 수 많은 실패
  >> ORM의 장점은 SQL을 잘 모르는 경우 익숙한 Python 언어로 Database를 이용할 수 있음
  >> 코딩 테스트를 위한 알고리즘 공부만 하다 프로그램을 만들기 위해 Pyshon을 사용해 보니 또 다른 재미를 느꼈고 더 많은 것을 알게 됨
  >> githun에서 제대로 clone하지 않으면 Fullrequest사 바교할 대상이 없다는 오류를 만날 수 있음
-    ㄴ 제대로된 clone 후 모든 파일을 add commit push하고 나서야 정상적으로 Fullrequest할 수 있었음
+    ㄴ 제대로된 clone 후 모든 파일을 add commit push하고 나서야 정상적으로 Fullrequest할 수 있었음 (시간 많이 잡아 먹음........)
+
+
+Bonus2에 사용된 환경
+- mysql 8.0
+- pycharm
+  ㄴPython 3.8
+
+Bonus2 문제에 사용된 menus 테이블
+ ㄴAUTO_INCREMENT : 값 자동 증가 옵션
+ ㄴPRIMARY KEY : index에 성격이 강해 기본키로 설정
+ 
+create table menus(
+   	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(256) not null,
+    price int not null
+);
+
