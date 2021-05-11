@@ -1,6 +1,7 @@
 import os
-from flask import Flask, jsonify, request
-from models import db, Menu 
+from flask import Flask, json, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
@@ -12,15 +13,24 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'jqiowejrojzxcovnklqnweiorjqwoijroi'
 
+db = SQLAlchemy(app)
+
+class Menu(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    price = db.Column(db.Integer)
+
+    def serialize(self):
+       """Return object data in easily serializable format"""
+       return {
+           'id': self.id,
+           'name': self.name,
+           'price': self.price
+       }
+
 db.init_app(app)
 db.app = app
 db.create_all()
-
-menus = [
-    {"id": 1,"name": "Espresso", "price":3800},
-    {"id": 2,"name": "Amerocano", "price":4100},
-    {"id": 3,"name": "CafeLatte", "price":4600}
-]
 
 @app.route('/')
 def hello_code():
@@ -29,48 +39,42 @@ def hello_code():
 # GET /menus | 자료를 가지고 온다.
 @app.route('/menus')
 def get_menus():
-    return jsonify({"menus": menus})
+    menus = Menu.query.all()
+    return jsonify([i.serialize() for i in menus])
 
 # POST /menus | 자료를 자원에 추가한다.
 @app.route('/menus', methods=['POST'])
 def create_menu(): # request가 JSON이라고 가정
     # 전달받은 자료를 menus 자원에 추가
     request_data = request.get_json() # {"name": ..., "price": ...}
-    new_id = menus[-1]["id"] + 1
-    new_menu = {
-        "id" : new_id,
-        "name": request_data['name'],
-        "price": request_data['price']
-    }
-    menus.append(new_menu)
-    return jsonify(new_menu)
+    menu = Menu(name=request_data['name'], price=request_data['price'])
+    db.session.add(menu)
+    db.session.commit()
+    return menu.serialize()
 
 @app.route('/menus/<int:id>', methods=['PUT'])
 def put_menu(id):
     request_data = request.get_json()
-    
-    for menu in menus:
-        if menu['id'] == id:
-            menu['name'] = request_data['name']
-            menu['price'] = request_data['price']
-            return menu
-    else:
-        return "no menu"
+
+    target_menu = Menu.query.get(id)
+    target_menu.name = request_data['name']
+    target_menu.price = request_data['price']
+
+    db.session.commit()
+
+    return "update complete"
 
 
 @app.route('/menus/<int:id>', methods=['DELETE'])
 def delete_menu(id):
-    for menu in menus:
-        if menu['id'] == id:
-           menus.remove(menu)
-           print(menus)
-           return f"delete {id}'s data"       
-    else:
-        return "no menu"
+    target_menu = Menu.query.get(id)
+    db.session.delete(target_menu)
+    db.session.commit()
+    return f"del id:{id}"
 
     
     
 
 # app 파일을 직접적으로 실행할경우 실행되는 코드
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, FLASK_ENV="development")
