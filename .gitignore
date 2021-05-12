@@ -5,3 +5,4 @@ app_db.py
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 EDA/.ipynb_checkpoints
+EDA/data/
