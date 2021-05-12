@@ -17,18 +17,22 @@ def hello_flask():
 def get_menus():
     return jsonify({"menus":menus})
 
+# 전역변수 id_count 생성
+id_count = 4
 
 # POST /menus : 자료를 자원에 추가한다.
 @app.route('/menus', methods=['POST'])
 def create_menu(): # request가 JSON이라고 가정
     # 전달받은 자료를 menus자원에 추가
     request_data = request.get_json()
-    # id를 menus의 크기로 지정해줌으로써 메뉴가 하나씩 추가될 때마다 id가 1씩 늘어난다.
+    # 메뉴를 추가할 때마다 id 증가시키기 위해 전역변수 id_count 사용
+    global id_count
     new_menu = {
-        "id" : len(menus)+1,
+        "id" : id_count,
         "name" : request_data['name'],
         "price" : request_data['price']
     }
+    id_count += 1
     menus.append(new_menu)
     return jsonify(new_menu)
 
