@@ -8,7 +8,7 @@ import pymysql
 app = Flask(__name__)
 
 ## db info setting
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:1234@localhost:3306/flask-proj"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:1234@localhost:3306/flask"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # 추가적 메모리가 필요한 기능이므로 꺼둠
 
 ## db set
@@ -18,7 +18,7 @@ db.init_app(app)
 
 class Menu(db.Model):
     __tablename__ = 'menus'
-    __table_args__ = {'mysql_collate': 'utf8_general_ci'}
+    __table_args__ = {'mysql_collate': 'utf8mb4_general_ci'}
 
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     name = db.Column(db.String(30), nullable=False)
