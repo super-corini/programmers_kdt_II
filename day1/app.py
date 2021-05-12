@@ -26,7 +26,7 @@ def create_menu():  #request가 JSON이라고 가정
     request_data = request.get_json()  # {"name" : ... , "price": ...}
     # request를 쓰면 알아서 client의 요청이 담긴다. 
     new_menu = {
-        "id" : 4,
+        "id" : len(menus)+1,  # POST 될 때, id 증가
         "name" : request_data['name'],
         "price" : request_data['price']
     }
