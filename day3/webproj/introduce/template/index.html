@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>Intro: Jaesung</title>
+  </head>
+  <body>
+    <main>
+      <div class="nameCard">
+        <div class="nameCard_top">
+          <div class="nameCard_pic">
+            <img src="{% static 'images/my_pic.png' %}" alt="*" />
+          </div>
+          <div class="nameCard_name">
+            <span>Han Jaesung</span>
+          </div>
+        </div>
+        <div class="nameCard_bottom">
+          <div class="nameCard_bottom_stack">
+            <span class="stack">HTML/CSS</span>
+          </div>
+          <div class="nameCard_bottom_stack">
+            <span class="stack">JavaScript/TypeScript/Python</span>
+          </div>
+          <div class="nameCard_bottom_stack">
+            <span class="stack"> React/NestJs/Express/Django </span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
