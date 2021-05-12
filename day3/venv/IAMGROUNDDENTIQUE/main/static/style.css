@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-style: unset;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  width: 70%;
+  margin: 0 auto;
+}
+
+header {
+  height: 100%;
+}
+
+.logo {
+  font-size: xx-large;
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+.logo.content {
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    width: 900px;
+  }
+}
