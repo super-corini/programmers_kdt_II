@@ -18,7 +18,7 @@ db.create_all()
 def show_main():
     return 'Hello World!'
 
-@app.route('/init')
+@app.route('/menu/init', methods=['PUT', 'DELETE'])
 def init_menus():
     if os.path.isfile(dbfile):
         os.remove(dbfile)
