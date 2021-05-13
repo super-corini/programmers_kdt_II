@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript">
+      function showBox(event) {
+        event.preventDefault();
+        const modibox = document.getElementById("modibox");
+        console.log(modibox);
+        if (modibox.style.display == "none") {
+          modibox.style.display = "block";
+          event.target.innerHTML = "Cancel";
+        } else if (modibox.style.display == "block") {
+          modibox.style.display = "none";
+          event.target.innerHTML = "Modify";
+        }
+      }
+    </script>
+    <title>Coffee List</title>
+  </head>
+  <body>
+    <h1>My Coffee List</h1>
+    {% for coffee in coffee_list %}
+    <ul>
+      <li>{{coffee.id}}, {{coffee.name}}, {{coffee.price}}</li>
+      <form method="POST" action="/coffees/{{coffee.id}}/delete">
+        {% csrf_token%}
+        <input type="hidden" name="_method" value="DELETE" />
+        <button type="submit">Del</button>
+      </form>
+      <form method="POST" action="/coffees/{{coffee.id}}/put">
+        {% csrf_token%}
+        <button onclick="showBox(event)">Modify</button>
+        <input type="hidden" name="_method" value="PUT" />
+        <div id="modibox" style="display: none">
+          <div>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="{{coffee.name}}" />
+          </div>
+          <div>
+            <span>Price</span>
+            <input type="text" name="price" placeholder="{{coffee.price}}" />
+          </div>
+          <div>
+            <span>Is ice</span>
+            <input type="checkbox" name="is_ice" />
+          </div>
+          <button type="submit">OK</button>
+        </div>
+      </form>
+    </ul>
+    {% endfor %}
+
+    <form method="POST">
+      {% csrf_token%} {{coffee_form.as_p}}
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>
