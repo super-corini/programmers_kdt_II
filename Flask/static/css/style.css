@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/* font */
+
+@font-face {
+    font-family: knell;
+    src: url('../font/DeathKnell.otf')
+}
+
+
+/* header */
+body {background-color: black; color:white}
+
+div.header {font-family:'knell';font-size: 40px; text-align: center; border-bottom: 3px solid white; border-radius: 10px}
+
+/* menulist */
+.box {margin-top: 30px}
+.box .listview {margin: 10px; border: 1px solid; padding: 10px ;float: left;width: 65%}
+.box .listview table {text-align: right; line-height: 1.5;width: 100%}
+.box .listview table tr {cursor: pointer;transition: 1.s ease-in-out;}
+.box .listview table tr:hover {background-color: rgba(255,255,255,10%)}
+.box .listview table thead td{padding: 10px; font-weight: bold; vertical-align: top; color: azure;  border-bottom: 3px solid;background-color: rgba(255,255,255,25%); border-top-left-radius: 20px;border-top-right-radius: 4px}
+.box .listview table tbody td {padding: 10px;border-bottom: 1px solid;}
+.box .listview table tbody #check {background-color: rgba(255,255,255,25%)}
+/* control */
+.box .control {margin: 10px;float:right; width: 20%; padding-right: 20px}
+.box .control .btn input {display: block; border: 1px solid white; width: 130px;height: 45px;font-size: 25px;background: black;color: white;border-radius: 40px;margin: 20px; transition: 1.0s ease, box-shadow 3.3s ease}
+.box .control .btn input:hover {background-color: white; color: black;}
+
+.box .control .clickdata {border: 1px solid;padding: 10px;border-radius: 10px; display: none}
+.box .control .clickdata input {text-align: center;margin-bottom: 10px; border-radius: 10px; width: 90%; color: #333333}
+.box .control .clickdata input#maker {display: block;width: 40%; border: 1px solid white;background: black;color: white;transition: 1.0s ease, box-shadow 3.3s ease;}
+.box .control .clickdata input#maker:hover {background-color: white; color: black;}
+
