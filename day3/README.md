@@ -1,12 +1,23 @@
-# Day 3 - Django로 자기소개 페이지 만들기
+# Day 3 - Exploratory Data Analysis
 
-### 필수 과제 : 아이엠 그라운드 자기소개 하기
+**탐색적 데이터 분석을 통해 데이터를 통달해봅시다.** with [Titanic Data](https://www.kaggle.com/c/titanic)
 
-- 다음 요청을 처리하는 웹 어플리케이션을 제작해주세요.
-- `GET /` → **자기소개 웹 페이지**를 Response
-    - 이 페이지는 HTML을 이용해서 여러분이 원하는 내용을 작성해주세요.
+0. 라이브러리 준비
+1. 분석의 목적과 변수 확인
+2. 데이터 전체적으로 살펴보기
+3. 데이터의 개별 속성 파악하기들기
 
-### 보너스 과제 : ⭐️아이😊엠 그라운드⛳️ 자기💁‍♀️소개💁‍♂️ 하기⭐️
+## 필수과제 : Mission - It's Your Turn!
 
-- CSS나 JavaScript를 이용해 자신의 웹 페이지를 더욱 멋있게 만들 수 있습니다. HTML으로만 된 밋밋한 자기소개 페이지를 꾸며봅시다.
-- 이들을 사용하기 위해선 이 파일들이 담긴 경로를 [STATIC_URL](https://docs.djangoproject.com/en/3.1/howto/static-files/)을 이용해 지정해주어야합니다.
+
+### 1. 본문에서 언급된 Feature를 제외하고 유의미한 Feature를 1개 이상 찾아봅시다.
+
+- Hint : Fare? Sibsp? Parch?
+
+### 2. [Kaggle](https://www.kaggle.com/datasets)에서 Dataset을 찾고, 이 Dataset에서 유의미한 Feature를 3개 이상 찾고 이를 시각화해봅시다.
+
+함께 보면 좋은 라이브러리 document
+- [numpy]()
+- [pandas]()
+- [seaborn]()
+- [matplotlib]()
