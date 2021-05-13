@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, session
 from utils import find_index_by_id
 
 app = Flask(__name__)
@@ -17,6 +17,12 @@ menus = [
     "price":4500}
 ]
 
+# for thread safe
+# https://stackoverflow.com/questions/32815451/are-global-variables-thread-safe-in-flask-how-do-i-share-data-between-requests
+counter = {
+    "id": 4
+}
+
 @app.route('/')
 def hello_flask():
     return "Hello World!"
@@ -25,16 +31,18 @@ def hello_flask():
 # GET
 @app.route('/menu', methods=['GET'])
 def get_menu():
+    print(menus)
     return jsonify({"menus": menus})
 # POST
 @app.route('/menu', methods=['POST'])
 def create_menu():
     request_data = request.get_json()
     new_menu = {
-        "id": 4,
+        "id": counter['id'],
         "name": request_data['name'],
         "price": request_data['price']
     }
+    counter['id'] += 1
     menus.append(new_menu)
     return jsonify(new_menu)
 # PUT
