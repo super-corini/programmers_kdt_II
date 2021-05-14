@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* font */
+
+@font-face {
+    font-family: knell;
+    src: url('../font/DeathKnell.otf')
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-image: url(../img/avenge.jfif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+ }
+
+ .header button {
+     display: block;
+     font-size:  10px ;
+     width: 50px;
+     border : 1px solid #aaaaaa;
+     background-color: rgba(255, 255, 255, 10%);
+ }
+ .contain{
+     margin: 35vh auto;
+ }
+ .contain #heroname {
+     height: 30px;
+     width: 400px;
+     border: 2px solid #cccccc;
+     border-radius: 15px;
+     background-color: #222222;
+     color: #ffffff;
+     padding-left: 10px;
+ }
+ .contain #sb_heroname {
+    height: 32px;
+    width: 50px;
+    border: 2px solid #cccccc;
+    background-color: #222222;
+    color: #ffffff;
+    border-radius: 4px;
+ }
+
+/* weapon list */
+.contain .listview {margin: 10px; border: 1px solid; padding: 10px; float: left;}
+.contain .listview table {text-align: right; line-height: 1.5; width: 100%;}
+.contain .listview table tr {cursor: pointer; transition: 1.s ease-in-out;}
+.contain .listview table tr:hover {background-color: rgba(255, 255, 255, 10%);}
+.contain .listview table thead td{padding: 10px; font-family: 'knell'; vertical-align: top;background-color: rgba(0, 0, 0, 50%);color:#cccccc; border-bottom: 3px solid ; border-top-left-radius: 20px;border-top-right-radius: 4px;}
+.contain .listview table tbody td{padding: 10px; border-bottom: 1px solid;color:#cccccc}
+.contain .listview table tbody #check {background-color: rgba(255, 255, 255, 25%);}
+
+/* control */
+.contain .control {max-width: 10px;float:right;width: 20%; padding-right: 20px;}
+.contain .control .btn input {display: block; border: 1px solid #cccccc;width:  130px; height: 40px; font-family: 25px; background-color: rgba(0, 0, 0, 50%);color:#cccccc;border-radius: 40px;margin:20px;transition: 1.0s ease; box-shadow: 3.3s ease ;}
+.contain .control .btn input:hover {background-color: rgba(255, 255, 255, 80%);color:#222222}
+.clickdataform {position: absolute; left:50%;transform: translateX(-50%);top:40%}
+.clickdata {border: 1px solid; padding: 10px; border-radius: 10px;width: 120px; background-color: rgba(0, 0, 0, 80%); width: 250px; display: none;}
+.clickdata input {text-align: center;margin-bottom: 10px;border-radius: 10px; width: 90%;color: rgba(0, 0, 0, 80%);}
+.clickdata input#maker {display: block;width: 40%; border: 1px solid white;background: black;color: white;transition: 1.0s ease, box-shadow 3.3s ease;}
+.clickdata input#maker:hover {background-color: white; color: black;}
+

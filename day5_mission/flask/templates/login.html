@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+    <title>Mission week 4 </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script defer type="text/javascript" src="{{url_for('static', filename='js/flask.js')}}"></script>
+</head>
+<body>
+    <div class="header">
+        <form name="fr_whoami" enctype="multipart/form-data" action="/" method="GET">
+            <button class="whoami">로그아웃</button>   
+            <script>
+                if ("{{heroname_h}}"){
+                    alert('{{heroname_h}} 전투에 참여하였습니다')
+                }
+            </script>         
+        </form>
+    </div>
+
+    <div class="contain">
+        <div class="listview">
+            <table id="table">
+                <thead>
+                <tr id='cols'>
+                    <td id='td1'>id</td>
+                    <td id='td2'>name</td>
+                    <td id='td2'>stock</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in weaponlist_h %}
+                <tr id="uncheck" onclick="javascript:clickTrEvent(this)">
+                    <td>{{i['id']}}</td>
+                    <td>{{i['name']}}</td>
+                    <td>{{i['stock']}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <dic class="control">
+            <div class="btn">
+                <form name="menus" action="/weaponlist/view" method="GET">
+                <input type="button" id="view" value="보기" onclick="clickTrEvent(this)">
+                </form>                
+                <input type="button" id="create" value="추가" onclick="clickTrEvent(this)">
+                <input type="button" id="update" value="편집" onclick="clickTrEvent(this)">
+                <input type="button" id="delete" value="삭제" onclick="clickTrEvent(this)">
+            </div>
+            
+        </dic>
+    </div>
+    <form class="clickdataform" name="sub1" enctype="multipart/form-data" action="" method ="POST">
+        <div class="clickdata" id="clickdata" >
+            <input type="text" name="lid" id='lid' placeholder="id"><br>
+            <input type="text" name="lname" id='lname' placeholder="name"><br>
+            <input type="text" name="lstock" id='lstock' placeholder="stock">
+            <input type="button" id="maker" name="maker" value="확인" onclick="clickTrEvent(this)">
+            <input type="button" id="maker" name="close" value="닫기" onclick="clickclose(this)">
+        </div>
+    </form>
+</body>
+</html>

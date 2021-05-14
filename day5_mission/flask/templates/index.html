@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+    <title>Mission week 4 </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script defer type="text/javascript" src="{{url_for('static', filename='js/flask.js')}}"></script>
+</head>
+<body>
+    <div class="header">
+        <form name="fr_whoami" enctype="multipart/form-data" action="/whoami" method="GET">
+            <button class="whoami">제작자</button>   
+            <script>
+                if ("{{name_h}}"){
+                    alert('git 아이디 : {{name_h}}')
+                }
+                if ("{{heroname_h}}"){
+                    alert('{{heroname_h}} 전투에 참여하였습니다')
+                }
+            </script>         
+        </form>
+        <div>
+            <p style="display: none">AVENGERS</p>
+        </div>
+    </div>
+
+    <div class="contain">
+        <form name="fr_heroname" enctype="multipart/form-data" action="/echo">
+            <input type="text" name="heroname" id="heroname" placeholder="hero name">
+            <button id="sb_heroname" type="submit">접속</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
