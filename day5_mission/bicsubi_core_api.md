@@ -27,6 +27,8 @@ Test query string.
 
 Display what I wrote.
 
+**Query** `string` Some string stuff.
+
 **Code** `200 Sucess`
 
 ```json
@@ -120,7 +122,7 @@ Change weapon's name and stock given by name.
 
 Delete a weapon given its name.
 
-**Query** `name` weapon name.
+**Query** `name` Weapon name.
 
 **Code** `200` Success.
 
