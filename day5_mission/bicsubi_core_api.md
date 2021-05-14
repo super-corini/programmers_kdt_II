@@ -67,7 +67,8 @@ Create weapon.
 
 ```json
 {
-    "message": "string"
+    "name": "string",
+    "stock": 0
 }
 ```
 
@@ -99,7 +100,7 @@ Change weapon's name and stock given by name.
 }
 ```
 
-**Query** `name` weapon name.
+**Query** `name` Weapon name.
 
 **Code** `200` Success.
 
