@@ -3,6 +3,7 @@
 from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import exc
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -26,12 +27,10 @@ def who_am_i():
     return jsonify({'name': 'SeongwonTak' })
 
 # Get | whoami
-@app.route('/echo/<string:string>')
-def echo(string):
-    if string == 'string':
-        return jsonify({'value': 'String'})
-    else:
-        return "Not mateched echo"
+@app.route('/echo')
+def return_string():
+    string = request.args.get('string')
+    return jsonify({"string":string})
 
 # Get | 자료를 가지고 옴 (READ)
 @app.route('/weapons')
@@ -44,44 +43,45 @@ def get_weapons():
 # POST | 자원 추가 (CREATE)
 @app.route('/weapons', methods=['POST'])
 def post_weapons(): # request가 JSON이라고 가정한다.
-    # 전달받은 자료를 menus 자원에 추가함
+    try:
+        request_data = request.get_json()
+        new_weapon = Weapons(name=request_data['name'],
+                        stock=request_data['stock'])
 
-    request_data = request.get_json()
-    new_weapon = Weapons(name=request_data['name'],
-                     stock=request_data['stock'])
-    
-    # if new_weapon.name in Weapons.query.all().name:
-        # return 'Error Code 01 : duplicated name exists in Weapons'
-    if new_weapon.stock <= 0 or type(new_weapon.stock) is not int:
-        return 'Error Code 02 : Stock value must be positive integer'
-    else:
-        db.session.add(new_weapon)
-        db.session.commit()
+        if new_weapon.stock <= 0 or type(new_weapon.stock) is not int:
+            return 'Error Code 02 : Stock value must be positive integer'
+        else:
+            db.session.add(new_weapon)
+            db.session.commit()
 
-    return jsonify([
-        {'name': weapon.name,
-         'stock': weapon.stock
-         } for weapon in Weapons.query.all()])
+        return jsonify([
+            {'name': weapon.name,
+         '  stock': weapon.stock
+            } for weapon in Weapons.query.all()])
+    except exc.IntegrityError :
+        return 'Error Code 01 : duplicated name exists in Weapons'
+
 
 @app.route('/weapons/<string:name>', methods=['PUT'])
 def put_weapons(name):
-    alter_weapon = Weapons.query.get_or_404(name)
-    update_data = request.get_json()
+    try:
+        alter_weapon = Weapons.query.get_or_404(name)
+        update_data = request.get_json()
 
-    alter_weapon.name = update_data['name']
-    alter_weapon.stock = update_data['stock']
+        alter_weapon.name = update_data['name']
+        alter_weapon.stock = update_data['stock']
 
-    # if new_weapon.name in Weapons.query.all().name:
-        # return 'Error Code 01 : duplicated name exists in Weapons'
-    if alter_weapon.stock <= 0 or type(alter_weapon.stock) is not int:
-        return 'Error Code 02 : Stock value must be positive integer'
-    else:
-        db.session.commit()
+        if alter_weapon.stock <= 0 or type(alter_weapon.stock) is not int:
+            return 'Error Code 02 : Stock value must be positive integer'
+        else:
+            db.session.commit()
 
-    return jsonify([
-        {'name': alter_weapon.name,
-         'stock': alter_weapon.stock
-         }])
+        return jsonify([
+            {'name': alter_weapon.name,
+            'stock': alter_weapon.stock
+            }])
+    except exc.IntegrityError :
+        return 'Error Code 01 : duplicated name exists in Weapons'
 
 @app.route('/weapons/<string:name>', methods=['DELETE'])
 def delete_weapons(name):
