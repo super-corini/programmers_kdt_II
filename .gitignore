@@ -1,0 +1,12 @@
+.html
+day1/flask 클론코딩_고준서
+day1/venv
+0. Jupyter Notebook 시작하기.ipynb
+1. 파이썬의 컴퓨팅 라이브러리, numpy.ipynb
+2. 파이썬으로 데이터 주무르기, pandas.ipynb
+3. python으로 멋드러진 그래프 그리기, Matplotlib.ipynb
+4. EDA.ipynb
+5. Day5 mission.ipynb
+country_wise_latest.csv
+day_wise.csv
+train.csv
