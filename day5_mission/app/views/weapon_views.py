@@ -22,6 +22,14 @@ def weapon_create():
     except Exception as e:
         return f"잘못된 요청입니다: {e}", 400
 
+    # 예외처리
+    if not isinstance(new_name, str):
+        return f"잘못된 요청입니다: name이 문자열이 아님", 400
+    elif not isinstance(new_stock, int):
+        return f"잘못된 요청입니다: stock이 int형 숫자가 아님", 400
+    elif new_stock < 0:
+        return f"잘못된 요청입니다: stock이 음수임", 400
+
     # 이름이 같은 무기가 있으면 추가하지 않음
     new_data = dict(name=new_name, stock=new_stock)
     result = weapon.insert_ignore(new_data, ["name"])
@@ -38,6 +46,12 @@ def weapon_update(string):
         new_stock = data["stock"]
     except Exception as e:
         return f"잘못된 요청입니다: {e}", 400
+
+    # 예외처리
+    if not isinstance(new_stock, int):
+        return f"잘못된 요청입니다: stock이 int형 숫자가 아님", 400
+    elif new_stock < 0:
+        return f"잘못된 요청입니다: stock이 음수임", 400
 
     new_data = dict(name=string, stock=new_stock)
     result = weapon.update(new_data, ["name"])
