@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+</head>
+<body>
+    <h1>My Coffee List</h1>
+    <ul>
+        {% for coffee in coffee_list %}
+        <li>
+            {% if coffee.is_ice %}
+                {{coffee.name}} , {{coffee.price}} , ICE
+            {% else %}
+                {{coffee.name}} , {{coffee.price}}
+            {% endif %}     
+        </li>
+        {% endfor %}
+    </ul>
+    <form method="POST">{% csrf_token %}
+        {{coffee_form.as_p}}
+        <button type="submit">POST</button>
+    </form>
+    <h1>PUT or DELETE</h1>
+    <ul>
+        {% for coffee in coffee_list %}
+        <li>
+            <form method="POST" action="{{coffee.name}}">{% csrf_token %}
+                <p>
+                    <label for='id_name'>Name:</label>
+                    <input type="text" name="name" maxlength="30" value="{{coffee.name}}" required id="id_name">
+                </p>
+                <p>
+                    <label for='id_price'>Price:</label>
+                    <input type="number" name="price" value="{{coffee.price}}" required id="id_price">
+                </p>
+                <p>
+                    <label for='id_is_ice'>Is ice:</label>
+                    <input type="checkbox" name="is_ice" id="id_is_ice">
+                </p>
+                <button type="submit">PUT</button>
+            </form> 
+            <form method="GET" action="{{coffee.name}}">{% csrf_token %}
+                <button type="submit">DELETE</button>
+            </form>       
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
