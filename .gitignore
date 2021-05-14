@@ -7,3 +7,11 @@ app_db.py
 EDA/.ipynb_checkpoints
 EDA/data/
 # EDA/images/
+# **/**/__pycache__/**/**
+# /resources/__pycache__
+# day5_mission/__pycache__
+day5_mission/*/__pycache__
+*/__pycache__/
+# !**/__pycache__/
+# */images
+*/*.db
