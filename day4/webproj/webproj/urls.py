@@ -18,11 +18,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from homepage.views import index as homepage_index
-from coffee.views import index as coffee_index
+from homepage import views as homepage
+from coffee import views as coffee
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage_index),
-    path('coffees/', coffee_index),
+    path('', homepage.index),
+    path('coffees/', coffee.index),
+    path('coffees/<pk>', coffee.detail),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

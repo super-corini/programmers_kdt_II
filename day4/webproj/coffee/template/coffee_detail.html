@@ -8,18 +8,19 @@
     <title>Hello World!</title>
 </head>
 <body>
-    <h1>coffee list</h1>
+    <h1>coffee</h1>
     <img src="{% static 'homepage/meow_party.gif' %}" alt="Meow Party">
-    <ul>
-        {% for coffee in coffee_list %}
-            <li>{{ coffee.name }}: {{ coffee.price }}</li>
-        {% endfor %}
-    </ul>
-    <h1>Add New Coffee</h1>
+    <p>{{ coffee.name }}: {{ coffee.price }}</p>
     <form method="post">
         {% csrf_token %}
         {{ coffee_form.as_p }}
-        <button type="submit" value='post'>update</button>
+        <input type="hidden" name="method" value="PUT">
+        <button type="submit">update</button>
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="method" value="DELETE">
+        <button type="submit">delete</button>
     </form>
 </body>
 </html>
