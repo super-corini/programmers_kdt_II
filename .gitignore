@@ -2,7 +2,7 @@ day1/__pycache__
 app.db
 # images/
 app_db.py
-.ipynb_checkpoints
+.ipynb_checkpoints/*
 */.ipynb_checkpoints/*
 EDA/.ipynb_checkpoints
 EDA/data/
@@ -16,3 +16,4 @@ EDA/data/
 # */images
 */*.db
 /day5_mission/cal.py
+input/
