@@ -36,7 +36,7 @@ def get_menus():
 @app.route('/weapons', methods=['POST'])
 def create_menu():
     global idx
-    # 전달 받은 자료를 menus 자원에 추가
+    # 전달 받은 자료를 weapons 에 추가
     request_data = request.get_json()
     new_menu = {
         'id': idx,
@@ -52,20 +52,20 @@ def create_menu():
 @app.route('/weapons/<int:weapon_id>', methods=['PUT', 'DELETE'])
 def update_menu(weapon_id):
 
-    # 메뉴 변경
+    # 무기 변경
     if request.method == 'PUT':
         request_data = request.get_json()
 
-        # 해당 메뉴 찾아서 바꾸기
+        # 해당 무기 찾아서 바꾸기
         for weapon in weapons:
             if weapon['id'] == weapon_id:
                 weapon['name'] = request_data['name']
                 weapon['stock'] = request_data['stock']
                 return jsonify(weapon)
 
-    # 메뉴 삭제
+    # 무기 삭제
     if request.method == 'DELETE':
-        # 해당 메뉴 찾아서 바꾸기
+        # 해당 무기 찾아서 바꾸기
         for i, weapon in enumerate(weapons):
             if weapon['id'] == weapon_id:
                 return jsonify(weapons.pop(i))
