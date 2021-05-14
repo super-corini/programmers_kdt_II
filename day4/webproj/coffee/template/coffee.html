@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'homepage/style.css' %}">
+    <title>Hello World!</title>
+</head>
+<body>
+    <h1>coffee list</h1>
+    <img src="{% static 'homepage/meow_party.gif' %}" alt="Meow Party">
+    {% for coffee in coffee_list %}
+        <p>{{ coffee.name }}: {{ coffee.price }}</p>
+    {% endfor %}
+</body>
+</html>
