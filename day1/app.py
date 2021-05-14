@@ -71,7 +71,7 @@ def create_menu() : #{
             print(f'id={request_data["id"]} already exists in Menu Table -> {id}')
     #}
     else :                           ## request에 id가 없는 경우 maximun value + 1로 할당
-        id = get_max_id()+1    
+        id = get_max_id()+1 
 
     new_menu = Menu(id,
                     request_data["name"],
@@ -88,7 +88,6 @@ def create_menu() : #{
 def update_menu(id) : #{
     request_data = request.get_json()
 
-    menu = search_menu_by_id(id)
     if search_menu_by_id(id) != None :
         db.session.query(Menu).filter(Menu.id==id).update({'name':request_data['name'], 'price':request_data['price']})
         db.session.commit()
