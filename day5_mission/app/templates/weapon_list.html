@@ -1,0 +1,20 @@
+<html>
+
+<body>
+    <table border=1>
+        <tr>
+            <th>id</th>
+            <td>name</td>
+            <td>stock</td>
+        </tr>
+        {% for weapon in weapon_list %}
+        <tr>
+            <th>{{ weapon.id }}</th>
+            <td>{{ weapon.name }}</td>
+            <td>{{ weapon.stock }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
