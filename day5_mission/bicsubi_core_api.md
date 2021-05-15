@@ -1,6 +1,6 @@
 # Swagger
 Swagger API docs  
-<img src="/images/swagger.png" width="" height="">  
+<img src="images/swagger.png" width="" height="">  
 
 
 ## Request
