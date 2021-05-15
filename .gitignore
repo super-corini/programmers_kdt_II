@@ -17,3 +17,5 @@ EDA/data/
 */*.db
 /day5_mission/cal.py
 input/
+/*/.ipynb_checkpoints
+/*/output/
