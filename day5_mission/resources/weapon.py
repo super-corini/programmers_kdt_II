@@ -38,7 +38,7 @@ class Echo(Resource):
     #     return {"value":data}
     def get(self):
         string = request.args.get('string')
-        return {"string":string}
+        return {"value":string}
 
 # This is Weapon
 class Weapon(Resource):
