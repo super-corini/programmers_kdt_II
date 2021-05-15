@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script defer type="text/javascript" src="{{url_for('static', filename='js/flask.js')}}"></script>
+</head>
+<body>
+    <form name="fr_map" action="/map">
+        <input type="text" name="lat_pt" id="lat_id" placeholder="위도 세로 최대 ±90">
+        <input type="text" name="lon_pt" id="lon_id"placeholder="경도 가로 최대 ±180">
+        <input type="button" id="btn_map" value="검색" onclick="clickTrEvent(this)" >
+    </form>
+    <iframe width="640" height="360" src="https://earth.nullschool.net/ko/#current/wind/surface/level/overlay=temp/orthographic={{lon_h}},{{lat_h}},1500/loc={{lon_h}},{{lat_h}}" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+    <br>
+    <div>
+    <p>wind : {{temp_h}} °C</p>
+    <p>wind : {{wind_h}} m/s</p>
+    </div>
+    
+    <ul>
+        <li>현재 위치</li>
+        <li>위도:<span id="latitude"></span></li>
+        <li>경도:<span id="longitude"></span></li>
+    </ul>
+    <script>
+        $(function() {        
+            // Geolocation API에 액세스할 수 있는지를 확인
+            if (navigator.geolocation) {
+                //위치 정보를 얻기
+                navigator.geolocation.getCurrentPosition (function(pos) {
+                    $('#latitude').html(pos.coords.latitude);     // 위도
+                    $('#longitude').html(pos.coords.longitude); // 경도
+                    document.getElementById('lat_id').value = pos.coords.latitude.toFixed(2); 
+                    document.getElementById('lon_id').value = pos.coords.longitude.toFixed(2); 
+
+                });
+            } else {
+                alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+            }
+        });
+    </script>
+</body>
