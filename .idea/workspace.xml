@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b045fb2a-0172-42bc-97f8-d71fc9a67f64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1/model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day5/kaggle.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/day5/kaggle.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day5/submission.csv" beforeDir="false" afterPath="$PROJECT_DIR$/day5/submission.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -25,6 +26,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/anaconda3/envs/nlp/Lib/site-packages/seaborn/distributions.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1sFpgLs5i2mRZs0AxYeQQ0H3AFV" />
   <component name="ProjectViewState">
@@ -37,11 +41,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day5" />
     </key>
   </component>
   <component name="RunManager" selected="Python.app">
