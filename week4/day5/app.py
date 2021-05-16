@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 weapons = list()
 
-# GET /whoami | github id를 반환.
+# GET /whoami | github id를 반환함.
 @app.route('/whoami')
 def get_gitid():
     return jsonify({"name" : "rabbit1996"})
