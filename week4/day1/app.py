@@ -45,10 +45,11 @@ def update_menus(id): # request가 JSON이라고 가정
 
     request_data = request.get_json() # {"name" : ..., "price":...}
     menus[idx] = {
+        "id" : idx,
         "name" : request_data['name'],
         "price": request_data['price'],
     }
-    return jsonify(menus[id-1])
+    return jsonify(menus[idx])
 
 # DELETE /mesnus | 자료를 자원에서 삭제한다.
 @app.route('/menus/<int:id>', methods=['DELETE'])
