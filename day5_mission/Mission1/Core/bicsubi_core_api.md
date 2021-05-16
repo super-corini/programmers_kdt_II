@@ -75,11 +75,11 @@ __Data Params__
     stock=<integer>
 
 __Success Response:__  
-- __GET__
+- __PUT__
     - __Code__ 200  
     - __Content__(Json) model.weapon{id:int, name:str, stock:int}
 
-- __POST__
+- __DELETE__
     - __Code__ 200  
     - __Content__(Json) {"Weapons": db.weapons}
 
