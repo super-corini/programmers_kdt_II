@@ -34,12 +34,14 @@
   - string 을 반환
   ```python
   # CREATE(GET) /echo |
-  @app.route('/echo', methods=['GET'])
-  def get_echo():
-      echo = {
-          "value": "string"
-      }
-      return jsonify(echo)
+  # CREATE(GET) /echo |
+@app.route('/echo', methods=['GET'])
+def get_echo():
+    args = request.args.get('string')
+    echo = {
+        "value": args
+    }
+    return jsonify(echo)
   ```
 ---
 #### 다음의 요구사항에 맞게 API를 설계하고 작성

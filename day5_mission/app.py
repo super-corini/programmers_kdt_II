@@ -24,8 +24,9 @@ def get_github_id():
 # CREATE(GET) /echo |
 @app.route('/echo', methods=['GET'])
 def get_echo():
+    args = request.args.get('string')
     echo = {
-        "value": "string"
+        "value": args
     }
     return jsonify(echo)
 
