@@ -1,0 +1,54 @@
+api는 그냥 사서 쓰세요
+
+
+
+개발 계정 신청이 승인 되었을 경우 인증키를 발급 받을 수 있으며 인증키가 없을 경우 인증키 발급 버튼이 나타나며, 인증키가 발급되어 있을 경우에는 인증키 재발급 버튼이 보인다. 버튼을 클릭하게 되면 인증키가 발급된다.
+ 
+⦁	서비스 인증키 활용
+⦁	REST 방식의 인증키 활용
+http://kosis.kr/kosisapi/service/IndicatorService/IndListSearchRequest?STAT_JIPYO_NM=%EA%B0%95%EC%88%98%EB%9F%89&ServiceKey=인증키
+⦁	SOAP 방식의 인증키 활용
+요청 메시지
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelopexmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:head="http://apache.org/headers" xmlns:soap="http://soap.open.pp.acrc/">
+<soapenv:Header>
+<head:ComMsgHeader>
+<ServiceKey> 인증키</ServiceKey>
+</head:ComMsgHeader>
+</soapenv:Header>
+<soapenv:Body>
+<soap:getOpenProposalList>
+<OpenPropListRequest>
+<nowPageNo>1</nowPageNo>
+<pageMg>2</pageMg>
+< region>5%EC%9B%9420101101</ region>
+<regTo>20101130</regTo>
+</OpenPropListRequest>
+</soap:getOpenProposalList>
+</soapenv:Body>
+</soapenv:Envelope>
+
+
+
+
+
+⦁	[좌표기반근접정류소목록조회] 오퍼레이션 명세
+오퍼레이션 정보	오퍼레이션 번호	2	오퍼레이션명(국문)	좌표기반근접정류소목록조회
+ 	오퍼레이션 유형	조회(목록)	오퍼레이션명(영문)	getCrdntPrxmtSttnList
+ 	오퍼레이션 설명	GPS좌표를 기반으로 근처(반경 500m)에 있는 정류장을 검색한다
+ 	Call Back URL	N/A
+ 	최대 메시지 사이즈	[ 		bytes]
+ 	평균 응답 시간	[ 	500	ms]	초당 최대 트랜잭션	[ 	30	tps]
+
+⦁	요청 메시지 명세
+항목명(영문)	항목명(국문)	항목크기	항목구분	샘플데이터	항목설명
+gpsLati	GPS Y좌표	20	1	36.3	WGS84 위도 좌표
+gpsLong	GPS X좌표	20	1	127.3	WGS84 경도 좌표
+
+⦁	응답 메시지 명세
+항목명(영문)	항목명(국문)	항목크기	항목구분	샘플데이터	항목설명
+gpslati	정류소 Y좌표	20	1	36.293125	WGS84 위도 좌표
+gpslong	정류소 X좌표	20	1	127.30067	WGS84 경도 좌표
+nodeid	정류소ID	30	1	DJB8002011	정류소ID
+nodenm	정류소명	30	1	성북3통	정류소명
+citycode	도시코드	5	1	25	도시코드
