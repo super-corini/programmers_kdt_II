@@ -49,7 +49,7 @@ def get_weapons():
     return jsonify({'weapons': weapons})
 
 # 4. POST /create_weapons 새로운 weapon 을 추가
-@app.route('/create_weapons', methods=['POST'])
+@app.route('/weapons', methods=['POST'])
 def add_weapon():
     req = request.get_json()
     weapon = Weapons(name=req['name'], stock=req['stock'])
@@ -58,7 +58,7 @@ def add_weapon():
     return "The addition has successfully completed."
 
 # 5. PUT /update_weapons 현재 존재하는 weapon 에서 특정 속성(이름, 수량)을 변경
-@app.route('/update_weapons', methods=['PUT'])
+@app.route('/weapons', methods=['PUT'])
 def update_weapon():
     req = request.get_json()
     Weapons.query.filter_by(name=req['name']).update(dict(stock=req['stock']))
@@ -67,7 +67,7 @@ def update_weapon():
 
 
 # 6. DELETE / delete_weapons 현재 존재하는 특정 weapon 을 삭제
-@app.route('/delete_weapons', methods=['DELETE'])
+@app.route('/weapons', methods=['DELETE'])
 def delete_weapon():
     req = request.get_json()
     Weapons.query.filter_by(name=req['name']).delete()
