@@ -38,14 +38,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/day5/day5-mission" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day5\day5-mission" />
+      <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day5" />
       <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day5\day5-mission" />
       <recent name="C:\Users\bluesun\PycharmProjects\programmers\programmers_prac\day5" />
     </key>
   </component>
@@ -73,17 +76,14 @@
       <method v="2" />
     </configuration>
     <configuration name="bicsubi_core" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="programmers_prac" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/day5/day5-mission" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/day5/day5-mission/bicsubi_core.py" />
       <option name="PARAMETERS" value="" />
@@ -141,10 +141,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.bicsubi_core" />
+        <item itemvalue="Python.bicsubi_core" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.model" />
       </list>
     </recent_temporary>
   </component>
