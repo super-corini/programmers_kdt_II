@@ -57,19 +57,19 @@
 	   ```
       {
 		  "weapons": [
-			  {
-				  "name": "AK-47",
-				  "stock": 2
-			  },
-			  {	
-				  "name": "TRG",
-				  "stock": 5
-	        },
-	        {
-		        "name": "FAMAS",
-		        "stock": 1
-		       }
-        ]
+		  	{
+				"name": "AK-47",
+				"stock": 2
+			},
+			{
+				"name": "TRG",
+				"stock": 5
+			},
+			{
+				"name": "FAMAS",
+				"stock": 1
+			}
+		]
        }
        ```
    
