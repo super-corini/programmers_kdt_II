@@ -31,13 +31,13 @@ def home():
 def whoami():
     return jsonify(user_name)
 
-# 2. GET /echo?string="string"
+# 2. GET /echo?string="string" 입력된 string 반환
 @app.route('/echo')
 def echo():
     string = request.args.get('string')
     return jsonify({'value': string})
 
-# 3. GET / 현재 존재하는 weapon 을 확인
+# 3. GET /weapons 현재 존재하는 weapon 을 확인
 @app.route('/weapons')
 def get_weapons():
     weapons = []
@@ -48,7 +48,7 @@ def get_weapons():
         weapons.append(weapon)
     return jsonify({'weapons': weapons})
 
-# 4. POST / 새로운 weapon 을 추가
+# 4. POST /create_weapons 새로운 weapon 을 추가
 @app.route('/create_weapons', methods=['POST'])
 def add_weapon():
     req = request.get_json()
@@ -57,7 +57,7 @@ def add_weapon():
     db.session.commit()
     return "The addition has successfully completed."
 
-# 5. PUT / 현재 존재하는 weapon 에서 특정 속성(이름, 수량)을 변경
+# 5. PUT /update_weapons 현재 존재하는 weapon 에서 특정 속성(이름, 수량)을 변경
 @app.route('/update_weapons', methods=['PUT'])
 def update_weapon():
     req = request.get_json()
@@ -66,7 +66,7 @@ def update_weapon():
     return "The update has successfully completed."
 
 
-# 6. Delete(Delete) 현재 존재하는 특정 weapon 을 삭제
+# 6. DELETE / delete_weapons 현재 존재하는 특정 weapon 을 삭제
 @app.route('/delete_weapons', methods=['DELETE'])
 def delete_weapon():
     req = request.get_json()
