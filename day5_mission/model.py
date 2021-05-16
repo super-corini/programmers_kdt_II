@@ -9,12 +9,12 @@ class Weapons(db.Model):
     name = db.Column(db.String(50), primary_key=True)
     stock = db.Column(db.Integer)
 
-    def get_weapon(self):
-        return [{'name': weapon.weapon, 'stock': weapon.stock} for weapon in Weapons.query.all()]
+    def get_weapon():
+        return [{'name': weapon.name, 'stock': weapon.stock} for weapon in Weapons.query.all()]
 
     def add_weapon(name, stock):
-        weapon = db.session.query(Weapons).filter(Weapons.nama == name).first()
-        if weapon:
+        weapon = db.session.query(Weapons).filter(Weapons.name == name).first()
+        if weapon is not None:
             return '같은 무기를 가지고 있습니다. 다른 무기를 추가해주세요'
         weapon = Weapons(name=name, stock=stock)
         db.session.add(weapon)
@@ -30,7 +30,7 @@ class Weapons(db.Model):
         return {"name": name, "stock": stock}
 
     def delete_weapon(name):
-        weapon = db.session.query(Weapons).filter(Weapons.name == name).first()
+        weapon = db.session.query(Weapons).filter(Weapons.name == name['name']).first()
         if weapon is None:
             return "찾는 무기가 없습니다."
         del_weapon_name = weapon.name
