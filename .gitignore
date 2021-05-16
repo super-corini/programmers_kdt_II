@@ -2,5 +2,8 @@
 *.csv
 *.xlsx
 
+.vscode
 .ipynb_checkpoints
+
 *.pyc
+*.pkl
