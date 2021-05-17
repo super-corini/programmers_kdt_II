@@ -1,0 +1,39 @@
+html,
+body{
+    width:100%;
+    height:100%;
+    margin-top: 0%;
+    margin-left : 0%;
+    font-family: 'Gamja Flower', cursive;
+    background-image : url(../image/bikini_bottom.jpg);
+    background-size: 100%;
+    overflow: hidden;
+}
+
+.flex_container{
+    display:inline-flex;
+    width:80%;
+    height:80%;
+    margin-top:100px;
+    margin-left:200px;
+}
+
+img{
+    width:50%;
+}
+
+.todolist{
+    background-color: #D5F5E3;
+    width:50%;
+}
+
+h1{
+    text-align:center;
+    font-size:2.5vw;
+    margin-bottom:50px;
+}
+
+ul{
+    font-size:2vw;
+    margin-left:30px;
+}
