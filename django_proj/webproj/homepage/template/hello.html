@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>1분 자기소개</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+</head>
+
+<body>
+    <h1><a href="">이름 : {{my_name}}</a></h1>
+    <h1><a href="/">나이 : {{my_age}}</a></h1>
+    <h1>사는지역 : {{my_living_area}}</h1>
+
+
+    <p>나는 지금 django를 연습중이야. 처음 해보는 거라 매우 어려워. render를 return하는 것을 깜박해서 30분을 날렸지...</p>
+    <p>보너스 과제도 한번 해볼까해.</p>
+    <p>바이!</p>
+    <li> 이건 태그 선택자야</li>
+    <li id="select">id 선택자는 #을 쓰네 태그 안에서도 더 세부화되서 나눠지나봐</li>
+    <li class="deativate">클래스선택자래 이건 .으로 표현하네. 이건 li야</li>
+    <h1 class="deativate">클래스는 서로 다른 태그에도 적용가능해. 이건 h1이야</h1>
+    <p>class는 그룹별이고 그룹안에 각 개인은 id. 이 웹페이지에서 id가 select가 나왔다면 다시는 select라는 것을 설정하면 안돼. 일종의 약속이야.</p>
+</body>
+</html>
