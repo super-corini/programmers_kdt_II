@@ -1,0 +1,41 @@
+#active{
+    color: red;
+    text-decoration: none;
+}
+
+.saw{
+    color: gray;
+    text-decoration: none;
+}
+
+a{
+    color: blue;
+    text-decoration: none;
+}
+
+h1{
+    color : purple;
+    font-size : 40px;
+    text-align : center;
+    border-bottom : 1px solid gray;
+    margin : 0px;
+    padding : 20px;
+    text-shadow: #FC0 1px 0 10px;
+}
+
+h2{
+    font-size : 28px;
+    color : green;
+}
+
+nav{
+    border-right : 1px solid gray;
+    width : 200px;
+    margin : 0;
+}
+
+#grid{
+    border : 5px solid blue;
+    display : grid;
+    grid-template-columns: 300px 1fr;
+}

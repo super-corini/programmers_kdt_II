@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Coffee_list</title>
+    </head>
+    <body>
+        <h1> Coffee_list</h1>
+        {% for coffee in coffee_list %}
+            <p>{{ coffee.name }}, {{ coffee.price }}</p>
+        {% endfor %}
+
+        <h2> Options</h2>
+        <h3> To create Menu</h3>
+        <p>  coffee/create에 접속</p>
+        <h3> To update Menu</h3>
+        <p> coffee/update/(메뉴이름)에 접속</p>
+        <h3> To delete Menu</h3>
+        <p> delete/update/(메뉴이름)에 접속</p>
+
+    </body>
+</html>

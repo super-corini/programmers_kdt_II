@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About Myself</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>About Myself </h1>
+    <div id="grid">
+        <nav>
+            <li><a href = "/index" title="Main" class="saw">Main</a></li>
+            <li><a href = "/intro" title="Intro" class="saw">Intro</a></li>
+            <li><a href = "/interests" title="Interests" class="saw" id="active">Interests</a></li>
+        </nav>
+
+        <div>
+            <h2> Programming </h2>
+            <ul>
+                <li> Data Analysis </li>
+                <li> Algorithm, Specially Mathematical and Combinatorial Problems</li>
+            </ul>
+            <h2> Activities </h2>
+            <table border="1">
+                <th>Board Games</th>
+                <th>Puzzle and Sudoku</th>
+                <tr>
+                    <th><img src="/static/image/boardgame.jpg" alt="boardgame" width="300"></th>
+                    <th><img src="/static/image/sudoku.jpg" alt="sudoku" width="300"></th>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    </body>
+</html>
