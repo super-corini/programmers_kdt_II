@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coffee Stock List</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+        <h1>Coffee Stock List</h1>
+        <div id="content">
+            <ul>
+            {% for coffeebeen in coffee_stock_list %}
+                <li>{{ coffeebeen.name }} : {{ coffeebeen.stock }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    font-size: 72px;
+}
+
+#grid{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#nav{
+    text-align: center;
+    font-size: large;
+}
+
+#article{
+    font-size: large;
+    padding: 10%;
+}
+
+#links{
+    padding-top: 10%;
+}
+
+#content{
+    font-size: large;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-content: center;
+}
