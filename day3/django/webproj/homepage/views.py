@@ -4,6 +4,6 @@ from django.shortcuts import HttpResponse, render
 
 def index(request):
     number=10
-    return render(request,'index.html',{"my_num":number})
+    return render(request,'index.html')
 
 
