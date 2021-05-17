@@ -1,12 +1,4 @@
-# Day 3 - Django로 자기소개 페이지 만들기
+# Day 3 - EDA II
 
-### 필수 과제 : 아이엠 그라운드 자기소개 하기
-
-- 다음 요청을 처리하는 웹 어플리케이션을 제작해주세요.
-- `GET /` → **자기소개 웹 페이지**를 Response
-    - 이 페이지는 HTML을 이용해서 여러분이 원하는 내용을 작성해주세요.
-
-### 보너스 과제 : ⭐️아이😊엠 그라운드⛳️ 자기💁‍♀️소개💁‍♂️ 하기⭐️
-
-- CSS나 JavaScript를 이용해 자신의 웹 페이지를 더욱 멋있게 만들 수 있습니다. HTML으로만 된 밋밋한 자기소개 페이지를 꾸며봅시다.
-- 이들을 사용하기 위해선 이 파일들이 담긴 경로를 [STATIC_URL](https://docs.djangoproject.com/en/3.1/howto/static-files/)을 이용해 지정해주어야합니다.
+## Mission: It's Your Turn!
+1. titanic data에서 본문에서 언급된 Feature를 제외하고 유의미한 Featurefmf 1개 이상 찾아봅시다.
