@@ -1,5 +1,6 @@
 # [Week4 - Day5] Bicsubi Extra API
-
+  - pip install -r requirements.txt
+  
 ## GET /weather
   - Do : IP 주소에 기반한 현재 위치의 날씨를 출력
   - return : weather_info
