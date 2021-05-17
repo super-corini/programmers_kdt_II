@@ -1,0 +1,21 @@
+.name h1 {
+    color: #333333;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: Georgia, serif;
+}
+
+h2 {
+    color: blue;
+}
+
+.birth {
+    color: red;
+    font-size: 10pc;
+}
+
+.whoami h3 {
+    color:darkred;
+    font-size: 30pc;
+    font-family: 'Times New Roman', Times, serif;
+}
