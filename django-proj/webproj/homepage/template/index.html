@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python django example</title>
+
+    </head>
+
+    <body>
+        <h1>Title</h1>
+        <p>blah blah blah</p>
+        <p>{{ my_name }}</p>
+        <!--필터-->
+        <p>{{ my_name | upper}}</p>
+        <p>{{ my_name | length}}</p>
+        
+        <!--템플릿 테그-->
+        {% for element in my_list %}
+            {% if element|divisibleby:"2" %}
+                <p>{{element}}</p>
+            {% endif %}
+        {% endfor %}
+
+        {% for element in my_list %}
+            {% if not element|divisibleby:"2" %}
+                <p>{{element}}</p>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
