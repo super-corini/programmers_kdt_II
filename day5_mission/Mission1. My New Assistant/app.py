@@ -23,7 +23,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SECRET_KEY'] = 
 
 # DB 설정
-db = SQLAlchemy()
 db.init_app(app)
 db.app = app
 db.create_all()
@@ -33,7 +32,7 @@ db.create_all()
 
 @app.route('/')
 def hello_flask() :
-    return "Hello World"
+    return "Hello! Search for weapons"
 
 @app.route('/whoami')
 def get_github_id() : #{
@@ -53,7 +52,9 @@ def search_weapon_by_name(name) :
 
 def show_weapons() : #{
     weapons = []
+    print(Weapon)
     queries = Weapon.query
+    print(queries)
     for q in queries :
         weapons.append({'name':q.name, 'stock':q.stock})
 
@@ -64,17 +65,20 @@ def show_weapons() : #{
 @app.route('/weapons')
 @app.route('/weapons/read')
 def read(): #{
-    return jsonify({"wapons":show_weapons()})
+    show_weapons()
+    return jsonify({"weapons":show_weapons()})
 #}
 
 ## Create
 @app.route('/weapons/create', methods=["POST"])
-def create_menu() : #{
+def create_weapon() : #{
     request_data = request.get_json()
+    print(request_data)
 
     if 'name' in request_data and 'stock' in request_data : #{
-        if search_weapon_by_name(requeste_data['name']) == None : #{
-            new_weapon = Weapon(requeste_data['name'], requeste_data['stock'])
+        if search_weapon_by_name(request_data['name']) == None : #{
+            print("create_new")
+            new_weapon = Weapon(request_data['name'], request_data['stock'])
             db.session.add(new_weapon)
             db.session.commit()
         #}
@@ -86,13 +90,13 @@ def create_menu() : #{
 #}
 
 ## Update : 해당하는 name의 stock update
-@app.route('/weapons/update/<str:name>', methods=["PUT"])
-def update_menu(name) : #{
+@app.route('/weapons/update/<string:name>', methods=["PUT"])
+def update_weapon(name) : #{
     request_data = request.get_json()
 
-    if search_weapon_by_name(requeste_data['name']) != None :
+    if search_weapon_by_name(name) != None :
         if 'stock' in request_data :
-            db.session.query(Weapon).filter(Weapon.name==requeste_data['name']).update({'stock':request_data['stock']})
+            db.session.query(Weapon).filter(Weapon.name==name).update({'stock':request_data['stock']})
             db.session.commit()
         else : print('stock is not given in the request')
     else : print(f'weapon name={name} does not exist in Weapon Table')
@@ -101,15 +105,15 @@ def update_menu(name) : #{
 #}
 
 ## DELETE : 해당하는 name에 해당하는 데이터를 삭제
-@app.route('/weapons/delete/<str:name>', methods=["DELETE"])
-def delete_menu(name) : #{
+@app.route('/weapons/delete/<string:name>', methods=["DELETE"])
+def delete_weapon(name) : #{
 
-    if search_weapon_by_name(requeste_data['name']) != None :
+    if search_weapon_by_name(name) != None :
         db.session.query(Weapon).filter(Weapon.name == name).delete()
         db.session.commit() 
     else : print(f'weapon name={name} does not exist in Weapon Table')
 
-    return jsonify({"weapons":show_weapon()})
+    return jsonify({"weapons":show_weapons()})
 #}
 
 
