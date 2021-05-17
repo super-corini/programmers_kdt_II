@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/mintybootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <title>♬  ♪</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project' %}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'interests' %}">Interests
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+
+<center>
+    <h1>🎈 My Interests 🎈</h1>
+    <br>
+    <img src="{% static 'img/flower_snoopy.gif' %}" width="10%">
+    <br><br><br>
+    <img src="{% static 'img/interests.png' %}" width="50%">
+    <br><br>
+</center>
+<div>
+
+</div>
+</body>
+</html>
