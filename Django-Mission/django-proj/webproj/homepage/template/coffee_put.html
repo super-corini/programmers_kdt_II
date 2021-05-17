@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coffee Stock List</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+        <h1>Update Coffee</h1>
+        <div id="content">
+            <p>You are changing {{ coffee_stock_get }}</p>
+            <form method="POST">{% csrf_token %}
+                {{ coffee_been_form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

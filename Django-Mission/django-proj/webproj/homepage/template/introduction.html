@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Introduction Page</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+        <h1>Who Am I?</h1>
+        
+        <div id="grid">
+            <div id="profileimg">
+                <p><img src='https://ifh.cc/g/jIkhxa.png' border='0'></p>
+            </div>
+
+
+            <div id="article">
+                <div>
+                <p><b>Here's my information</b></p>
+                <p>
+                    My name is {{ name }}.<br>
+                    My coding level is {{ level }}.<br>
+                    I'm trying to {{ status }}.<br>
+                    And I'm belong to {{ belong_to }}.
+                </p>
+                </div>
+                <div>
+                <p id="links">
+                    <b>Find Me Here</b>
+                </p>
+                <ul>
+                    <li><a href="https://www.notion.so/4109ea42a5af4452ab23a4ab02bb55f1">My Blog</a></li>
+                    <li><a href="https://github.com/DongIk-Jang/programmers_kdt_II">My GitHub</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
