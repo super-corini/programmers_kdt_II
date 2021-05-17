@@ -8,3 +8,12 @@ class Coffee(models.Model):
     name = models.CharField(default="", max_length=30)
     price = models.IntegerField(default=0)
     is_ice = models.BooleanField(default=False)
+
+
+class Burger(models.Model):
+    def __str__(self):
+        return self.name
+
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(default="", max_length=30)
+    price = models.IntegerField(default=1000)

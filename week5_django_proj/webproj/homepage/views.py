@@ -1,10 +1,18 @@
-from django.shortcuts import HttpResponse, render
+from django.shortcuts import HttpResponse, render, redirect, get_object_or_404
 from .models import Coffee
+from .models import Burger
 from .forms import CoffeeForm
+from .forms import BurgerForm
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt 
+import json
+from django.core.serializers import serialize
+
 
 # Create your views here.
 def about(request):
     return render(request, 'about.html', {})
+
 
 def index(request):
     num = 17
@@ -24,3 +32,33 @@ def coffee_view(request):
             form.save() # 이 Form 내용을 Model에 저장 | forms.py에 Meta에 정의해두었기 때문에 가능하다.
     form = CoffeeForm()
     return render(request, 'coffee.html', {"coffee_list": coffee_all, "coffee_form": form})
+
+
+def burgers_view_unorded(request):
+    burger_all = Burger.objects.all()
+
+    if request.method == "POST"    :
+        form = BurgerForm(request.POST) 
+        if form.is_valid():
+            form.save()
+    form = BurgerForm()
+    return render(request, 'burger.html', {"burger_list": burger_all, "burger_form": form})
+
+
+@csrf_exempt
+def burgers_post_delete(request, pk):
+    try: 
+        burger = Burger.objects.get(pk=pk) 
+    except burger.DoesNotExist: 
+        return get_object_or_404(Burger, pk=pk)
+    
+    if request.method == 'PUT':
+        if Burger.objects.get(pk=pk):
+            data = json.loads(request.body)
+            burger.name, burger.price = data['name'], data['price']
+            burger.save()
+            return redirect(burgers_view_unorded)
+
+    elif request.method == 'DELETE':
+        burger.delete()
+        return redirect(burgers_view_unorded)

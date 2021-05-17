@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>burger List</title>
+    </head>
+
+    <body>
+        <h1>My burger List</h1>
+        {% for burger in burger_list %}
+            <li>id: {{ burger.id }}, {{ burger.name }}: \{{ burger.price }}</li>
+        {% endfor %}
+
+        <h1>add Burger</h1>
+        <form method="POST"> {% csrf_token %}
+            {{ burger_form.as_p }}
+            <button type="add burger">Add</button>
+
+        
+
+    </body>
+</html>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
