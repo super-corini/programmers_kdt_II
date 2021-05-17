@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Python django example</title>
+    </head>
+
+    <body>
+        <h1>
+            <p style=font-size:30px>&#11088;아이&#128128;엠 그라운드&#128052;자기&#128587;소개&#128582;하기&#11088;</p>
+        </h1>
+        <!-- <p>blah blah blah</p>
+        <p>{{ my_name|upper }}</p> -->
+        <ul>
+        {% for element in intro_list %}
+            <!-- {% if not element|divisibleby:"2" %} -->
+            <p>{{ element }}</p>
+            <!-- {% endif %} -->
+        {% endfor %}
+        </ul>
+    </body>
+
+</html>
