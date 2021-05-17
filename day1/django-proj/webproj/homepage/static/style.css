@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  list-style: none;
+}
+h1,
+ul {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+header {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+
+header > h1 {
+  vertical-align: middle;
+  line-height: 70px;
+}
+
+.info {
+  text-align: center;
+}
+@media screen and (min-width: 996px) {
+  body {
+    width: 80%;
+  }
+}
