@@ -75,5 +75,55 @@ def delete_weapon():
 
     return "The deletion has successfully completed."
 
+
+# ip 주소 바탕으로 위도 경도 얻기
+import json
+from urllib.request import urlopen
+from requests import get
+
+def get_location():
+    ip = get("https://api.ipify.org").text
+    print("My public IP address : ", ip)
+    request = "http://geolocation-db.com/json/%s" % (ip)
+
+    with urlopen(request) as url:
+        data = json.loads(url.read().decode())
+    res = float(data['latitude']), round(float(data['longitude']), 4)
+    print(res)
+    return res
+
+from pyowm.owm import OWM
+
+#위도, 경도 바탕으로 날씨 정보 얻기
+@app.route('/weather')
+def get_weather():
+    location = get_location()
+    API_key = os.getenv('OWM_API_KEY')
+
+    owm = OWM(API_key)
+    mgr = owm.weather_manager()
+    obs = mgr.weather_at_coords(location[0], location[1])
+    location_weather = obs.weather
+    location_temperature = location_weather.temperature('celsius')
+    location_status = location_weather.status
+    return jsonify({'temperature': location_temperature, 'weather': location_status})
+
+'''
+# Python 샘플 코드 #
+
+
+from urllib2 import Request, urlopen
+from urllib import urlencode, quote_plus
+
+url = 'http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList'
+queryParams = '?' + urlencode({ quote_plus('ServiceKey') : '서비스키', quote_plus('gpsLati') : '36.3', quote_plus('gpsLong') : '127.3' })
+
+request = Request(url + queryParams)
+request.get_method = lambda: 'GET'
+response_body = urlopen(request).read()
+print response_body
+
+'''
+
 if __name__ == '__main__':
     app.run()
