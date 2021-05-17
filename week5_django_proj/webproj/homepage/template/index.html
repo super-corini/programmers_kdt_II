@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python django example</title>
+    </head>
+
+    <body>
+        <h1>Title</h1>
+        <p>Hello django!!!</p>
+
+        <h2>variable</h2>
+        <p>the number is {{ my_num }}</p>
+
+        <h2>Template filter</h2>
+        <p>my name is {{ my_name }} !!</p>
+        <p>{{ my_name }}'s length: {{ my_name|length}} </p>
+        <p>{{ my_name }}'s upper case: {{ my_name|upper }} </p>
+
+        <h2>Template Tag</h2>
+        <h3>for tag</h3>
+        {% for element in my_list %}
+            <p>{{ element }}</p>
+        {% endfor %}
+
+        <h3>if tag</h3>
+        {% for element in my_list %}
+            {% if not element|divisibleby:"2" %}
+                <p>{{ element }}</p>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>

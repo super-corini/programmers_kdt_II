@@ -1,0 +1,31 @@
+header {
+    position:fixed;
+    left:0px;
+    top:0px;
+    height:60px;
+    width:100%;
+    background:#d3fffd;
+    color: white;
+}
+
+footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:#d3fffd;
+    color: rgb(12, 12, 12);
+}
+
+p {
+    text-align: center;
+}
+
+section {
+    margin-top:60px;
+    margin-bottom:60px;
+}
+
+body {
+    text-align: center;
+    color:rgb(0, 0, 0);
+}

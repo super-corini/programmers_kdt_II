@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script type="text/javascript" src="{% static 'js/about.js' %}"></script>
+    <title>About Me</title>
+</head>
+<body>
+    <div>
+        <header>
+            <div>
+                <p>
+                    <a href="/">illstandtall</a>
+                </p>
+
+            </div>
+        </header>
+        <div>
+            <section>
+                <p>
+                    <img src="{% static 'img/cat.jpg' %}" width="500"/>
+                </p>
+            </section>
+            <section>
+                <div>
+                    <h1>
+                        <a href="" class="typewrite" data-period="2000" data-type='[ 
+                            "죽는 날까지 하늘을 우러러", 
+                            "한 점 부끄럼이 없기를.", 
+                            "잎새에 이는 바람에도", 
+                            "나는 괴로워 했다.",
+                            "별을 노래하는 마음으로",
+                            "모든 죽어가는 것을 사랑해야지.",
+                            "그리고 나에게 주어진 길을",
+                            "걸어가야겠다.",
+                            "",
+                            "오늘 밤에도 별이 바람에 스치운다."
+                        ]'>
+                        <span class="wrap"></span>
+                        </a>
+                    </h1>
+                </div>
+            </section>
+            <section>
+                <p>
+                    <a href="https://codepen.io/hi-im-si/pen/DHoup">JS typewriter Source</a>
+                </p>
+            </section>
+        </div>
+        <footer>
+            <div>
+                <p>Name: 이민혁</p>
+                <p>E-mail: illstandtall@gmail.com</p>
+                <p>Github: 
+                    <a href="https://github.com/illstandtall">https://github.com/illstandtall</a>
+                </p>
+                <p>Blog: 
+                    <a href="https://velog.io/@illstandtall">https://velog.io/@illstandtall</a>
+                </p>
+            </div>
+            
+        </footer>
+    </div>
+</body>
+</html>
