@@ -5,12 +5,12 @@
     </head>
 
     <body>
-        <h1>My Burger List</h1>
+        <h1>My Burger Menu</h1>
         {% comment %} <p>{{ burger_list }}</p> {% endcomment %}
 
         <ul>
             {% for burger in burger_list %}
-                <li>{{ burger.name }}</li>
+                <li>{{ burger.name }}, {{ burger.price }}, {{ burger.stock }}</li>
             {% endfor %}
         </ul>
 

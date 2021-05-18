@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from iamground.views import intro
-from stock_management.views import show_burgers
+import stock_management.views as sm_views  #import show_burgers, create_burger
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', intro),
-    path('burgers/', show_burgers),
+    path('burgers/read', sm_views.show_burgers, name='read_burger'),
+    path('burgers/', sm_views.create_burger, name='create_burger'),
+    path('burgers/<int:pk>', sm_views.update_burger, name='update_burger'),
 ]
