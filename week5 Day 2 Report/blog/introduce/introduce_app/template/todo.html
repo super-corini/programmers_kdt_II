@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>TodoList</title>
+</head>
+<body>
+    <div class = flex_container>
+        <div class=todolist>
+        <h1>TO DO LIST</h1>
+            <ul>
+                <li>저만의 게임을 만들어 보고 싶어요!</li>
+                <br>
+                <li>거기서 더 나아가서 저의 게임에 강화학습 인공지능 모델을 만들어서 혹은 API를 활용해 적용해보고 싶어요!</li>
+                <br>
+                <li>AI를 적용시킨 어플리케이션을 개발해보고 싶어요!</li>
+                <br>
+                <li>인턴 혹은 취직하고 싶어용...😭</li>
+            </ul>
+        </div>
+        {% load static %}
+        <img src = "{% static 'image/draw_up_list.gif' %}" alt="spongebob">
+    </div>
+</body>
+</html>

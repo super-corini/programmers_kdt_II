@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/burger.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>Burger List</title>
+</head>
+<body>
+    <div class="menu_board">
+        <div class="board">
+            <div class="menu">
+                {% for burger in burger_list %}
+                <ul>
+                    <li>{{burger.id}}&nbsp;&nbsp;&nbsp;{{burger.name}}&nbsp;&nbsp;&nbsp;{{burger.price}}</li>
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="form">
+                <p>메뉴를 추가해주세요</p>
+                <form method="POST">{% csrf_token %}
+                    {{burger_form.as_p}}
+                    <button type='submit'>Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <img src = "{% static 'image/krusty_krab_spongebob.png' %}" alt="spongebob">
+</body>
+</html>

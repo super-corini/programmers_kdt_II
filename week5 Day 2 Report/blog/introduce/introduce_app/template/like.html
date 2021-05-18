@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/like.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <title>What I like</title>
+</head>
+<body>
+    <div class="flex_container">
+        {% load static %}
+        <img src = "{% static 'image/game.gif' %}" alt="spongebob">
+        <img src = "{% static 'image/singing.gif' %}" alt="spongebob">
+        <img src = "{% static 'image/art.gif' %}" alt="spongebob">
+    </div>
+    <div class="text_container">
+        <div class="text">게임🎮</div>
+        <div class="text">노래🎤</div>
+        <div class="text">전시회 관람🎨</div>
+    </div>
+    <div class="flex_container">
+        {% load static %}
+        <img src = "{% static 'image/eating.gif' %}" alt="spongebob">
+        <img src = "{% static 'image/drink.gif' %}" alt="spongebob">
+        <img src = "{% static 'image/trip.gif' %}" alt="spongebob">
+    </div>
+    <div class="text_container">
+        <div class="text">맛집 탐방🤤</div>
+        <div class="text">맛있는 술 마시기!🍸</div>
+        <div class="text">여행🚗</div>
+    </div>
+</body>
+</html>
