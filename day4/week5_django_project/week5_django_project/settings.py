@@ -59,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
              os.path.join(BASE_DIR, "iamground", "template"),
+             os.path.join(BASE_DIR, "stock_management", "template"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {

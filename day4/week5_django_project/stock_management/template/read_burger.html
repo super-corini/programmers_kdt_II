@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burger List</title>
+    </head>
+
+    <body>
+        <h1>My Burger List</h1>
+        {% comment %} <p>{{ burger_list }}</p> {% endcomment %}
+
+        <ul>
+            {% for burger in burger_list %}
+                <li>{{ burger.name }}</li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>

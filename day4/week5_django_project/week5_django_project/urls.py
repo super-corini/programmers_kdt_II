@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from iamground.views import intro
+from stock_management.views import show_burgers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', intro)
+    path('', intro),
+    path('burgers/', show_burgers),
 ]
