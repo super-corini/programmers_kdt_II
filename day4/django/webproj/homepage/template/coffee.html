@@ -9,5 +9,9 @@
         {% for c in coffee_list %}
             <p>{{c.name}},{{c.price}}</p>
         {% endfor %}
+        <form method="POST"> {% csrf_token %}
+            {{coffee_form.as_p}}
+            <button type="submit"> Save </button>
+        </form>
     </body>
 </html>
