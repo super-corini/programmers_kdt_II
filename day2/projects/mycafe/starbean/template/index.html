@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Day 2 - Django로 동적 웹 페이지 만들기</title>
+</head>
+
+<body>
+    <h2>About ME</h2>
+    <ul>
+        <li><b>NAME</b><span class="tab">&#9;</span>{{ name }}</li>
+        <li><b>E-MAIL</b><span class="tab">&#9;</span>{{ email }}</li>
+        <li><b>MAJORS</b><span class="tab">&#9;</span>
+            {% for major in majors %}
+                {{ major }}　
+            {% endfor %}
+        </li>
+        <li><b>SKILLS</b><span class="tab">&#9;</span>
+            {% for skill in skills %}
+                {{ skill }}　
+            {% endfor %}
+        </li>
+        <li><b>STUDYING</b><span class="tab">&#9;</span>
+            {% for study in studying %}
+                {{ study }}　
+            {% endfor %}
+        </li>
+    </ul>
+</body>
+
+</html>

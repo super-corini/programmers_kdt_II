@@ -1,0 +1,18 @@
+.tab {
+    white-space: pre;
+}
+
+h2 {
+    padding: 16px 24px;
+    margin: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+li {
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    border-bottom: 1px solid #efefef;
+    list-style-type: square;
+}
