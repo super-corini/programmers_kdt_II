@@ -1,0 +1,30 @@
+<!-- templates폴더 안에 html 있어야함 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Menus</title>
+    <style>
+      section {
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+      }
+    </style>
+</head>
+<body>
+    <h1>Cafe Menus</h1>
+    <section>
+      <h4>ID</h4>
+      <h4>Name</h4>
+      <h4>Price</h4>
+      {% for menu in menus %}
+      <span>{{menu.id}}</span>
+      <span>{{menu.name}}</span>
+      <span>{{menu.price}}</span>
+      {% endfor %}
+    </section>
+</body>
+</html>

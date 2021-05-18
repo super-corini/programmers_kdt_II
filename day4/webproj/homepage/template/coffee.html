@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+</head>
+<body>
+    <h1>My Coffee List</h1>
+    <ul>
+        {% for coffee in coffee_list %}
+        <a href="./{{coffee.id}}">
+        <li>
+            {{coffee.name}}, {{coffee.price}}
+            {% if coffee.is_ice == True %} 
+                ICE
+            {% endif %}
+        </li>
+        </a>
+        {% endfor %}
+    </ul>
+
+    <form method="POST" style="margin-top: 50px;" action="/coffee/"> {% csrf_token %}
+        <h3>New Coffee Menu</h3>
+        {{coffee_form.as_p}}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

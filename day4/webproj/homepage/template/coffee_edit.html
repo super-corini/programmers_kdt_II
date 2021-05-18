@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style_edit.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>Primary Key : {{coffee_select.id}}</li>
+        <li>Name : {{coffee_select.name}}</li>
+        <li>Price : {{coffee_select.price}}</li> 
+        <li> Is ice? : {{coffee_select.is_ice}}</li>
+    </ul>
+
+
+   <h3>Edit {{coffee_select.name}}</h3>
+
+    <form method="POST"> {% csrf_token %}
+            {{coffee_form.as_p}}
+            <input type="hidden" name="_method" value="PUT">
+            <input class="btn" type="submit" value="Update">
+    </form>
+
+    <form method="POST"> {% csrf_token %}
+        <input type="hidden" name="_method" value="DELETE">
+        <input class="btn" type="submit" value="Delete">
+    </form>
+
+</body>
+</html>
