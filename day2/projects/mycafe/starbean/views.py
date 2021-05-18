@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Coffees
+
 
 def index(request):
     info = {
@@ -10,3 +12,9 @@ def index(request):
         "studying": ["Statistics and Data Science", "AI"]
     }
     return render(request, 'index.html', info)
+
+
+def coffee_list(request):
+    coffees = Coffees.objects.all()
+    context = {'coffee_list': coffees}
+    return render(request, 'coffee.html', context)

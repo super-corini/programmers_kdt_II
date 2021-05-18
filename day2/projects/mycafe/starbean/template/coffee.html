@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>필수 과제 : 재고 관리 List 구현하기</title>
+</head>
+
+<body>
+    <h2>Coffee Inventory List</h2>
+    <ul>
+        {% for item in coffee_list %}
+        <li>{{ item.drink }}<span class="tab">&#9;&#9;</span>{{ item.stock }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
