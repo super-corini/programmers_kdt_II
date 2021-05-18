@@ -1,1 +1,1 @@
-![django12](G:\[BigData] 데브스쿨 2기\programmers\week5\day2\django12.png)
+![django12](./django12.png)
