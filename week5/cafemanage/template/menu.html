@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+        <title>Coffee manage tools</title>
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "control">
+                <form>
+                    <select name="method_sel" id="MS">
+                        <option value="post">POST</option>
+                        <option value="put">PUT</option>
+                    </select>
+                </form>
+                <div class = "tab on" id = "post">
+                    <h1>CREATE Coffee Menu</h1>
+                    <form method="POST">{% csrf_token %}
+                        {{coffee_form.as_p}}
+                        <button type = "submit">POST</button>
+                    </form>
+                </div>
+                <div class = "tab off" id = 'put'>
+                    <h1>CHANGE Coffee Menu</h1>
+                    <form class = "put" action="/coffee/put/">
+                        <div class = "items">
+                            메뉴
+                            <select name = 'name'>
+                                {% for coffee in coffee_list %}
+                                <option value="{{coffee.name}}">{{coffee.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class = "items">
+                            가격
+                            <input type = "number" name="price">
+                        </div>
+                        <button type = "submit">PUT</button>
+                    </form>
+                </div>
+            </div>
+            <div class = "list">
+                <h1>Coffee list</h1>
+                {% for coffee in coffee_list %}
+                    <div class = "inner_list">
+                        <p>{{coffee.name}}</p>
+                        <p>{{coffee.price}}</p>
+                        <button onclick="location.href='{{coffee.name}}'">DELETE</button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src = "{% static 'js/select.js' %}"></script>
+    </body>
+</html>

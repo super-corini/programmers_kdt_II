@@ -1,0 +1,38 @@
+body{
+	margin-top: 100px;
+	font-family: 'Trebuchet MS', serif;
+	line-height: 1.6;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.inner_list{
+    display: grid;
+    grid-template-columns: 1fr 100px 70px;
+}
+
+.tab.off{
+    display: none;
+}
+
+.tab.on{
+    display: inherit;
+}
+
+.put{
+    width: 200px;
+    display: grid;
+    row-gap: 10px;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+}

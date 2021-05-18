@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>Django tutorial</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Kyubum Shin 입니다</h1>
+            <ul class = "tabs">
+                <li class = "tab-link current" data-tab = "tab-1">자기소개</li>
+                <li class = "tab-link" data-tab = "tab-2">링크</li>
+                <li class = "tab-link" data-tab = "tab-3">커피</li>
+            </ul>
+            <div id = "tab-1" class="tab-content current">
+                안녕하세요
+            </div>
+            <div id = "tab-2" class="tab-content">
+                <div class = "grid-container">
+                    <div class = "item">깃허브 : </div>
+                    <div class = "item"><a href="https://github.com/KyubumShin" target = "깃허브"><img src="/static/image/GitHub-Mark-64px.png"></a></div>
+                    <div class = "item">깃블로그 :</div>
+                    <div class = "item"><a href="https://kyubumshin.github.io/" target = "깃허브"><img src="/static/image/Octocat.png" width="64"></a></div>   
+                </div>
+            </div>
+            <div id = "tab-3" class="tab-content">
+                보노보노를 누르면 커피로 이동합니다
+                <a href="/coffee"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" alt=""></a>
+            </div>
+        </div>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src = "{% static 'js/tab.js' %}"></script>
+    </body>
+</html>
