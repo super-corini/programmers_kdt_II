@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fruit List</title>
+    </head>
+
+    <body>
+        <h1>Fruit List</h1>
+        <h2>Fruit stock</h2>
+        {% for fruit in fruit_list %}
+            <li>{{fruit.name}} : {{fruit.stock}}</li>
+        {% endfor %}
+        <h3>---Add New Fruit---</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ fruit_form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </body>
+</html>
