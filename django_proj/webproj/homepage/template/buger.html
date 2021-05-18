@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BugerMaterieal List</title>
+    </head>
+
+    <body>
+        <h1>My BugerMaterieal List</h1>
+        {% for buger in bugermaterial_list %}
+            <p>종류 : {{buger.type}}</p>
+            <p>재고 수 : {{buger.stock}}</p>
+        {% endfor %}
+        <form method ='POST'>{% csrf_token %}
+            {{bugermaterial_form.as_p}}
+            <button type="submit">save</button>
+
+        </form>
+    </body>
+</html>

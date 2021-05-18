@@ -18,10 +18,14 @@ from django.urls import path
 
 from homepage.views import index
 from homepage.views import hello
+from homepage.views import coffee_view
+from homepage.views import buger_manage
 
 urlpatterns = [
     path('', index), #127.0.0.1/
     path('admin/', admin.site.urls),#127.0.0.1/admin
-    path('GET/',hello)
+    path('GET/',hello),
+    path('coffee/',coffee_view),
+    path('buger/',buger_manage),
 
 ]
