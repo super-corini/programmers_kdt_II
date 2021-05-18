@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Day 1 - Django로 자기소개 페이지 만들기</title>
+</head>
+
+<body>
+    <h2>About ME</h2>
+    <ul>
+        <li>NAME　{{ name }}</li>
+        <li>EMAIL　{{ email }}</li>
+        <li>MAJORS　
+            {% for major in majors %}
+                {{ major }}　
+            {% endfor %}
+        </li>
+        <li>SKILLS　
+            {% for skill in skills %}
+                {{ skill }}　
+            {% endfor %}
+        </li>
+        <li>STUDYING　
+            {% for study in studying %}
+                {{ study }}　
+            {% endfor %}
+        </li>
+    </ul>
+</body>
+
+</html>
