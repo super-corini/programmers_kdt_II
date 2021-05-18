@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coffees</title>
+    </head>
+
+    <body>
+        <h1>Selected Coffee</h1>
+        {% if coffee.is_ice %}
+        <p>{{ coffee.name }}, {{ coffee.price }}, Ice</p>
+        {% else %}
+        <p>{{ coffee.name }}, {{ coffee.price }}, Hot</p>
+        {% endif %}
+
+        <h1>Delete This Coffee</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </body>
+</html>
