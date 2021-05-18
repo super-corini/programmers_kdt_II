@@ -1,1 +1,1 @@
-![result](django5.png)
+![result](./django5.png)
