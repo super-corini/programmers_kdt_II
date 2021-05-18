@@ -10,15 +10,19 @@
     <h1>My Coffee List</h1>
     <ul>
         {% for coffee in coffee_list %}
+        <a href="./{{coffee.id}}">
         <li>
             {{coffee.name}}, {{coffee.price}}
             {% if coffee.is_ice == True %} 
                 ICE
             {% endif %}
         </li>
+        </a>
         {% endfor %}
     </ul>
-    <form method="POST"> {% csrf_token %}
+
+    <form method="POST" style="margin-top: 50px;" action="/coffee/"> {% csrf_token %}
+        <h3>New Coffee Menu</h3>
         {{coffee_form.as_p}}
         <button type="submit">Save</button>
     </form>

@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index, coffee_view
+from homepage.views import index, coffee_view, coffee_edit
 
 
 urlpatterns = [
     path('',index), #127.0.0.1
     path('coffee/',coffee_view), #127.0.0.1/coffee
+    path('coffee/<int:pk>',coffee_edit), # 127.0.0.1/<pk>
     path('admin/', admin.site.urls), #127.0.0.1/admin
 ]
