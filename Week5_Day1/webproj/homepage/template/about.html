@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About Me(about)</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>About Me(Introduction)</h1>
+    <div class="wrapper">
+        <div class="one"><h2>보너스 과제 : ⭐️아이😊엠 그라운드⛳️ 자기💁‍♀️소개💁‍♂️ 하기⭐️</h2></div>
+            <div class="two">
+                <h2>About Myself</h2>
+                    <p>이름 : {{myname_kor}}</p>
+                    <p>Name : {{myname_eng}}</p>
+                    <p>Birth Date : {{birth_date}} ({{age}})</p>
+                    <p><a href = "https://github.com/junyup2" target="_blank" title="Github">Github Link</a></p>
+            </div>
+            <div class="three">
+                <ul>
+                    <li><a href = "/index" title="Main" class="menu">Main</a></li>
+                    <li><a href = "/about" title="About" class="menu" id="active">About</a></li>
+                    <li><a href = "/interests" title="Interests" class="menu">Interests</a></li>
+                </ul>
+            </div>
+    </div>
+    </body>
+</html> 
