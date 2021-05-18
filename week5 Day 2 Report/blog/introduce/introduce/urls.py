@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from introduce_app.views import main, introduce, like, todo, burger
+from introduce_app.views import main, introduce, like, todo, burger, ud_burger
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,4 +26,5 @@ urlpatterns = [
     path('like/',like),
     path('todo/',todo),
     path('burger/',burger),
+    path('burger/<int:burger_id>', ud_burger)
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
