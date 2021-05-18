@@ -1,0 +1,11 @@
+body {
+    background-color: #e7e7e7;
+}
+
+span.sex {
+    color:blue;
+}
+
+span.birth {
+    color : red;
+}

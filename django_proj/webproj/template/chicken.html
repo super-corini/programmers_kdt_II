@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style/css/chicken.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <title>Chicken list</title>
+    </head>
+    <body>
+        {% for chickens in chicken_list %}
+            <ul>
+                <li><!--{{chickens.id}},--> {{ chickens.name }}</li>
+                <!--<ul>
+                    <li>{{ chickens.price }}</li>
+                    <li>{{ chickens.amount }}</li>
+                </ul>-->
+            </ul>
+        {% endfor %}
+<!--       <form method="POST">{% csrf_token %}
+            <p>치킨 종류 추가</p>
+            {{ chicken_form.as_p }}
+            <button type="submit">Save</button>
+        </form>--> 
+    </body>
+</html>

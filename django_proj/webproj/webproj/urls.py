@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index
+from homepage.views import index, ChickenView
 
 urlpatterns = [
     path('', index), # 127.0.0.1/
+    path('chicken/', ChickenView), # 127.0.0.1/chicken/
     path('admin/', admin.site.urls), # 127.0.0.1/admin/
 ]
