@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BaskinRobbins Ice Cream List</title>
+    </head>
+    <body>
+        <h1>Baskin Robbins Ice Cream List</h1>
+        <p>제품명, 1회 제공량(g), 열량(kcal), 알러지 성분</p>
+        {% for i in icecream_list %}
+            <p>{{ i.name }}, {{ i.serving_size }}, {{ i.calory }}, {{ i.allergy }}</p>
+        {% endfor %}
+    </body>
+</html>

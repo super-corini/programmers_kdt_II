@@ -1,0 +1,19 @@
+<!DOCTYPE html>  <!-- html 버전 정보 -->
+<html>
+    <!-- html 파일에 대한 메타 정보 -->
+    <head>
+        <title>Python django example</title>
+    </head>
+
+    <!-- html을 구성하는 실제 요소, 사용자가 실제로 확인하는 정보 -->
+    <body>
+        <h1>Title</h1>
+        <p>blah blah blah</p>  <!-- 문단 태그 -->
+        <p>{{ my_name|upper }}</p>
+        {% for element in my_list %}
+            {% if not element|divisibleby:"2" %}
+                <p>{{ element }}</p>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
