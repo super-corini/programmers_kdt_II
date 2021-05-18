@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Sunflower:wght@500&display=swap" rel="stylesheet">
+    <title>아이엠 그라운드 자기소개 하기</title>
+    <style>
+        .mytitle {
+            color:#383838; text-align: center;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            font-family: 'Pattaya', sans-serif;
+        }
+        .mytitle > h1 {
+            font-size: 80px;
+        }
+        .mytitle > h2 {
+            margin-top: -50px;
+        }
+        .text {
+            font-family: 'Sunflower', sans-serif;
+            font-size: 25px;
+            text-align: center;
+        }
+        body {
+            background-color: ivory;
+            background-image: url('https://item.kakaocdn.net/do/579ba1722b47f8f99e52ab4461ae447b7f9f127ae3ca5dc7f0f6349aebcdb3c4');
+            background-position: right 500px;
+            background-repeat: no-repeat;
+        }
+        .mine > a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            /* border: solid 3px brown; */
+            border-radius: 50px;
+            margin: 5px;
+        }
+        .mine {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* width: 1200px; */
+            margin: auto;
+        }
+        .github {
+            background-image: url('https://image.flaticon.com/icons/png/512/25/25231.png');
+            background-size: cover;
+            }
+        .blog {
+            background-image: url('https://pro-pac.co.kr/wp-content/uploads/2020/01/sns_icon_naverblog_off_02.png');
+            background-size: cover;
+            }
+        .btn {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-home {
+            font-size: 15px;
+            color: ivory;
+            background-color: #383838;
+            border-radius: 10px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 780px) {
+            body {
+                background-position: left;
+                background-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mytitle">
+        <h1>SELF-INTRODUCTION</h1>
+        <h2>by HeeJu</h2>
+    </div>
+    <div class="text">
+        <p>
+            🙇🏻‍♀️안녕하세요🙇🏻‍♂️ 데브스쿨 2기 A반 <span style='color:darkred'>이희주</span>입니다.<br/>
+            <span style='color:darkred'>게임 데이터 분석가</span>를 목표로 공부하고 있습니다🎮
+        </p>
+        <p class='hobby'>
+            요즘 짱구에 꽂혀서 짱구 애니메이션을 자주 봅니다🙄<br/>
+            운동은 수영🏊🏻‍♀️을 좋아하지만 코로나 때문에 쉰지 오래 되었어요..😥<br/>
+            쉴 시간이 나면 틈틈이 카트라이더 러쉬플러스🚘를 열심히 하고 있습니다.
+        </p>
+
+    </div>
+    <div class="mine">
+        <a class="github" href='https://github.com/heeju0'></a>
+        <a class="blog" href='https://heeju0.github.io/willbe/'></a>
+    </div>
+    <div class="btn">
+        <button onclick="location.href='../'" class="btn-home">HOME</button>
+    </div>
+</body>
+</html>
