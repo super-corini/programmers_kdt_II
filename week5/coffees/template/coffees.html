@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coffee</title>
+    </head>
+
+    <body>
+        <h1>All coffees as belows:</h1>
+        {% for coffee in coffees_list %}
+            {% if coffee.is_ice %}
+            <p>{{ coffee.name }}, {{ coffee.price }}, Ice</p>
+            {% else %}
+            <p>{{ coffee.name }}, {{ coffee.price }}, Hot</p>
+            {% endif %}
+        {% endfor %}
+
+        <h1>Add coffee</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ coffees_form.as_p }}
+            <button type="submit">Add</button>
+        </form>
+    </body>
+</html>
