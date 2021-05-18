@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Coffee List</title>
+    </head>
+    <body>
+        <h1> my coffee list</h1>
+        {% for c in coffee_list %}
+            <p>{{c.name}},{{c.price}}</p>
+        {% endfor %}
+    </body>
+</html>
