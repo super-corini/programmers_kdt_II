@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index ## app에서 작성한 view를 import해준다.
+import homepage.views as hpv  ## app에서 작성한 view를 import해준다.
 
 urlpatterns = [
-    path('', index), # 127.0.0.1/
+    path('', hpv.index), # 127.0.0.1/
+    path('coffees/', hpv.get_coffees), # 127.0.0.1/
+    path('coffees/<int:pk>', hpv.other_coffees), # 127.0.0.1/
     path('admin/', admin.site.urls), #127.0.0.1/admin
 ]
