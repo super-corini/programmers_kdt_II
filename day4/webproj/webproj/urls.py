@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from homepage.views import index
+from CoffeeShop.views import coffee_list
 
 urlpatterns = [
     path('', index), #localhost/
+    path('coffee/', coffee_list), #localhost/coffee
     path('admin/', admin.site.urls), #localhost/admin
 ]
