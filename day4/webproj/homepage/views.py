@@ -6,4 +6,4 @@ def index(request):
     myinfo['name'] = 'YILGUK SEO'
     myinfo['major'] = 'Business Administration'
     myinfo['interest'] = 'AI'
-    return render(request, 'index.html', {'myinfo':myinfo}) # Must add template dir in settings.py
+    return render(request, 'homepage/index.html', {'myinfo':myinfo}) # Must add template dir in settings.py
