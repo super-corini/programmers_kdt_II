@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="{%static 'style.css'%}">
         <title>Introduction Page</title>
-        
     </head>
 
     <body>
@@ -11,5 +12,7 @@
         {% for key, value in myinfo.items %}
         <li>{{ key }} : {{ value }}</li>
         {% endfor %}
+        <p>My cats </p>
+        <img src="{% static '/images/mycats1.jpg' %}" alt="My cats" width="50%" height="50%">
     </body>
 </html>
