@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from homepage.views import index, coffee_view, introduce_view # type: ignore
+from homepage.views import burger_view, create, update,delete # type: ignore
  # homepage 폴더에 view.py 를 불러오는 것
 
 
@@ -23,5 +24,9 @@ urlpatterns = [
     path('', index), # 127.0.0.1/ 이 주어졌을 때 해야하는 행동
     path('admin/', admin.site.urls), # 127.0.0.1/admin/ 이 주어졌을 때 하는 행동
     path('coffee/', coffee_view), # 127.0.0.1/coffee/
-    path('introduce/', introduce_view)
+    path('introduce/', introduce_view),
+    path('burger/', burger_view, name="main"),
+    path('burger/create/', create, name='create'),
+    path('burger/update/<int:pk>/',update, name='update'),
+    path('burger/delete/<int:pk>/', delete, name='delete'),
 ]

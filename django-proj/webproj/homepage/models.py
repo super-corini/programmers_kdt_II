@@ -24,3 +24,17 @@ class Coffee(models.Model):
     시간/날짜 : DateTimeField
     ...
     '''
+
+
+class Burger(models.Model):
+    def __str__(self):
+        return self.name
+    id = models.IntegerField(primary_key = True)
+    name = models.CharField(default = "", max_length=20)
+    
+    price = models.IntegerField(default = 0)
+    is_set = models.BooleanField(default = False)
+
+
+class Id_s(models.Model):
+    id_s = models.IntegerField(default = 0)

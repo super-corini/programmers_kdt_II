@@ -20,17 +20,17 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'homepage/assets/img/navbar-logo.svg' %}" alt="..." /></a>
+               <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'homepage/assets/img/cat.png' %}" alt="..." /></a> -->
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">관심 분야</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Areas of Interest</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Info</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">관심분야</h2>
+                    <h2 class="section-heading text-uppercase">Areas of Interest</h2>
                     <h3 class="section-subheading text-muted">저는 다음의 분야들에 관심이 있습니다.</h3>
                 </div>
                 <div class="row text-center">
@@ -96,8 +96,8 @@
                                 <img class="img-fluid" src="{% static 'homepage/assets/img/portfolio/01-thumbnail.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">안면대칭분석</div>
+                                <div class="portfolio-caption-subheading text-muted">Computer Vision</div>
                             </div>
                         </div>
                     </div>
@@ -110,8 +110,8 @@
                                 <img class="img-fluid" src="{% static 'homepage/assets/img/portfolio/02-thumbnail.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading">음식점 추천 서비스</div>
+                                <div class="portfolio-caption-subheading text-muted">Recommendation System</div>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="{% static 'homepage/assets/img/portfolio/05-thumbnail.jpg' %}" alt="..." />
+                                <img class="img-fluid" src="{% static 'homepage/assets/img/portfolio/05-thumbnail.jpg' %}" alt="..." /> 
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Southwest</div>
@@ -179,47 +179,57 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Step by step goes a long way</h3>
                 </div>
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'homepage/assets/img/about/1.jpg' %}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4>2021-04 ~</h4>
+                                <h4 class="subheading">Programmers Dev Course</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">알고리즘, DB, ML/DL 등 전반적인 AI 관련 교육 프로그램</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'homepage/assets/img/about/2.jpg' %}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>2020-11</h4>
+                                <h4 class="subheading">Google Developers Machine Learning Bootcamp</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Google 에서 주최한 Bootcamp</p></div>
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'homepage/assets/img/about/3.jpg' %}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>2020-11</h4>
+                                <h4 class="subheading">Data Creator Camp</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">NIA 에서 주최한 해커톤 형식의 대회</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'homepage/assets/img/about/4.jpg' %}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>2020-09 ~ 10</h4>
+                                <h4 class="subheading">Seongnam Youth<br/>Pre-Internship</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">성남에서 주최한 비대면 온라인 프로젝트</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'homepage/assets/img/about/4.jpg' %}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2020-07 ~ 08</h4>
+                                <h4 class="subheading">Data industrial personnel course of study<br/>- Bigdata Expert Process</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">경기도에서 주최한 빅데이터 관련 <br/>교육 프로그램</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
@@ -227,7 +237,7 @@
                             <h4>
                                 Be Part
                                 <br />
-                                Of Our
+                                Of me
                                 <br />
                                 Story!
                             </h4>
@@ -240,38 +250,44 @@
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">My Amazing Info.</h2>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{% static 'homepage/assets/img/team/1.jpg' %}" alt="..." />
-                            <h4>Kay Garland</h4>
-                            <p class="text-muted">Lead Designer</p>
+                            <img class="mx-auto rounded-circle" src="{% static 'homepage/assets/img/cat.png' %}" alt="..." />
+                            <h4>Research Blog</h4>
+                            <p class="text-muted">It's my blog</p>
+                            <!--
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        -->
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{% static 'homepage/assets/img/team/2.jpg' %}" alt="..." />
-                            <h4>Larry Parker</h4>
-                            <p class="text-muted">Lead Marketer</p>
+                            <img class="mx-auto rounded-circle" src="{% static 'homepage/assets/img/team/github.jpg' %}" alt="..." />
+                            <h4>Github</h4>
+                            <p class="text-muted">It's my github</p>
+                            <!--
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        -->
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{% static 'homepage/assets/img/team/3.jpg' %}" alt="..." />
-                            <h4>Diana Petersen</h4>
-                            <p class="text-muted">Lead Developer</p>
+                            <img class="mx-auto rounded-circle" src="{% static 'homepage/assets/img/team/linkedin.jpg' %}" alt="..." />
+                            <h4>Linked In</h4>
+                            <p class="text-muted">It's my linked in</p>
+                            <!--
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        -->
                         </div>
                     </div>
                 </div>
@@ -371,14 +387,14 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <h2 class="text-uppercase">안면비대칭 측정 및 분석 </h2>
+                                    <p class="item-intro text-muted">안면비대칭 측정 및 분석을 위한 어플리케이션을 만드는 것이 목적인 프로젝트</p>
                                     <img class="img-fluid d-block mx-auto" src="{% static 'homepage/assets/img/portfolio/01-full.jpg' %}" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>PoC <br/>1. 라벨링을 위한 대칭유사도 구하기<br/>2. Google cloud를 통한 어플리케이션 연동 </p>
                                     <ul class="list-inline">
-                                        <li>Date: January 2021</li>
-                                        <li>Client: Threads</li>
-                                        <li>Category: Illustration</li>
+                                        <li>Date: 2020-07 ~ 08</li>
+                                        <li>Client: People</li>
+                                        <li>Category: DL - Computer Vision</li>
                                     </ul>
                                     <button class="btn btn-primary" data-dismiss="modal" type="button">
                                         <i class="fas fa-times mr-1"></i>
@@ -401,14 +417,14 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <h2 class="text-uppercase">외국인을 위한 음식점 추천 서비스</h2>
+                                    <p class="item-intro text-muted">경기도를 방문하는 외국인을 대상으로 사진 기반 음식점을 추천해주는 알고리즘을 만드는 것이 목적인 프로젝트</p>
                                     <img class="img-fluid d-block mx-auto" src="{% static 'homepage/assets/img/portfolio/02-full.jpg' %}" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p><br/>PoC<br/>1. 음식 이미지를 통한 음식이름 추출 <br/> 2. 해당 음식에 관한 경기도 음식점 정보 제공</p>
                                     <ul class="list-inline">
-                                        <li>Date: January 2021</li>
-                                        <li>Client: Explore</li>
-                                        <li>Category: Graphic Design</li>
+                                        <li>Date: 2020 - 07</li>
+                                        <li>Client: Foreigner</li>
+                                        <li>Category: Recommendation System</li>
                                     </ul>
                                     <button class="btn btn-primary" data-dismiss="modal" type="button">
                                         <i class="fas fa-times mr-1"></i>

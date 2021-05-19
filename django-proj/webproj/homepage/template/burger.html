@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burger List</title>
+    </head>
+
+    <body>
+        <h1>My Burger List</h1>
+        {% for burger in burger_list %}
+            <p>Burger ID: {{ burger.id }}</p>
+            <p>Burger name: {{ burger.name }}</p> 
+            <p>Burger price: {{ burger.price  }}</p>
+            <p>Set</p>: {{ burger.is_set }}</p>
+        {% endfor %}
+
+        <br/>
+        <br/>
+
+ 
+        <form method="POST" >
+            {% csrf_token %}
+            <button type = "submit">New Burger Add</button>
+        </form>
+
+
+        
+        <form action = 'update' method="GET">
+            {% csrf_token %}
+            <!--{{ id_form.as_p }} -->
+            <input type = 'text' name = 'pk' value='PUT'/>
+            <button type = "submit">Update Burger</button>
+        </form>
+
+    </body>
+
+
+</html>
