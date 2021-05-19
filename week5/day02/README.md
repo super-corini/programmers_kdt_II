@@ -1,8 +1,8 @@
 # **Day02 - Django로 동적 웹 페이지 만들기**
 
 ## **필수과제 : 재고 관리 List 구현하기**
-<img src='../image/day02.gif' height = 300>
-<br><br><br><br><br><br>
+<img src='../image/day02.PNG' height = 300>
+<br><br><br><br>
 
 ### **Buger 재고관리 section 만들기**
 <br>
