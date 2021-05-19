@@ -47,17 +47,26 @@
 
     <section class="home">
       <div >Buger shop</div>
-      <div style="margin-bottom: 4%;">-------------------</div>
+      <div style="margin-bottom: 2%;">-------------------</div>
+      <div style="margin-bottom: 2%;"> Order </div>
       {% for buger in buger_list %}
         {% if buger.set_menu %}
-          <div style="font-family: serif;">{{ buger.name }}, {{buger.price|add:buger.coke }}</div>
+          <div style="font-family: serif;">{{ buger.name }}, coke(2000) : {{buger.price|add:2000 }}</div>
 
         {% else %}
-          <div style="font-family: serif;">{{ buger.name }}, {{buger.price }}</div>
+          <div style="font-family: serif;">{{ buger.name }} : {{buger.price }}</div>
 
         {% endif %}
           
       {% endfor %}
+
+      <div  style="margin-top: 4%;">-------------------</div>
+      <div style="margin-bottom: 2%;"> Add </div>
+      <form method="POST">{% csrf_token %}
+        {{buger_form.as_p}}
+
+        <button type='submit'> Save </button>
+      </form>
     </section>
     
 
