@@ -9,3 +9,6 @@
 Static으로 css background color 적용 & img 추가  
 
 다음엔 bootstrap으로
+
+hide secret key  
+<https://dev.to/vladyslavnua/how-to-protect-your-django-secret-and-oauth-keys-53fl>
