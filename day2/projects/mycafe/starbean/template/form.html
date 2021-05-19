@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Coffee Inventory List</h2>
-<form method="post">
-    {% csrf_token %}
-    {% include "form_errors.html" %}
-    <div>
-        <label>이름</label><span class="tab">&#9;</span>
-        <input type="text" name="drink" id="drink" value="{{ form.drink.value|default_if_none:'' }}" />
-    </div>
-    <div>
-        <label>재고</label><span class="tab">&#9;</span>
-        <input type="number" name="stock" id="stock" value="{{ form.stock.value|default_if_none:'' }}" />
-    </div><br />
-    <button type="submit">저장</button>
-</form>
+<div class="container">
+    <h2 class="my-3 border-bottom pb-2">Coffee Inventory List</h2>
+    <form method="post" class="post-form my-3">
+        {% csrf_token %}
+        {% include "form_errors.html" %}
+        <div class="form-group">
+            <label for="drink">이름</label><span class="tab">&#9;</span>
+            <input type="text" class="form-control" name="drink" id="drink"
+                value="{{ form.drink.value|default_if_none:'' }}" />
+        </div>
+        <div class="form-group">
+            <label for="stock">재고</label><span class="tab">&#9;</span>
+            <input type="number" class="form-control" name="stock" id="stock"
+                value="{{ form.stock.value|default_if_none:'' }}" min=0 />
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">저장</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
