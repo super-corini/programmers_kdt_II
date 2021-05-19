@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coffee List</title>
+    </head>
+    <body>
+        
+        {% for coffee in coffee_list %}
+        <ul>
+            <li>{{coffee.name}}, {{coffee.price}}</li>
+        </ul>
+        {% endfor %}
+        
+    </body>
+
+</html>
