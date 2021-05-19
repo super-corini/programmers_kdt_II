@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Icecream List</title>
+    </head>
+
+    <body>
+        <h1>Icecream Inventory Management</h1>
+        {% for icecream in icecream_list %}
+            <p>{{ icecream.flavor }}, {{ icecream.size }}, {{ icecream.price }}, {{ icecream.stock }}</p>
+        {% endfor %}
+
+        <form method="POST">{% csrf_token %}
+            {{ icecream_form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+
+    </body>
+</html>
