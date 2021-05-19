@@ -1,4 +1,8 @@
 day1/__pycache__
+/day5_mission/*/__pycache__
+/*/*/*/__pycache__
+*/__pycache__/
+
 app.db
 # images/
 app_db.py
@@ -10,8 +14,8 @@ EDA/data/
 # **/**/__pycache__/**/**
 # /resources/__pycache__
 # day5_mission/__pycache__
-/day5_mission/*/__pycache__
-*/__pycache__/
+
+
 # !**/__pycache__/
 # */images
 */*.db
@@ -19,3 +23,5 @@ EDA/data/
 input/
 /*/.ipynb_checkpoints
 /*/output/
+
+*/*/.env
