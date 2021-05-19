@@ -4,4 +4,4 @@ from .models import Coffee
 
 def coffee_list(request):
     my_coffee_list = Coffee.objects.all()
-    return render(request, 'coffee_list.html', {"my_coffee_list":my_coffee_list})
+    return render(request, 'CoffeeShop/coffee_list.html', {"my_coffee_list":my_coffee_list})
