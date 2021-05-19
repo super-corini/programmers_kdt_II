@@ -19,7 +19,7 @@
     <tbody>
       {% for coffee in coffee_list %}
       <tr>
-        <td scope="row">{{ coffee.id }}</td>
+        <td scope="row"><a href="{%url 'coffee:detail' coffee.id %}">{{ coffee.id }}</a></td>
         <td>{{ coffee.name }}</td>
         <td>{{ coffee.price }}</td>
         {% if coffee.is_ice %}
@@ -62,7 +62,7 @@
         <label for="floatingInput">　가격</label>
       </div>
       <div class="col-auto form-check">
-        <input class="form-check-input" type="checkbox" value=True name="is_ice">
+        <input class="form-check-input" type="checkbox" value="True" name="is_ice">
         <label class="form-check-label" for="flexCheckDefault">아이스</label>
       </div>
       <div class="col-auto">
@@ -70,50 +70,6 @@
       </div>
     </div>
   </form>
-
-</div>
-
-<div class="container my-5">
-  <h5 class="my-3 border-bottom pb-2">메뉴 변경하기</h5>
-  <form method="POST">
-    {% csrf_token %}
-
-    <!-- 오류표시 Start -->
-    {% if coffee_form.errors %}
-    <div class="alert alert-danger" role="alert">
-      {% for field in coffee_form %}
-      {% if field.errors %}
-      <strong>{{ field.label }}</strong>
-      {{ field.errors }}
-      {% endif %}
-      {% endfor %}
-    </div>
-    {% endif %}
-    <!-- 오류표시 End -->
-
-    <div class="row g-4 align-items-center">
-      <div class="col-auto form-floating mb-3">
-        <input type="number" class="form-control" name="id" placeholder="1">
-        <label for="floatingInput">　ID</label>
-      </div>
-      <div class="col-auto form-floating mb-3">
-        <input type="text" class="form-control" name="name" placeholder="Ameriano">
-        <label for="floatingInput">　이름</label>
-      </div>
-      <div class="col-auto form-floating mb-3">
-        <input type="number" class="form-control" name="price" placeholder="2000">
-        <label for="floatingInput">　가격</label>
-      </div>
-      <div class="col-auto form-check">
-        <input class="form-check-input" type="checkbox" value=True name="is_ice">
-        <label class="form-check-label" for="flexCheckDefault">아이스</label>
-      </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-outline-primary">변경하기</button>
-      </div>
-    </div>
-  </form>
-
 
 </div>
 
