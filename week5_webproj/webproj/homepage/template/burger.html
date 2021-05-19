@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Burger List</title>
+    </head>
+
+    <body>
+        <h1>
+            <p style=font-size:30px>My Burger Menu</p>
+        </h1>
+        <ul>
+            {% for burger in burger_list %}
+            <li>
+                {{ burger.name }}, {{ burger.price }},
+                {% if burger.is_set %}
+                    set
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <form method='POST'>{% csrf_token %}
+            {{ burger_form.as_p }}
+            <button type='submit'>Save</button>
+        </form>
+
+    </body>
+</html>
