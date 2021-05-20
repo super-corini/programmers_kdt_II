@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from homepage.views import index
-from CoffeeShop.views import coffee_list
+from CoffeeShop.views import all_coffee_list, coffee_form, coffee_PD
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', index), #localhost/
-    path('coffee/', coffee_list), #localhost/coffee
     path('admin/', admin.site.urls), #localhost/admin
+    path('all/', all_coffee_list, name='all'), #localhost/all-coffee : shows all coffee list
+    path('coffees/', coffee_form, name='coffees-form'), #localhost/coffees
+    path('coffees/<int:coffee_id>/',coffee_PD, name='coffee_PD'),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

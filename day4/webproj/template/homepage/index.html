@@ -1,18 +1,64 @@
 {% load static %}
 <!DOCTYPE html>
+<html lang="en"></html>
 <html>
     <head>
-        <link rel="stylesheet" href="{%static 'style.css'%}">
+        
+        <meta charset="UTF-8">
+        <meta name="Seo Yil Guk" content="width=device-width, initial-scale=1.0">
+        <title>Seo Yil Guk</title>
+        
         <title>Introduction Page</title>
     </head>
 
     <body>
-        <h1>Introduction</h1>
-        <p>Hi~ h~ i~</p>
-        {% for key, value in myinfo.items %}
-        <li>{{ key }} : {{ value }}</li>
-        {% endfor %}
-        <p>My cats </p>
+        <div class="top-container">
+            <!-- <img class='top-cloud' src="images/cloud.png" alt="cloud-img"> -->
+            <h1>I'am Yilguk Seo</h1>
+            <p class='a-pro-grammer'>a <span class="pro">pro</span>grammer</p>
+            <!-- <img class='bottom-cloud' src="images/cloud.png" alt="cloud-img"> -->
+            <!-- <img src="images/mountain.png" alt="mountain-img"> -->
+        </div>
+        <div class="middle-container">
+            <div class="profile">
+              <!-- <img class='profile-img' src="{% static '/images/ygseo_profile.jpg'%}" alt="profile-img"> -->
+              <!-- <h2>Hello.</h2> -->
+              <p class='intro'>Currently, I'm a jobseeker.</p>
+            </div>
+            <hr>
+            <div class="skills">
+              <h2>My Skills.</h2>
+              <div class="skill-row">
+                
+                
+                <h3>Deep Learning</h3>
+                <p>I've participated many image classfication competitions mostly at Kaggle and some at Dacon.
+                Most of the time, I uses pytorch as main framework for deep learning modeling.</p>
+                
+              
+                <h3>Machine Learning</h3>
+                <p>Not much time spending on ML currently, but, I made tabular data modeling from the very first.
+                Learning R at the entrance of programming, now I'am a python guy.</p>
+                <img class="img-pytorch" src="{% static '/images/pytorch.jpg' %}" alt="img-pytorch"  width="10%" height="10%">
+              </div>
+            </div>
+            <hr>
+            <!-- <div class="contact-me">
+              <h2>Get In Touch</h2>
+              <h3>Let's share knowledge.</h3>
+              <p class='contact-message'>Coding with coffee and music.</p>
+              <a class="BUTTON_TLP" href="mailto:roal214@naver.com">CONTACT ME</a>
+              <br>
+            </div> -->
+          </div>
+          
+          
+          <div class="bottom-container">
+            <a class="footer-link" href="https://github.com/marquis08">GitHub</a><br>
+            <a class="footer-link" href="https://www.kaggle.com/marquis08">Kaggle</a><br>
+            <a class="footer-link" href="https://ygseo.tistory.com/">Blog</a>
+            <p class="copyright">© 2021 YILGUK SEO.</p>
+          </div>
         <img src="{% static '/images/mycats1.jpg' %}" alt="My cats" width="50%" height="50%">
     </body>
 </html>
