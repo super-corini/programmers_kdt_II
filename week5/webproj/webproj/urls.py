@@ -20,4 +20,6 @@ from homepage import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index), # 127.0.0.1
+    path('coffees/', views.coffee_view, name="coffees"),
+    path('coffees/<int:pk>', views.coffee_ud, name="coffees_ud")
 ]
