@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import index, coffee_view
+from homepage.views import index, coffee_view, coffee_edit
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,5 +23,6 @@ urlpatterns = [
     path('', index), # 127.0.0.1/
     path('admin/', admin.site.urls), # 127.0.0.1/admin/
     path('index/', index), # 127.0.0.1/index
-    path('coffees/', coffee_view) # 127.0.0.1/coffee
+    path('coffees/', coffee_view), # 127.0.0.1/coffees
+    path('coffees/<int:pk>', coffee_edit), # 127.0.0.1/coffees/<int:pk>
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

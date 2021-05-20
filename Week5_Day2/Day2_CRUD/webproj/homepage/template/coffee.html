@@ -13,7 +13,7 @@
             <div class="two">
                 <h2>Coffee Beans (100g)</h2>
                 {% for coffee in coffee_list %}
-                    <p>{{ coffee.name }}, {{ coffee.stock }}</p>
+                    <p>{{ coffee.name }}, {{ coffee.stock }} ... ({{coffee.id}})</p>
                 {% endfor %}
             </div>
             <div class="three">
@@ -22,21 +22,21 @@
                     <li><a href = "/coffees" title="Coffee" class="menu" id="active">Coffee</a></li>
                 </ul>
             </div>
-            <div class="four">
-                <h2>추가</h2>
-                <form method="POST">{% csrf_token %}
-                    {{ coffee_form.as_p }}
-                    <center><button type='submit'>Save</button></center>
-            </div>
+                <div class="four">
+                    <h2>추가</h2>
+                    <form method="POST">{% csrf_token %}
+                        {{ coffee_form.as_p }}
+                        <center><button type='submit'>Save</button></center>
+                </div>
             <div class="five">
                 <h2>삭제</h2>
-                
-                    <center><button type='submit'>Delete</button></center>
+                    <form method="POST">{% csrf_token %}
+                    <center><button type='submit' value="Delete">Delete</button></center>
             </div>
             <div class="six">
                 <h2>교체</h2>
-                
-                    <center><button type='submit'>Change</button></center>
+                    <form method="POST">{% csrf_token %}
+                    <center><button type='submit' value="Update">Change</button></center>
             </div>
     </div>
     </body>

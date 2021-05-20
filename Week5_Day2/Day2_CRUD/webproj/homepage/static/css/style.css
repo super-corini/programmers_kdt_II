@@ -43,7 +43,7 @@ h2{
     grid-row: 1;
   }
   .two {
-    border: 5px solid blueviolet;
+    border: 5px solid darkgoldenrod;
     grid-column: 3 / 9;
     grid-row: 2 / 5;
   }
