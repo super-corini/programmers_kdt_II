@@ -10,6 +10,7 @@
         <h1>
             <p style=font-size:30px>My Burger Menu</p>
         </h1>
+        
         <ul>
             {% for burger in burger_list %}
             <li>
@@ -18,9 +19,22 @@
                     set
                 {% endif %}
             </li>
-            {% endfor %}
         </ul>
-        
+
+        <form action="{% url 'update_delete_burger' burger.id %}" method="POST">
+            {% csrf_token %}
+            {{ burger_form.as_p}}
+            <input type="hidden" name="_method" value="PUT" />
+            <input type="submit" value="UPDATE" />
+        </form>
+
+        <form action="{% url 'update_delete_burger' burger.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="_method" value="DELETE" />
+            <input type="submit" value="DELETE" />
+        </form>        
+            {% endfor %}
+            
         <form method='POST'>{% csrf_token %}
             {{ burger_form.as_p }}
             <button type='submit'>Save</button>

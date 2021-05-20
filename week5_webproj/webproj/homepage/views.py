@@ -1,6 +1,6 @@
 from django import forms
 import django
-from django.shortcuts import HttpResponse, redirect, render
+from django.shortcuts import HttpResponse, redirect, render, get_object_or_404
 from .models import Coffee, Burger
 from .forms import CoffeeForm, BurgerForm
 
@@ -43,3 +43,20 @@ def burger_view(request):
             form.save()
     form = BurgerForm()
     return render(request, 'burger.html', {'burger_list': burger_all, 'burger_form': form})
+
+def update_delete_burger(request, pk):
+    burger = get_object_or_404(Burger, pk=pk)
+    method = request.POST.get('_method', '')
+    if method == 'PUT':
+        form = BurgerForm(request.POST, instance=burger)
+        if form.is_valid():
+            form.save()
+            return redirect("burgers")
+        
+    elif method == "DELETE":
+        burger.delete()
+        return redirect("burgers")
+
+    else:
+        form = BurgerForm()
+    return redirect("burgers")
