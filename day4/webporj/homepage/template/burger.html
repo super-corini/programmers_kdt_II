@@ -1,0 +1,15 @@
+<!DOCTPYE html>
+<html>
+  <head>
+    <title>Burger list</title>
+  </head>
+
+  <body>
+    <h1>My Burger List</h1>
+    {% for burger in burger_list %}
+        <p>
+        {{burger.name}}, {{burger.price}}
+        </p>
+    {% endfor %}
+  </body>
+</html>
