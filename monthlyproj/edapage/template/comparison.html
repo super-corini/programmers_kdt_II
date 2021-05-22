@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Monthly Project</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>EDA Project </h1>
+    <div id="grid">
+        <nav>
+            <li><a href = "/index" title="메인" class="saw">메인</a></li>
+            <li><a href = "/intro" title="과제 및 데이터 소개" class="saw">과제 및 데이터 소개</a></li>
+            <li><a href = "/condition" title="행복한 사람들의 특징" class="saw">행복한 사람들의 특징</a></li>
+            <li><a href = "/mosthappy" title="행복한 사람들이 많은 지역" class="saw">행복한 사람들이 많은 지역</a></li>
+            <li><a href = "/comparison" title="한국, 중국, 일본의 행복도 비교" class="saw" id="active">한국, 중국, 일본의 행복도 비교</a></li>
+            <li><a href = "/koreanow" title="한국의 행복도변화" class="saw">한국의 행복도변화</a></li>
+        </nav>
+
+        <div>
+            <h2> 한국, 중국, 일본의 행복도 비교(2021년 Data) </h2>
+            <p> 우리나라와 대표적 주변 국가인 한국, 중국, 일본의 행복도 조사 결과를 비교해보자</p>
+            <h3> Data </h3>
+            <table>
+                <th>Country</th>
+                <th>Ladder Score</th>
+                <th>Logged GDP</th>
+                <th>Social Support</th>
+                <th>Healthy life expectancy</th>
+                <th>Freedom of making choice</th>
+                <th>Generosity</th>
+                <th>Govern Belief</th>
+                <tr>
+                    <td>Japan</td>
+                    <td>5.940</td>
+                    <td>10.611</td>
+                    <td>0.884</td>
+                    <td>75.100</td>
+                    <td>0.796</td>
+                    <td>-0.258</td>
+                    <td>0.362</td>
+                </tr>
+                <tr>
+                    <td>Korea</td>
+                    <td>5.845</td>
+                    <td>10.651</td>
+                    <td>0.799</td>
+                    <td>73.900</td>
+                    <td>0.672</td>
+                    <td>-0.083</td>
+                    <td>0.273</td>
+                </tr>
+                <tr>
+                    <td>China</td>
+                    <td>5.339</td>
+                    <td>9.673</td>
+                    <td>0.811</td>
+                    <td>69.593</td>
+                    <td>0.904</td>
+                    <td>-0.146</td>
+                    <td>0.245</td>
+                </tr>
+            </table>
+            <h3> Comparison </h3>
+            <p> 세 국가에 대해 Freedom, Social, Government에 대해서만 비교하는 그래프를 확인해보면 다음과 같다.</p>
+            <img src="static/image/con3_cmp.png" alt="con3_cmp" width="600">
+            <h3> Analysis </h3>
+            <cl>
+                <li class="content">한국의 경우 특히 중국, 일본에 비해 <strong>선택의 자유도</strong>에 대한 점수가 매우 낮다.</li>
+                <li class="content">일본의 경우에는 사회적 지지도나 부패체감도 점수가 중국, 일본에 비해 점수가 좋다.</li>
+                <li class="content">중국의 경우는 선택의 자유도 점수는 매우 높으나 <strong>부패체감도</strong>가 한국, 일본에 비해 높다.</li>
+            </cl>
+
+        </div>
+    </div>
+    </body>
+</html>

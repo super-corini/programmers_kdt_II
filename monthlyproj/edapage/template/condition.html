@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Monthly Project</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>EDA Project </h1>
+    <div id="grid">
+        <nav>
+            <li><a href = "/index" title="메인" class="saw">메인</a></li>
+            <li><a href = "/intro" title="과제 및 데이터 소개" class="saw">과제 및 데이터 소개</a></li>
+            <li><a href = "/condition" title="행복한 사람들의 특징" class="saw" id="active">행복한 사람들의 특징</a></li>
+            <li><a href = "/mosthappy" title="행복한 사람들이 많은 지역" class="saw">행복한 사람들이 많은 지역</a></li>
+            <li><a href = "/comparison" title="한국, 중국, 일본의 행복도 비교" class="saw">한국, 중국, 일본의 행복도 비교</a></li>
+            <li><a href = "/koreanow" title="한국의 행복도변화" class="saw">한국의 행복도변화</a></li>
+        </nav>
+
+        <div>
+            <h2> 행복한 사람들의 특징(2021년 Data) </h2>
+            <h3> 등급표 </h3>
+            <p> Ladder Score에 따라 A, B, C, D, E 등급을 부여합니다.</p>
+            <table>
+                <th>Score</th>
+                <th>Rank</th>
+                <th>Number of Countries</th>
+                <tr>
+                    <td>7 이상</td>
+                    <td>A</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>6 ~ 7</td>
+                    <td>B</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>5 ~ 6</td>
+                    <td>C</td>
+                    <td>49</td>
+                </tr>
+                <tr>
+                    <td>4 ~ 5</td>
+                    <td>D</td>
+                    <td>36</td>
+                </tr>
+                <tr>
+                    <td>4 미만</td>
+                    <td>E</td>
+                    <td>11</td>
+                </tr>
+            </table>
+            <h3> Result </h3>
+                <img src="static/image/rank_total.png" alt="rank_total" width="900">
+            <h3> Analysis</h3>
+            <cl>
+                <li class="content"> 행복도가 더 높은 국가일수록, GDP가 높은 경향이 있다. </li>
+                <li class="content"> 행복도가 더 높은 국가일수록, 사회적 지지도가 더 높은 경향이 있다. </li>
+                <li class="content"> 행복도가 더 높은 국가일수록, 건강기대수명이 더 높은 경향이 있다. </li>
+                <li class="content"> 행복도가 더 높은 국가일수록, 개인의 선택에는 더 많은 자유가 주어진다. </li>
+                <li class="content"> 행복도가 더 높은 국가일수록, 정부가 부패하지 않음을 믿는다. </li>
+                <li class="content"> 행복도와 기부는 큰 연관성이 없다. </li>
+            </cl>
+
+
+        </div>
+    </div>
+    </body>
+</html>

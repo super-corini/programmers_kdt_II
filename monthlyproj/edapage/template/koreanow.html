@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Monthly Project</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>EDA Project </h1>
+    <div id="grid">
+        <nav>
+            <li><a href = "/index" title="메인" class="saw">메인</a></li>
+            <li><a href = "/intro" title="과제 및 데이터 소개" class="saw">과제 및 데이터 소개</a></li>
+            <li><a href = "/condition" title="행복한 사람들의 특징" class="saw">행복한 사람들의 특징</a></li>
+            <li><a href = "/mosthappy" title="행복한 사람들이 많은 지역" class="saw">행복한 사람들이 많은 지역</a></li>
+            <li><a href = "/comparison" title="한국, 중국, 일본의 행복도 비교" class="saw">한국, 중국, 일본의 행복도 비교</a></li>
+            <li><a href = "/koreanow" title="한국의 행복도변화" class="saw" id="active">한국의 행복도변화</a></li>
+        </nav>
+
+        <div>
+            <h2> 한국의 행복도 변화 및 한국의 현 행복도 </h2>
+            <h3> 2017년 ~ 2021년 한국의 행복도 점수 변화</h3>
+            <table>
+                <th> 2017년 </th>
+                <th> 2018년 </th>
+                <th> 2019년 </th>
+                <th> 2020년 </th>
+                <th> 2021년 </th>
+                <tr>
+                    <td>5.8380</td>
+                    <td>5.8750</td>
+                    <td>5.8950</td>
+                    <td>5.8724</td>
+                    <td>5.8450</td>
+                </tr>
+
+            </table><br>
+            <img src="static/image/5year_korea.png" alt="5year_korea" width="600">
+            <h3> Analysis</h3>
+            <cl>
+                <li class="content"> 2017년에서 2019년까진 점수가 살짝 올랐으나, 이후로는 하락세를 보이고 있다. </li>
+            </cl>
+
+            <h3> 세부 지표의 비교(2020, 2021년) </h3>
+            <p> 통계 기준의 변화 등이 있어 해당 2020~2021년도의 데이터만 사용하였다.</p>
+            <img src="static/image/korea2020_2021.png" alt="korea2020_2021" width="600">
+            <h3> Analysis</h3>
+            <cl>
+                <li class="content"> 지표만 봤을 경우 2020년의 지표보다는 2021년의 지표가 더 개선되었음을 알 수 있다.</li>
+                <li class="content"> 하지만 각 세부 분야와 상관없이, 전반적 행복도를 떨어졌음을 알 수 있다. </li>
+            </cl>
+        </div>
+    </div>
+    </body>
+</html>

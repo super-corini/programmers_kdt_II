@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Monthly Project</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>EDA Project </h1>
+    <div id="grid">
+        <nav>
+            <li><a href = "/index" title="메인" class="saw">메인</a></li>
+            <li><a href = "/intro" title="과제 및 데이터 소개" class="saw" id="active">과제 및 데이터 소개</a></li>
+            <li><a href = "/condition" title="행복한 사람들의 특징" class="saw">행복한 사람들의 특징</a></li>
+            <li><a href = "/mosthappy" title="행복한 사람들이 많은 지역" class="saw">행복한 사람들이 많은 지역</a></li>
+            <li><a href = "/comparison" title="한국, 중국, 일본의 행복도 비교" class="saw">한국, 중국, 일본의 행복도 비교</a></li>
+            <li><a href = "/koreanow" title="한국의 행복도변화" class="saw">한국의 행복도변화</a></li>
+        </nav>
+
+        <div>
+            <h2> 데이터 소개 </h2>
+            <h3> 사용 데이터 :  World Happiness Reports</h3>
+            <p> Data from
+                <a href = "https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021" title = "Kaggle link">
+                    here(1)</a> </p>
+            <p> Data from
+                <a href = "https://www.kaggle.com/mathurinache/world-happiness-report-20152021" title="Kaggle link">
+                    here(2)</a></p>
+            <h3> 주요 변수 설명 </h3>
+            <cl>
+                <li class="content">Country Name : 국가명</li>
+                <li class="content">Regional indicator : 지역분류</li>
+                <li class="content">Ladder Score : 종합적 행복점수</li>
+                <li class="content">Logged GDP per capita : 국가별 GDP의 로그값</li>
+                <li class="content">Social Support : 어려움이 생겼을 때 친구나 친척의 도움을 받을 수 있을 정도</li>
+                <li class="content">Healthy life expectancy : WHO 출처 건강 기대수명</li>
+                <li class="content">Freedom to make choices : 인생에서 선택에 대한 자유를 누릴 수 있을 정도</li>
+                <li class="content">Generosity : 자선단체에 GDP 대비 기부 정도, 국가 전체 평균과의 비교치</li>
+                <li class="content">Government Belief (Corruption Perception) : 부패가 느껴지는가? 단, <strong>상관성 방향 통일을 위해 1에서 뺀다.</strong></li>
+            </cl>
+            <h3> 변수들간의 상관관계</h3>
+            <img src="static/image/factor_corr.png" alt="factor_corr" width="600">
+            <h3> Analysis </h3>
+            <cl>
+                <li class="content">Score와 GDP, Social Support, Life expectancy는 비교적 강한 양의 상관관계를 가지고 있다.</li>
+                <li class="content">Score와 Generosity는 다른 요인들에 비해 가장 낮은 상관성을 보이고 있다.</li>
+                <li class="content">요인들간의 상관관계를 비교해보면, Life expectancy와 GDP가 가장 상관성이 강하다.</li>
+            </cl>
+
+
+        </div>
+    </div>
+    </body>
+</html>

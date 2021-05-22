@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About Myself</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>About Myself </h1>
+    <div id="grid">
+        <nav>
+            <li><a href = "/index" title="Main" class="saw">Main</a></li>
+            <li><a href = "/intro" title="Intro" class="saw" id="active">Intro</a></li>
+            <li><a href = "/interests" title="Interests" class="saw">Interests</a></li>
+        </nav>
+
+
+        <div>
+            <h2>Introduction </h2>
+            <ul>
+                <li> Name : {{my_name}}</li>
+                <li> Age : {{my_age}}</li>
+                <li> <a href = "https://github.com/SeongwonTak" target="_blank" title="Github">Github Link</a> </li>
+                <li> <a href = "https://taksw222.tistory.com/" target="_blank" title="Blog">Blog Link</a> </li>
+            </ul>
+        </div>
+    </div>
+    </body>
+</html>
