@@ -1,0 +1,29 @@
+body {
+    background-color: #e7e7e7;
+    margin-left: 100px;
+}
+
+div {
+    padding-left: 100px;
+    padding-right: 950px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+li {
+    height: 300px;
+
+	width: 800px;
+
+	background-color: rgba(231,231,231,0.7);
+    padding-left: 30px;
+    font-size: 40px;
+    font-weight: 900;
+    margin-left: 100px;
+}
+
+ul {
+    font-size : 30px;
+    color:rgba(0,0,0,1);
+    font-weight: 500;
+}
