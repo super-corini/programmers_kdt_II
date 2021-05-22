@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c537fb-110c-4f8d-8ffb-205e575c3dd0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../3. python으로 멋드러진 그래프 그리기, Matplotlib.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../3. python으로 멋드러진 그래프 그리기, Matplotlib.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../4. EDA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../4. EDA.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
