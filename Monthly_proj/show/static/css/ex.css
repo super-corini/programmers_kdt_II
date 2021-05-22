@@ -1,0 +1,16 @@
+div {
+    padding-left: 500px;
+    padding-right: 500px;
+}
+
+li {
+    padding-top: 100px;
+    padding-left: 530px;
+    font-family: "Apple SD Gothic Neo";
+    color: rgb(33, 33, 36);
+}
+
+hr {
+    margin-left: 530px;
+    margin-right: 530px;
+}

@@ -1,5 +1,5 @@
 body {
-    background-color: #e7e7e7;
+    background-color: white;
     margin-left: 100px;
 }
 
@@ -14,8 +14,6 @@ li {
     height: 300px;
 
 	width: 800px;
-
-	background-color: rgba(231,231,231,0.7);
     padding-left: 30px;
     font-size: 40px;
     font-weight: 900;
@@ -26,4 +24,12 @@ ul {
     font-size : 30px;
     color:rgba(0,0,0,1);
     font-weight: 500;
+}
+
+span.male {
+    color:blue;
+}
+
+span.female {
+    color: red;
 }
