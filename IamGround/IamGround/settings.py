@@ -32,7 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'Iam',
+    'Iam', 'eda',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, "Iam", 'template')
+            os.path.join(BASE_DIR, "Iam", 'template'),
+            os.path.join(BASE_DIR, "eda", 'template'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {

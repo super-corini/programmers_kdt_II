@@ -1,5 +1,3 @@
-from Iam import views
-
 """IamGround URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from Iam import views
+
 
 urlpatterns = [
     path('', views.index, name='main'),
-    path('companies/', views.companies, name='companies'),
-    path('company/<int:pk>', views.company, name='company'),
-    path('delete/<int:pk>', views.delete_company, name='delete'),
-    path('modify/<int:pk>', views.modify_company, name='modify'),
+    path('apply/', include('Iam.urls')),
+    path('eda/', include('eda.urls')),
     path('admin/', admin.site.urls),
 ]
