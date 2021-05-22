@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/mintybootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/text.css' %}">
+        <title>Coffee List</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'project' %}">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'interests' %}">Interests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'coffees' %}">Coffee List
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br><br>
+        
+        <div style="display: grid;place-items: center;">
+        <h1>My Coffee List</h1>
+                <ul style="list-style-position: inside;">
+                {% for coffee in coffee_list %}
+                    <li>{{ coffee.name }}</li>
+                    <ul style="list-style-position: inside;">
+                        <li>
+                            price : {{ coffee.price }}
+                        </li>
+                        {% if coffee.is_ice %}
+                        <li>                            
+                            Ice
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <br>
+                {% endfor %}
+                </ul>
+        <form method="POST">{% csrf_token %} <!--form에 대한 보안처리-->
+            {{ coffee_form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    </body>
+</html>

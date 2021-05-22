@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/mintybootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <title>♬  ♪</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'project' %}">Projects
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'interests' %}">Interests</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+
+<center>
+    <h1>📁 My Projects 📁</h1>
+
+    <br><br>
+    <div class="card border-info mb-3" style="max-width: 50rem;">
+        <div class="card-header">Research</div>
+        <div class="card-body">
+            <h4 class="card-title">Video Captioning</h4>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-FFk1boS1c8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="card border-dark mb-3" style="max-width: 50rem;">
+        <div class="card-header">Research</div>
+        <div class="card-body">
+            <h4 class="card-title">Dense Video Captioning</h4>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/F6iK2QbveM4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="card border-info mb-3" style="max-width: 50rem;">
+        <div class="card-header">Hackathon</div>
+        <div class="card-body">
+            <h4 class="card-title">NAVER AI HACKATHON 2018</h4>
+            <p class="card-text"><a href="https://github.com/pufffington/naver-ai-hackathon-2018">https://github.com/pufffington/naver-ai-hackathon-2018</a></p>
+        </div>
+    </div>
+
+</center>
+</body>
+</html>

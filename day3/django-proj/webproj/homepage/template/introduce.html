@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Introduce Myself!</title>
+    </head>
+
+    <body>
+        <br><br>
+        <center>
+            <h1>💡 All About Me 💡</h1>
+        </center>
+        <br><br>
+
+        <div style="display: block;width:500px;margin:0 auto;background:Honeydew;position:relative">
+            <center>
+                <br><br>
+                <p>
+                    <b>👩️ NAME?</b> {{ name }} <br><br>
+                    <b>📆 AGE?</b> {{ age }} <br><br>
+                    <b>📫 Email?</b>  {{ email }} <br><br>
+                    <b>💾 Github?</b> (<a href="{{ github }}">github link</a>) <br><br>
+                    <b>📚 BLOG?</b> (<a href="{{ blog }}">blog link</a>)
+                </p>
+                <br><br>
+                <p>
+                    <b>💼 SKILLS</b><br><br>
+                    |
+                    {% for skill in skills %}
+                        {{ skill }} |
+                    {% endfor %}
+                </p>
+                <br><br>
+                <p>
+                    <b>🔍 RESEARCH INTERESTS</b><br><br>
+                    |
+                    {% for interests in research %}
+                        {{ interests }} |
+                    {% endfor %}
+                </p>
+                <br><br>
+                <p>
+                    <b>🏫 EDUCATION</b><br><br>
+
+                    {% for school in education %}
+                        {{ school }} <br>
+                    {% endfor %}
+                </p>
+                <br><br>
+            </center>
+        </div>
+    </body>
+</html>

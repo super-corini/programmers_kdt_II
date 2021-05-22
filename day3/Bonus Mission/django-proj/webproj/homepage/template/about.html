@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/mintybootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <title>♬ 저를 소개합니다 ♪</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'about' %}">About
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'project' %}">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'interests' %}">Interests</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+
+<center>
+    <h1>💡 All About Me 💡</h1>
+
+    <br><br>
+</center>
+<div>
+    <div style="display:block;width:800px;margin:0 auto;position:relative;">
+        <table class="table table-hover" >
+            <tbody>
+            <tr style="vertical-align:middle;">
+                <td><h4>👩️ NAME?</h4></td>
+                <td><span class="np" style="font-size:35px">{{ name }}</span></td>
+            </tr>
+            <tr style="vertical-align:middle;">
+                <td><h4>📆 AGE?</h4></td>
+                <td><span class="np" style="font-size:35px">{{ age }}</span></td>
+            </tr>
+            <tr style="vertical-align:middle;">
+                <td><h4>📫 Email?</h4></td>
+                <td><span class="np" style="font-size:35px">{{ email }}</span></td>
+            </tr>
+            <tr style="vertical-align:middle;">
+                <td><h4>💾 Github?</h4></td>
+                <td>
+                    <span class="np" style="font-size:35px">
+                        <a href="{{ github }}">{{ github }}</a>
+                    </span>
+                </td>
+            </tr>
+
+            <tr style="vertical-align:middle;">
+                <td><h4>📚 BLOG?</h4></td>
+                <td>
+                    <span class="np" style="font-size:35px">
+                        <a href="{{ blog }}">{{ blog }}</a>
+                    </span>
+                </td>
+            </tr>
+
+            <tr style="vertical-align:middle;">
+                <td><h4>💼 SKILLS</h4></td>
+                <td>
+                    <span style="font-size:20px">
+                        {% for skill in skills %}
+                        <span class="badge rounded-pill bg-warning">{{ skill }}</span>
+                        {% endfor %}
+                    </span>
+                </td>
+            </tr>
+
+            <tr style="vertical-align:middle;">
+                <td><h4>🔍 RESEARCH INTERESTS</h4></td>
+                <td>
+                    <span style="font-size:20px">
+                        {% for interests in research %}
+                        <span class="badge rounded-pill bg-info">{{ interests }}</span>
+                        {% endfor %}
+                    </span>
+                </td>
+            </tr>
+
+            <tr style="vertical-align:middle;">
+                <td><h4>🏫 EDUCATION</h4></td>
+                <td>
+                    <span style="font-size:20px">
+                        {% for school in education %}
+                        {{ school }} <br>
+                        {% endfor %}
+                    </span>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <br><br>
+    </div>
+</div>
+</body>
+</html>
