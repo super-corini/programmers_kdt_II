@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <title>
+            게임 재고 관리 페이지
+        </title>
+
+        <link rel="stylesheet" href="{% static 'css/game.css' %}">
+
+        {% if messages %}
+            {% for message in messages %}
+            <script type="text/javascript">
+                var a = "{{ message.message }}"
+                alert(a)
+            </script>
+            {% endfor %}
+        {% endif %}
+    </head>
+
+    <body>
+        <h1 class="header1">
+            Game Store Management
+        </h1>
+        
+        <div style="margin: auto; text-align: center;">
+            <form method="POST" class="gameForm">
+                {% csrf_token %}
+                <table>
+                    <caption><h2>Add Game</h2></caption>
+                    <thead>
+                        <tr>
+                            {% for col in game_cols|slice:"1:" %}
+                            <th class="formTh">{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ game_form.title }}</td>
+                            <td>{{ game_form.platform }}</td>
+                            <td>{{ game_form.genre }}</td>
+                            <td>{{ game_form.price }}</td>
+                            <td>{{ game_form.stock }}</td>
+                            <td>{{ game_form.reserved }}</td>
+                            <td>{{ game_form.extinct }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7"><button type="submit">Save</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <br/>
+        <br/>
+
+        {% if table_view %}
+        <table class="gameTable">
+            <thead>
+                <caption><h2>Stock List</h2></caption>
+                <tr class="gameTr">
+                    {% for col in game_cols %}
+                    <th class="gameTh">{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in game_list %}
+                <tr class="gameTr">
+                    {% for item in game.to_list_without_ext %}
+                        <td class="gameTd">{{ item }}</td>
+                    {% endfor %}
+                    
+                    {% if game.extinct == True %}
+                        <td class="gameTd"><img src="/static/images/redcross.png" width="30px" height="30px"/></td>
+                    {% else %}
+                        <td class="gameTd"></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <ul>
+            {% for game in game_list %}
+            <li>{{ game.get_all_fields }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </body>
+
+</html>
