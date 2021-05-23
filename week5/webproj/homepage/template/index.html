@@ -1,0 +1,24 @@
+<!DOCTYPE html> <!--HTML5임을 의미-->
+<html>
+    <head>
+        <title>Python django exmaple</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}"/>
+    </head>
+
+    <body>
+        <h1>DoHoon's Intro</h1>
+        {% for element in my_list %}
+            <!--{% if not element|divisibleby:"2" %}
+            <p>{{ element }}</p>
+            {% endif %}-->
+            <p>
+                <span class="message">{{ element }}</span>{{ element.value }}
+            </p>
+        {% endfor %}
+        <p>
+            <img src="{% static 'homepage/name.jpg' %}" alt="my_name image"/>
+        </p>
+        <span class="message">{{ message }}</span>{{ content }}
+    </body>
+</html>

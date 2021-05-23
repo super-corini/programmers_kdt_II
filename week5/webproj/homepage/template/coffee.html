@@ -1,0 +1,18 @@
+<!DOCTYPE html> <!--HTML5임을 의미-->
+<html>
+    <head>
+        <title>Coffee List</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}"/>
+    </head>
+
+    <body>
+        <h1>Coffee List</h1>
+        <ul>
+        {% for coffee in coffee_list %}
+        <li><span class="message">{{ coffee.name }}</span>: {{coffee.price}}</li>
+        {% endfor %}
+        </ul>   
+        <span class="message">{{ message }}</span>{{ content }}
+    </body>
+</html>
