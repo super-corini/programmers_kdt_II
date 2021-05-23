@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BurgerList</title>
+    {% load staticfiles %}
+    <link href="{% static 'app/content/bootstrap.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-4 ms-auto"style="margin-top:50px">
+            <legend>현재 재고</legend>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">AVAILABLE STOCK</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for burgers in burger_list %}
+                        <tr class="table-success">
+                            <th scope="row">{{ burgers.name }}</th>
+                            <td>{{ burgers.price }}</td>
+                            <td>{{ burgers.stock }}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="col-lg-4 ms-auto">
+            
+            <form style="margin-right:500px;margin-top:100px" method="post">
+                {% csrf_token %}
+                {{ burger_form.as_p }}
+                
+                <button type="submit"> submit </button>
+            </form>
+        </div>
+    </div>
+    
+
+</body>
+</html>
