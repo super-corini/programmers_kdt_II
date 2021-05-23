@@ -1,0 +1,6 @@
+*.pvc
+*~
+A4D1
+__pycache__
+db.sqlite3
+.DS_Store

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <h1 class="bg-light display-4">___는 개발자 강지호입니다.</h1>
+    <h2 class="bg-light display-8">About Me</h2>
+{% endblock %}
+
+
+{% block content %}
+    <div class="col-md-8 offset-md-2">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Introduction
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                        <table> 
+                            <tr><th>Pythonic함을 사랑하는 교육생 강지호입니다.</th></tr>
+                            <tr><th>ML과 DL을 위한 Pipeline과 Workflow에 관심이 많습니다.</th></tr>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Contact & Channel
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                    <div class="accordion-body">
+                        <table> 
+                            <tr>
+                                <th><code>Github</code></th>
+                                <td><a href="https://github.com/JJ-HH"><code>https://github.com/JJ-HH</code></a></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Skills
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        <table> 
+                            <tr>
+                                <th><code>Backend</code></th>
+                                <td><code>Python, Django, Flask, vscode, git</code></td>
+                            </tr>
+                            <tr>
+                                <th><code>DevOps</code></th>
+                                <td><code>AWS EC2/S3</code></td>
+                            </tr>
+                            <tr>
+                                <th><code>AI</code></th>
+                                <td><code>Numpy, Pandas</code></td>
+                            </tr>
+                            <tr>
+                                <th><code>Collaboration</code></th>
+                                <td><code>Slack</code></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Personal Experience & Projects
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Presentation & Article
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Education
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        <table> 
+                            <tr>
+                                <th>한양대학교 ERICA 컴퓨터공학과</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>프로그래머스 KDT: 인공지능 데브코스 2기</th>
+                                <td></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

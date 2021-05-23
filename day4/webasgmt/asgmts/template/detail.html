@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block form %}
+    <h2 class="bg-light">{{obj.name}}</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table class="table table-borderless">
+            {{ sneaker_form.as_table }}
+        </table>
+        <input class="btn btn-primary" type="submit" name="UPDATE" value="Update" readonly="True">
+        <input class="btn btn-warning" type="submit" name="DELETE" value="Delete" readonly="True">
+        <input class="btn btn-info" onclick="location.href={%url 'post_form'%}" value="Back to Add to stock">
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <h1 class="bg-light display-4">JJ-HH's Sneaker Shop</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-6 text-left">
+        <h2 class="bg-light">In Stock</h2>
+        <ul>
+            {% for sneaker in sneaker_list %}
+                <li><a href="{% url 'detail' pk=sneaker.id %}">{{ sneaker.name }}</a></li>
+            {% empty %}
+                <li>Sorry, no sneakers currently in stock.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-6 text-left">
+        {% block form %}
+        {% endblock %}
+    </div>
+{% endblock %}
