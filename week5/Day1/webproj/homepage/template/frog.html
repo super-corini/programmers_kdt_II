@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>개구리 튀김</title>
+    </head>
+    <body>
+        {% load static %}
+        <img src="{%static 'dance.gif'%}">
+        <h1>한마리 튀겨 가세요!</h1>
+        {% for frog in frog_list %}
+            <p>{{ frog.id }}. {{ frog.name }} {{ frog.price }}원</p>
+        {% endfor %}
+    </body>
+</html>
