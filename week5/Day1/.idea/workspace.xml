@@ -3,11 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c537fb-110c-4f8d-8ffb-205e575c3dd0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webproj/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/webproj/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webproj/homepage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/webproj/homepage/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webproj/homepage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/webproj/homepage/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webproj/homepage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/webproj/homepage/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webproj/webproj/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webproj/webproj/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -22,6 +34,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
