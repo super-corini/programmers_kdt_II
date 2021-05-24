@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDA Monthly Project</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm p-0 fixed-top">
+    <div class="collapse navbar-collapse container">
+      <ul class="navbar-nav mr-auto ml-3">
+        <a id="logo" href=""><img src="" style="height:60px; width:180px"></a>
+      </ul>
+      <ul class="navbar-nav mx-3">
+        <li class="nav-item active">
+          <a class="nav-link mx-2" href="">홈</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="">최신 영화</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="">커뮤니티</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="">추천 다시받기</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="wrapper" style="margin-top:70px; margin-bottom:200px;">
+    <!-- 메인 -->
+    <div class="main-container p-0" style="margin-top: 70px; min-height:100%;">
+      {% block content %}
+  
+      {% endblock %}
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+.nanummyeongjo * {
+font-family: 'Nanum Myeongjo', serif;
+}
+
+/** 이하는 공통 **/
+.normal {
+font-style: normal;
+}
+
+h1, h3 {
+  text-align: center;
+  padding: 10px;
+}
+
+.w250 {
+font-weight: 250;
+}
+
+.w300 {
+font-weight: 300;
+}
+
+.w350 {
+font-weight: 350;
+}
+
+.w400 {
+font-weight: 400;
+}
+
+.w500 {
+font-weight: 500;
+}
+
+.w600 {
+font-weight: 600;
+}
+
+.w700 {
+font-weight: 700;
+}
+
+.w800 {
+font-weight: 800;
+}
+
+.w900 {
+font-weight: 900;
+}
+
+li span {
+line-height: 1.8;
+font-size: 1.3em;
+}
+  :root {
+--primary: #141414;
+--light: #F3F3F3;
+--dark:	#686868;
+  }
+  .wrapper {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    position: relative;
+  }  
+  body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--light);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    display: grid;  
+    grid-gap: 5px;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 0px;
+  }
+  .navbar {
+    background-color: #191c20;
+    height: 70px;
+  }
+  .main-container {
+    background-color: #2e2f32;
+  }
+  .nav a:hover {
+    color: var(--dark);
+  }
+  .main-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .main-item-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+  }
+</style>
