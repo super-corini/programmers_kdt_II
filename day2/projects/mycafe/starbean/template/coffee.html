@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-3">
+    <h2 class="my-3 border-bottom pb-2">Coffee Inventory List</h2>
+    <div class="card my-3">
+        <ul>
+            {% for item in coffee_list %}
+            <li class="card-body my-3" style="border-bottom: 1px solid #efefef;">
+                <div style="float: left; width: 30%;">
+                    {{ item.drink }}
+                </div>
+                <div style="float: left; margin-left: 5%; width: 30%;">
+                    {{ item.stock }}
+                </div>
+                <div style="float: right; width: 30%;">
+                    <span><a href="{% url 'update' item.id %}" class="btn btn-sm btn-outline-secondary">수정</a></span>
+                    <span>　</span>
+                    <span><a href="#" class="delete btn btn-sm btn-outline-secondary"
+                            data-uri="{% url 'delete' item.id %}">삭제</a></span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="d-flex justify-content-end">
+        <span><a href="{% url 'create' %}" class="btn btn-primary">추가</a></span>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $(".delete").on('click', function () {
+            if (confirm("해당 음료를 삭제하시겠습니까?")) {
+                location.href = $(this).data('uri');
+            }
+        });
+    });
+</script>
+{% endblock %}

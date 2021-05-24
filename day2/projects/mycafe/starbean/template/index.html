@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-3">
+    <h2 class="my-3 border-bottom pb-2">About ME</h2>
+    <div class="card my-3">
+        <ul>
+            <li class="card-body my-3">
+                <div style="float: left; width: 30%;"><b>NAME</b></div>
+                <div style="float: left; margin-left: 3%; width: 90%;">{{ name }}</div>
+            </li>
+            <li class="card-body my-3">
+                <div style="float: left; width: 30%;"><b>E-MAIL</b></div>
+                <div style="float: left; margin-left: 3%; width: 90%;">{{ email }}</div>
+            </li>
+            <li class="card-body my-3">
+                <div style="float: left; width: 30%;"><b>MAJORS</b></div>
+                <div style="float: left; margin-left: 3%; width: 90%;">
+                    {% for major in majors %}
+                    {{ major }}　
+                    {% endfor %}
+                </div>
+            </li>
+            <li class="card-body my-3">
+                <div style="float: left; width: 30%;"><b>SKILLS</b></div>
+                <div style="float: left; margin-left: 3%; width: 90%;">
+                    {% for skill in skills %}
+                    {{ skill }}　
+                    {% endfor %}
+                </div>
+            </li>
+            <li class="card-body my-3">
+                <div style="float: left; width: 30%;"><b>STUDYING</b></div>
+                <div style="float: left; margin-left: 3%; width: 90%;">
+                    {% for study in studying %}
+                    {{ study }}　
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
