@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  <h2>Modify Coffee</h2>
+  
+  <hr>
+</div>
+{% endblock %}
+
+<script>
+  var myData = JSON.parse("{{ coffee|escapejs }}")
+  function modifyCoffee() {
+    fetch('http/127.0.0.1:8000/coffees/{{coffee.id}}', {
+      method: 'PUT',
+      credentials: "same-origin",
+      headers: {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(myData)
+    }).then(function(response){
+        return response.json();
+    }).then(function(data){
+        console.log("Data is ok", data)
+    }).then(function(ex){
+        console.log("parsing failed", ex)
+    });
+  }
+  
+</script>

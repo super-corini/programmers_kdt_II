@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container coffee-box">
+  <h2>Coffee List</h2>
+  <div class="coffee-list">
+    <ul class="card my-3">
+      {% for coffee in coffees %}
+        <li class="card-body my-3">
+          <div class="card-item1">
+            {{coffee.name}}
+          </div>
+          <div class="card-item2">
+            {{coffee.price}}원
+          </div>
+          <div class="card-item3">
+            <a class="btn btn-primary m-2 p-1" href="{% url 'coffees:coffee_modify' coffee.pk %}">수정</a>
+            <a class="btn btn-danger m-1 p-1" href="{% url 'coffees:coffee_modify' coffee.pk %}">삭제</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <hr>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-primary" type="submit">등록</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
