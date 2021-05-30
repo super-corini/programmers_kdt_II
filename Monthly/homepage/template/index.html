@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Fullscreen Overlay Responsive Navigation Menu</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<script defer src="{% static 'script/main.js' %}"></script>
+</head>
+<body>
+    <div class="sul">
+        <div id='sul_title'>EDA 결과</div>
+    <ul>
+        <li id='sulli'>억만장자 평균 소득이 가장 곳은 북미 지역이다.</li>
+        <img src = "{% static 'distribution_bill_per_region.jpg' %}" alt = "region" />
+        <li id='sulli'>순위가 가장 높은 최상위 부자의 소득은 지속적으로 증가했다.</li>
+        <img src = "{% static 'Top5sGrowingWealths.png' %}" alt = "top5" />
+    </ul>
+</body>
+</html>
