@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <title>inventory management</title>
+
+        <link rel="stylesheet" href="{% static 'css/burger.css' %}">
+
+        {% if messages %}
+            {% for message in messages %}
+            <script type="text/javascript">
+                var a = "{{ message.message }}"
+                alert(a)
+            </script>
+            {% endfor %}
+        {% endif %}
+    </head>
+
+    <body>
+        <h1 class="header1">
+            Burger Management
+        </h1>
+        
+        <div style="margin: auto; text-align: center;">
+            <form method="POST" class="buggerForm">
+                {% csrf_token %}
+                <table>
+                    <caption><h2>Add Food</h2></caption>
+                    <thead>
+                        <tr>
+                            {% for col in burger_cols|slice:"1:" %}
+                            <th class="formTh">{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ buggerForm.name }}</td
+                            <td>{{ buggerForm.price }}</td>
+                            <td>{{ buggerForm.stock }}</td>
+                            <td>{{ buggerForm.reserved }}</td>
+                            <td>{{ buggerForm.outofstock }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7"><button type="submit">Save</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <br/>
+        <br/>
+
+
+    </body>
+
+</html>
