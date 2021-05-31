@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About Me</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>Day 1 - Django로 자기소개 페이지 만들기</h1>
+    <div class="wrapper">
+            <div class="one"><h2>필수 과제 : 아이엠 그라운드 자기소개 하기</h2></div>
+            <div class="two">
+                <h2>자기소개 웹 페이지</h2>
+                <p>현재 페이지 : 필수 과제</p>
+                <p>우측 상단의 메뉴로 페이지 전환 : 보너스 과제</p>
+            </div>
+            <div class="three">
+                <ul>
+                    <li><a href = "/index" title="Main" class="menu" id="active">Main</a></li>
+                    <li><a href = "/about" title="About" class="menu">About</a></li>
+                    <li><a href = "/interests" title="Interests" class="menu">Interests</a></li>
+                </ul>
+            </div>
+    </div>
+    </body>
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About Me</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>About Me(Interests)</h1>
+    <div class="wrapper">
+        <div class="one"><h2>보너스 과제 : ⭐️아이😊엠 그라운드⛳️ 자기💁‍♀️소개💁‍♂️ 하기⭐️</h2></div>
+            <div class="two">
+                <h2> Programming </h2>
+                    <p> Computer Vision </p>
+                    <p> Motion Recognition</p>
+                <h2> Hobby </h2>
+                <center><table border="1">
+                    <th>Golf</th>
+                    <th>Watching Movie & Anime</th>
+                    <tr>
+                        <th><img src="/static/img/golf_me.jpg" alt="golf" width="220"></th>
+                        <th><img src="/static/img/wny.png" alt="wmy" width="220"></th>
+                    </tr>
+                </table></center>
+            </div>
+            <div class="three">
+                <ul>
+                    <li><a href = "/index" title="Main" class="menu">Main</a></li>
+                    <li><a href = "/about" title="About" class="menu">About</a></li>
+                    <li><a href = "/interests" title="Interests" class="menu" id="active">Interests</a></li>
+                </ul>
+            </div>
+    </div>
+    </body>
+</html> 

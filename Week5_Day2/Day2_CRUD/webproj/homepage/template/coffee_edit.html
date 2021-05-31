@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Coffee Beans List Edit</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>Coffee Beans Edit</h1>
+    <div class="wrapper">
+        <div class="one"><h2>보너스 과제 : form을 이용해서 CUD구현하기</h2></div>
+            <div class="two">
+                <h2>Coffee Beans Edit</h2>
+                <ul>
+                    <li>Primary Key : {{coffee_select.id}}</li>
+                    <li>Name : {{coffee_select.name}}</li>
+                    <li>Stock : {{coffee_select.stock}}</li> 
+                </ul>
+            </div>
+            <div class="three">
+                <ul>
+                    <li><a href = "/index" title="Main" class="menu">Main</a></li>
+                    <li><a href = "/coffees" title="Coffee" class="menu" id="active">Coffee</a></li>
+                </ul>
+            </div>
+                <div class="four">
+                    <h2>추가</h2>
+                    <form method="POST">{% csrf_token %}
+
+                        <center><button type='submit'>Save</button></center>
+                    </form>
+                </div>
+            <div class="five">
+                <h2>삭제</h2>
+                    <form method="POST">{% csrf_token %}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <center><input class="btn" type="submit" value="Delete"></center>
+                    </form>
+            </div>
+            <div class="six">
+                <h2>교체</h2>
+                    <form method="POST">{% csrf_token %}
+                        {{coffee_form.as_p}}
+                        <input type="hidden" name="_method" value="PUT">
+                        <center><input class="btn" type="submit" value="Update"></center>
+            </div>
+    </div>
+    </body>
+</html> 

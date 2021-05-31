@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>재고 관리 List</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <h1>Day 2 - Django로 동적 웹 페이지 만들기</h1>
+    <div class="wrapper">
+            <div class="one"><h2>필수 과제 : 재고 관리 List 구현하기</h2></div>
+            <div class="two">
+                <h2>재고 관리 대상 : Coffee Beans</h2>
+                {% for coffee in coffee_list %}
+                    <p>{{ coffee.name }}, {{ coffee.stock }}</p>
+                {% endfor %}
+            </div>
+            <div class="three">
+                <ul>
+                    <li><a href = "/index" title="Main" class="menu" id="active">Main</a></li>
+                    <li><a href = "/coffees" title="Coffee" class="menu">Coffee</a></li>
+                </ul>
+            </div>
+    </div>
+    </body>
+</html> 
