@@ -12,6 +12,9 @@ class Coffee(models.Model):
         Personal_Cup = "PC"
         Disposable_Cup = "DC"
 
+    def __str__(self) -> str:
+        return " | ".join([str(self.order_date), self.product_name, self.size, ])
+
 
     product_name = models.CharField(null=False, max_length=100)
     size = models.CharField(max_length=10, choices=CupSize.choices, default=CupSize.Tall)
@@ -21,9 +24,6 @@ class Coffee(models.Model):
 
     quantity = models.IntegerField(default=0)
     order_date = models.DateField()
-
-    def __str__(self) -> str:
-        return " | ".join([str(self.order_date), self.product_name, self.size, ])
 
 
 
