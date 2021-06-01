@@ -1,0 +1,644 @@
+{% load static %}
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>몰입을 즐기는 개발자, 이승준 입니다.</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+</style></head><body><article id="3a0cbc52-099a-4e00-b04e-153c573d2d2c" class="page sans"><header><img class="page-cover-image" src="{% static 'img/photo-1603513492128-ba7bc9b3e143.jpeg' %}" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="{% static 'img/8F0F543F-5A99-44B1-9DE5-EAFCCD7030E5_1_201_a.jpeg' %}"/></div><h1 class="page-title">몰입을 즐기는 개발자, 이승준 입니다.</h1></header><div class="page-body"><h1 id="a771fbe7-01e7-475e-9962-507008ec23a4" class="">💁🏻 <mark class="highlight-brown">About Me</mark></h1><hr id="edd29f14-5802-43fe-99b4-3042d09ff1f7"/><div id="d254ab77-5dd9-48f2-971f-24649e922fef" class="column-list"><div id="173932fa-e433-410e-8ba3-2d1d27cb3aca" style="width:31.25%" class="column"><h2 id="d8e84d89-9df2-4514-b6c7-db033df1321c" class="">Introduction</h2><p id="7e1632e9-7c68-4667-98e3-80720a84ed07" class="">
+</p></div><div id="ccf16743-bd40-4a03-863c-564dd024eb49" style="width:68.75%" class="column"><ul id="4ace17d3-c777-4b5f-a6af-41c6d83b59ca" class="bulleted-list"><li>안녕하세요! 2년 차 백엔드 개발자 이승준입니다.</li></ul><ul id="ad10fc9d-0a97-4fd3-b294-b7d4fa8d8704" class="bulleted-list"><li>개발자가 되기 전부터 몰입하는 즐거움을 따라 살다가, 지금은 개발에 푹 빠져 있습니다.</li></ul><ul id="59ac3669-f441-4dba-8084-5ed8833acef6" class="bulleted-list"><li>무엇보다도 <mark class="highlight-yellow_background">꾸준함</mark>의 진짜 가치를 알기에 1일 1커밋 운동과 기술 블로그 운영을 하고 있습니다.</li></ul><ul id="d46be73a-e3d1-4d4e-ac71-2565201d5a91" class="bulleted-list"><li>Clean Code와 Test에 대한 고민을 생활화합니다.</li></ul><ul id="e5a706d0-338e-4931-b388-dcfb6c9e657c" class="bulleted-list"><li>NLP, Text-mining, Cross-domain, Social Data 연구에 관심이 있습니다. </li></ul><p id="db5f0573-df4f-4f1e-8e6d-b21bf2e926d6" class="">
+</p></div></div><p id="01fe0e8f-aaf9-4804-a4a9-a6831e149230" class="">
+</p><div id="72e8c415-90d7-4d73-85c1-10685c26483c" class="column-list"><div id="e1505401-9890-4afe-a626-292ecb033227" style="width:31.25%" class="column"><h2 id="424e9c22-40ae-452c-a922-408448a4bbf8" class="">Contact &amp; Channel</h2></div><div id="214121fc-4c92-44dc-8e39-d1db27a8d937" style="width:68.75%" class="column"><ul id="d1c21894-3f11-4674-b92f-3b5d2ce65e6b" class="bulleted-list"><li><mark class="highlight-yellow_background"><strong>Email</strong></mark> | dzzy6505@gmail.com</li></ul><hr id="e8a20f98-3dce-4728-b7f6-fdbae544b0c8"/><ul id="ab9be3f4-26a1-4c8d-8629-3aae183de9dd" class="bulleted-list"><li><mark class="highlight-yellow_background"><strong>Github</strong></mark> | <a href="http://github.com/metterian"><span style="border-bottom:0.05em solid"><strong>https://github.com/metterian</strong></span></a></li></ul><ul id="f351ef6e-939a-4765-8a8d-32b005067505" class="bulleted-list"><li><mark class="highlight-yellow_background"><strong>Blog</strong></mark> | <a href="http://metterian.github.io"><span style="border-bottom:0.05em solid"><strong>https://metterian.github.io</strong></span></a></li></ul><p id="d8c4fba1-1779-4c22-9bd6-06a2f9f4d955" class="">
+</p></div></div><p id="c1d43ee6-a9ab-4604-ab56-86c22b4516b7" class="">
+</p><h1 id="d8d45b0d-3100-4c37-9a2e-7950f68323d0" class="">🚴‍♂️ <mark class="highlight-brown">Projects</mark></h1><hr id="0a4b39f1-4b41-487f-8907-0193a2cefcd1"/><div id="e26a4482-db4f-4cfd-b68c-5e7b1fd63f5c" class="column-list"><div id="dcf30c70-c95a-4669-9a01-a5d495f988ea" style="width:25%" class="column"><h3 id="8fbff083-a925-4cf0-878c-572f2f443267" class="">Conversational AI for Education</h3><p id="f2069186-994e-4ea7-bce8-eb4b23aa7f51" class="">
+</p></div><div id="b37bb698-3e18-4790-9409-d28eafb8e083" style="width:75%" class="column"><p id="a9657f22-464d-4cef-a4f3-3b56b3c0e8e8" class="">초급 영어 수강생들을 위한 교육용 영어 화화 챗봇 개발</p><p id="54adf907-724d-4a18-ba29-ba65d1e85eba" class="">Mar 2015 - Feb 2021</p><ul id="ab01965b-6049-41e4-b94e-bc774f92d5cd" class="bulleted-list"><li><strong>목표</strong>: 이프렌딩(주) 영어 학원 수강생들을 위한 영어 교육 플랫폼 개발 </li></ul><ul id="146e4ed7-82c1-4d8e-98b2-f9a89b673e0b" class="bulleted-list"><li>Pre-trained Open AI GPT-2  모델을 사용하여 Conversational AI 개발</li></ul><ul id="eb550121-35e8-4089-bfa6-e326c26ac77c" class="bulleted-list"><li>AI Hub 데이터와 영어 학원 교재를 사용하여 Fine-tuning 진행</li></ul><ul id="d8756fd2-4711-48c4-8627-ad2af14e821a" class="bulleted-list"><li>Personality의 일관성을 유지하기 위해 B.E.R.T 모델을 사용하여 유사도 측정</li></ul><p id="a13069ba-fdaa-44f4-bcd5-a099cd496388" class="">
+</p></div></div><div id="3a6d2819-05cf-450a-aad9-d98a18c1e724" class="column-list"><div id="b9708a66-ff04-4dc4-a657-41c0dee9392d" style="width:25%" class="column"><h3 id="aa88151d-b55c-4a47-856e-a08b574ced9b" class="">서울시 공공자전거 &#x27;따릉이&#x27;  프로세스 개선</h3><p id="efda50d7-3297-4da2-ba71-8b64ca6773ae" class="">
+</p></div><div id="9a439f03-c678-4e1f-9d94-5e70a99a5b6c" style="width:75%" class="column"><figure id="58e85faf-b368-4be1-8b3e-e3de86fed9f1" class="link-to-page"><a href="https://www.notion.so/58e85fafb3684be18b3ee3de86fed9f1">레드버튼 스튜디오 홈페이지 개발</a></figure><p id="3b1de9a9-a6e1-45c1-abeb-4fd498ea0265" class=""><strong>주 사용 기술</strong></p><ul id="b2b523af-8c44-4afe-a776-df4c83b6a538" class="bulleted-list"><li>HTML, CSS, JavaScript</li></ul><ul id="40db5ba1-23a4-4ce6-be17-e2e40f5f651d" class="bulleted-list"><li>Python, Django</li></ul><ul id="ed1df3f0-8873-4f9f-a59c-2cd17483a482" class="bulleted-list"><li>AWS(EC2, S3, Route 53)</li></ul></div></div><div id="d390d651-ba4d-4c27-a15d-218457d983c9" class="column-list"><div id="903f0826-756b-49b2-ae66-148317695662" style="width:25%" class="column"><p id="66ba1520-3171-46a4-89c7-05d7d320e8b5" class=""><strong>2019.12 - 2020.05</strong></p></div><div id="e83f3a75-959d-481f-8e5e-44837c0b58dd" style="width:75%" class="column"><p id="b5b173d8-9f1a-46e2-9983-396c4b585195" class=""><strong>주 사용 기술</strong></p><ul id="09742ea8-bb0c-443e-acfc-e66f0cf27e88" class="bulleted-list"><li>NLP</li></ul><ul id="645a292e-4565-4081-924a-47044a5f6289" class="bulleted-list"><li>Deep Learning</li></ul><ul id="d94f8e3a-f127-4570-8e20-3b875806b745" class="bulleted-list"><li>Conversational AI</li></ul><p id="b93b2fcc-7d23-4d01-8a88-a753c9ede394" class="">
+</p><figure id="86f20c26-4994-4bdd-a5bf-04e6547454d5" class="link-to-page"><a href="https://www.notion.so/86f20c2649944bdda5bf04e6547454d5">서울시 공공자전거 &#x27;따릉이&#x27; 빅데이터를 활용한 프로세스 개선</a></figure><figure id="7785081c-9de5-4cdf-a084-10dd64ba90f1" class="link-to-page"><a href="https://www.notion.so/Conversational-AI-for-Education-7785081c9de54cdfa08410dd64ba90f1">Conversational AI for Education의 사본</a></figure></div></div><p id="cbf22e58-123e-45b2-8201-1cbe4a4f66ed" class="">
+</p><p id="48e7d82c-f33d-43f7-926c-3c56a93e4fd8" class="">
+</p><div id="3a42440a-a393-403d-87b2-a122fd9f2571" class="collection-content"><h4 class="collection-title">Projects 프로젝트</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesRelation"><polygon points="4.5 1 4.5 3 9.586 3 1 11.586 2.414 13 11 4.414 11 9.5 13 9.5 13 1"></polygon></svg></span>Related to Awards (Property)</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesRelation"><polygon points="4.5 1 4.5 3 9.586 3 1 11.586 2.414 13 11 4.414 11 9.5 13 9.5 13 1"></polygon></svg></span>관련 활동</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>담당 Skills &amp; 사용 Libraries</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>진행 기간</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>팀 구성</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>한 줄 소개</th></tr></thead><tbody><tr id="0ed14b9a-eeb0-4322-ba72-1aabd68b7e85"><td class="cell-title"><a href="https://www.notion.so/0ed14b9aeeb04322ba721aabd68b7e85"><img class="icon" src="https://lh3.googleusercontent.com/SwpMMgeleugULLmHL3nBnfXgprm7HhjJHmtL5rZNk21mFzLr_G1_5n9UYP-nHnY1heE=s360-rw"/>옛다</a></td><td class="cell-DWml"></td><td class="cell-eDJa"><a href="https://www.notion.so/Nexters-16th-e7fdba3652884f548bae3066d6806c44"><img class="icon" src="{% static 'img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/%E1%84%8B%E1%85%A8%E1%86%BA%E1%84%83%E1%85%A1%200ed14b9aeeb04322ba721aabd68b7e85/Nexters_16th.png' %}"/>Nexters 16th</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-blue">CocoaPods</span><span class="selected-value select-value-color-brown">Firebase</span><span class="selected-value select-value-color-gray">Lottie</span><span class="selected-value select-value-color-blue">RealmSwift</span><span class="selected-value select-value-color-blue">Swift</span><span class="selected-value select-value-color-blue">iOS</span></td><td class="cell-:x_E"><time>@2019/12/28 → 2020/02/15</time></td><td class="cell-?OBt">iOS 개발자 2, Android 개발자 2, 디자이너 3</td><td class="cell-XiJH">간단한 질문으로 선물 받을 사람의 성향을 분석하여 생일 선물을 추천해 주는 앱</td></tr><tr id="f531ee21-b84c-4a24-a9e0-7b931c813c2f"><td class="cell-title"><a href="https://www.notion.so/f531ee21b84c4a24a9e07b931c813c2f"><img class="icon" src="https://lh3.googleusercontent.com/tLN88-D5LocUkMKWtdkOCOWMX1u56Ssi-e2mhFm6ErqaQSKs9_hfsTppO2Qb2jOiug=s360-rw"/>아무계</a></td><td class="cell-DWml"></td><td class="cell-eDJa"><a href="https://www.notion.so/Nexters-15th-6a65d22c742e4e21a2a9795f21949837"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/%E1%84%8B%E1%85%A1%E1%84%86%E1%85%AE%E1%84%80%E1%85%A8%20f531ee21b84c4a24a9e07b931c813c2f/Nexters_15th.png"/>Nexters 15th</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-blue">CocoaPods</span><span class="selected-value select-value-color-gray">Lottie</span><span class="selected-value select-value-color-blue">RealmSwift</span><span class="selected-value select-value-color-blue">Swift</span><span class="selected-value select-value-color-blue">SwiftLint</span><span class="selected-value select-value-color-blue">iOS</span></td><td class="cell-:x_E"><time>@2019/07/04 → 2019/08/24</time></td><td class="cell-?OBt">iOS 개발자 2, Android 개발자 3, 디자이너 2</td><td class="cell-XiJH">요리할 때 주변에서 쉽게 구할 수 있는 도구로 계량을 도와주는 앱</td></tr><tr id="2d1b52d3-691a-4cd1-b192-062182ce6fc8"><td class="cell-title"><a href="https://www.notion.so/Life-M-2d1b52d3691a4cd1b192062182ce6fc8"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/Life%20M%202d1b52d3691a4cd1b192062182ce6fc8/54BF7103-DCFE-40BA-8EB7-E6E90FFA9D08.jpeg"/>Life.M</a></td><td class="cell-DWml"></td><td class="cell-eDJa"><a href="https://www.notion.so/2019-Angel-Hack-Seoul-11264b22fb2b404aa0fefdfeccf4a649"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/Life%20M%202d1b52d3691a4cd1b192062182ce6fc8/AngelHack.png"/>2019 Angel Hack Seoul</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-blue">CocoaPods</span><span class="selected-value select-value-color-orange">Naver Maps API</span><span class="selected-value select-value-color-blue">Swift</span><span class="selected-value select-value-color-blue">iOS</span></td><td class="cell-:x_E"><time>@2019/06/01 → 2019/06/02</time></td><td class="cell-?OBt">기획 1, 디자인 1, iOS 개발 2</td><td class="cell-XiJH">급하게 생리대가 필요 할 때 생리대 자판기의 위치를 알려주고, 보건 건강정보를 알려주는 서비스</td></tr><tr id="506c5219-7f44-4954-a152-5d3ffc521f98"><td class="cell-title"><a href="https://www.notion.so/PRO-MISS-506c52197f444954a1525d3ffc521f98"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/PRO-MISS%20506c52197f444954a1525d3ffc521f98/PRO-MISS.png"/>PRO-MISS</a></td><td class="cell-DWml"><a href="https://www.notion.so/10-IT-1e1d79ccb8e14bc0a80e714fc76b66a8">성공회대학교 제 10회 IT&amp;미디어컨텐츠 경진대회</a></td><td class="cell-eDJa"><a href="https://www.notion.so/10-IT-20dcc0393c0e469aa12463948ad30d17"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/PRO-MISS%20506c52197f444954a1525d3ffc521f98/PRO-MISS%201.png"/>제 10회 성공회대학교 IT&amp;미디어컨텐츠 경진대회 </a></td><td class="cell-jlRT"><span class="selected-value select-value-color-yellow">Android</span><span class="selected-value select-value-color-blue">CocoaPods</span><span class="selected-value select-value-color-yellow">Java</span><span class="selected-value select-value-color-green">Laravel</span><span class="selected-value select-value-color-orange">Naver Maps API</span><span class="selected-value select-value-color-brown">Ncloud Server</span><span class="selected-value select-value-color-green">PHP</span><span class="selected-value select-value-color-green">Pusher</span><span class="selected-value select-value-color-green">Server</span><span class="selected-value select-value-color-blue">Swift</span><span class="selected-value select-value-color-blue">iOS</span></td><td class="cell-:x_E"><time>@2019/03/04 → 2019/10/21</time></td><td class="cell-?OBt">Demo - Android 개발자 2, Server 개발자 1 / 출품작 - Android 개발자 2, iOS 개발자 2</td><td class="cell-XiJH">약속에 지각하면 벌금을 부과하여 약속을 지키도록 도와주는 앱</td></tr><tr id="cbcfb363-e411-4b07-9329-feaeba7a00dc"><td class="cell-title"><a href="https://www.notion.so/cbcfb363e4114b079329feaeba7a00dc"><span class="icon">🚗</span>카카오 주차장</a></td><td class="cell-DWml"><a href="https://www.notion.so/8-3e2d9479d372412a8f4e1d92210574eb">제주코딩베이스캠프 해커톤 8기</a></td><td class="cell-eDJa"><a href="https://www.notion.so/d4532193c89b40f8b5eb3338843c480b"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/%E1%84%8F%E1%85%A1%E1%84%8F%E1%85%A1%E1%84%8B%E1%85%A9%20%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%E1%84%8C%E1%85%A1%E1%86%BC%20cbcfb363e4114b079329feaeba7a00dc.png"/>카카오와 함께하는 제주 코딩 베이스캠프 (해커톤)</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-pink">HTML/CSS</span><span class="selected-value select-value-color-pink">JS</span><span class="selected-value select-value-color-orange">Kakao Map API</span><span class="selected-value select-value-color-pink">WebFE</span></td><td class="cell-:x_E"><time>@2019/01/24 → 2019/01/25</time></td><td class="cell-?OBt">WEB FE 개발자 2, WEB BE 개발자 2, 기획자 1</td><td class="cell-XiJH">개인 주차공간면 공유 웹 플랫폼</td></tr><tr id="408d4420-3e9b-479b-880a-9a90adfef9a4"><td class="cell-title"><a href="https://www.notion.so/408d44203e9b479b880a9a90adfef9a4"><img class="icon" src="https://lh3.googleusercontent.com/RmTPf5UIMjQL8WjXbZoCT4MQ4vE7zIcqcmgR6QS2euSIoNETWUTMmlL95fgyHPAwebU_=s360-rw"/>차랑</a></td><td class="cell-DWml"></td><td class="cell-eDJa"><a href="https://www.notion.so/S-OWL-622bde0275814ca69884c3b53b989eda"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/%E1%84%8E%E1%85%A1%E1%84%85%E1%85%A1%E1%86%BC%20408d44203e9b479b880a9a90adfef9a4/sowl_logo.png"/>S.OWL</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-yellow">Android</span><span class="selected-value select-value-color-blue">CocoaPods</span><span class="selected-value select-value-color-yellow">Java</span><span class="selected-value select-value-color-green">Laravel</span><span class="selected-value select-value-color-orange">Naver Maps API</span><span class="selected-value select-value-color-brown">Ncloud Server</span><span class="selected-value select-value-color-green">PHP</span><span class="selected-value select-value-color-green">Server</span><span class="selected-value select-value-color-blue">Swift</span><span class="selected-value select-value-color-blue">iOS</span></td><td class="cell-:x_E"><time>@2019/01/01 → 2019/06/30</time></td><td class="cell-?OBt">Demo - Android 개발자 3 / Beta - Android 개발자 2, iOS 개발자 2</td><td class="cell-XiJH">교통사고 발생 시 위치 기반으로 실시간 사고 접수를 할 수 있는 앱</td></tr><tr id="544ed473-707b-46b0-ae1e-9ebb60b4c437"><td class="cell-title"><a href="https://www.notion.so/DUCKS-544ed473707b46b0ae1e9ebb60b4c437"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/DUCKS%20544ed473707b46b0ae1e9ebb60b4c437/Untitled.png"/>DUCKS</a></td><td class="cell-DWml"></td><td class="cell-eDJa"></td><td class="cell-jlRT"><span class="selected-value select-value-color-yellow">Android</span><span class="selected-value select-value-color-yellow">Java</span><span class="selected-value select-value-color-green">MySQL</span><span class="selected-value select-value-color-brown">Ncloud Server</span><span class="selected-value select-value-color-green">PHP</span><span class="selected-value select-value-color-green">Server</span></td><td class="cell-:x_E"><time>@2018/11/07 → 2018/12/30</time></td><td class="cell-?OBt">개인 프로젝트 (Android, Server 모두 혼자 담당)</td><td class="cell-XiJH">덕후들을 위한 취향 공유 앱 - 자신의 관심사에 대한 일정과 사진 등을 공유하고 2 차 생산물 등을 판매 및 나눔할 수 있는 앱</td></tr><tr id="8089d0a3-e247-41ab-8727-6aa244e23b4e"><td class="cell-title"><a href="https://www.notion.so/8089d0a3e24741ab87276aa244e23b4e"><span class="icon">🚃</span>급행열차</a></td><td class="cell-DWml"><a href="https://www.notion.so/2018-IF-b04824ec8b7b484a8fef1bb841668cb1">2018 IF 해커톤</a></td><td class="cell-eDJa"><a href="https://www.notion.so/IF-2018-5787931325ba405096f02169a770e4e2"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/%E1%84%80%E1%85%B3%E1%86%B8%E1%84%92%E1%85%A2%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%AF%E1%84%8E%E1%85%A1%208089d0a3e24741ab87276aa244e23b4e/IF_Hackathon.jpg"/>IF 해커톤 2018</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-yellow">Android</span><span class="selected-value select-value-color-yellow">Java</span><span class="selected-value select-value-color-orange">Naver Maps API</span></td><td class="cell-:x_E"><time>@2018/11/03 → 2018/11/04</time></td><td class="cell-?OBt">Android 개발자 2, WEB FE 개발자 2, BE 개발자 1</td><td class="cell-XiJH">저소득층 아동 청소년을 위한 급식카드 활성화를 위하여 인근의 가맹 점 정보를 제공하고, 홍보를 돕는 앱</td></tr><tr id="afaa4e6c-ff90-4396-af2e-8ad918a55637"><td class="cell-title"><a href="https://www.notion.so/Conversational-AI-for-Education-afaa4e6cff904396af2e8ad918a55637"><img class="icon" src="https://lh3.googleusercontent.com/XOZ_WUmELmOMmrNqpgvmV44cJPY7NyWSXwmVYceHnzDmKDTEepmNuhAIAVcXIfMdSymb=s360-rw"/>Conversational AI for Education</a></td><td class="cell-DWml"></td><td class="cell-eDJa"><a href="https://www.notion.so/S-OWL-622bde0275814ca69884c3b53b989eda"><img class="icon" src="img/Projects%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%203a42440aa393403d87b2a122fd9f2571/%E1%84%8E%E1%85%A1%E1%84%85%E1%85%A1%E1%86%BC%20408d44203e9b479b880a9a90adfef9a4/sowl_logo.png"/>S.OWL</a></td><td class="cell-jlRT"><span class="selected-value select-value-color-green">API</span><span class="selected-value select-value-color-red">NLP</span><span class="selected-value select-value-color-purple">Python</span><span class="selected-value select-value-color-default">Pytorch</span><span class="selected-value select-value-color-default">Transformer</span></td><td class="cell-:x_E"><time>@2019/12/25 → 2020/06/03</time></td><td class="cell-?OBt">ReactNative 개발자 3</td><td class="cell-XiJH">초급 영어 수강생들을 위한 교육용 영어 화화 챗봇 개발</td></tr></tbody></table></div><p id="4ee002e0-7d4a-4310-9c4e-76cc8b2b80ce" class="">
+</p><p id="12f4555b-c889-49d2-b906-a61bb6d038bc" class="">
+</p><h3 id="85a2b225-b55b-45b9-abe7-84bef732ca1b" class="">이력서 첨부</h3><hr id="753d13b9-1ee0-4354-9f83-baf2e3f8c1c6"/><figure id="2838c9a4-185a-425a-b90b-baa742853015"><div class="source"><a href="img/___CV.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80888b54-dca3-4859-ab72-b499183a5d16/___CV.pdf</a></div></figure><p id="d9c13c67-1dca-4b49-861a-2e7fbb6099ff" class="">
+</p><p id="46dcad85-ffba-472b-98df-ce92eb47b8fa" class="">
+</p></div></article></body></html>

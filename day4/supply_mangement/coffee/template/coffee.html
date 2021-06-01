@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coffee View
+        </title>
+    </head>
+
+    <body>
+        <h1>Starducks</h1>
+        <h2>Order List </h2>
+        {% for coffee in coffee_list %}
+        <ul>
+            <li>{{ coffee }}</li>
+        </ul>
+        {% endfor %}
+
+        <h2> Order </h2>
+        <form method="POST">
+        {% csrf_token %}
+            <table>
+                {{ coffee_form.as_table }}
+            </table>
+            <button type="submit"> Save </button>
+        </form>
+    </body>
+</html>

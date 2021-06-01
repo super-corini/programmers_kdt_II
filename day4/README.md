@@ -6,7 +6,7 @@
 - `GET /` : Day 3에서 만든 자기소개 웹 페이지를 Response
 - django를 바탕으로 재고 관리를 진행하는 Website를 만들고자 합니다.
     1. 재고관리를 하고자 하는 대상을 하나 정해주세요. (coffee, burger, )
-    2. 이 대상에 맞는 Database Scheme를 model로 하여 `model.py` 에 작성합니다. 
+    2. 이 대상에 맞는 Database Scheme를 model로 하여 `model.py` 에 작성합니다.
     아래 예시에서는 coffee 재고 관리 리스템이라는 가정하에 서술합니다.
     3. 이를 바탕으로 다음 기능을 구현해주세요.
         - `GET /coffees` : 커피 목록을 *unordered list*로 보여주기

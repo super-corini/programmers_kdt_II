@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coffee View
+        </title>
+    </head>
+
+    <body>
+        <h1>Starducks</h1>
+        <h2>Order Update </h2>
+        <h3> {{ coffee_info }} </h3>
+        <form method="POST">
+        {% csrf_token %}
+            <table>
+                {{ coffee_form.as_table }}
+            </table>
+            <button type="submit"> Save </button>
+        </form>
+    </body>
+</html>
