@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+*.csv
+.idea
+__pycache__
+migrations
+db.sqlite3
