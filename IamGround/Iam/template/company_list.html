@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company List</title>
+</head>
+<body>
+    <p><a href="{% url 'main' %}">Home</a></p><br>
+    {% for company in companies %}
+    <p><a href="{% url 'company' company.pk %}">{{ company }}</a></p>
+    {% endfor %}
+
+    <br>
+    <br>
+    <br>
+    <h2>Add Company</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ company_form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

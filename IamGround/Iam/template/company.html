@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p><a href="{% url 'main' %}">Home</a></p>
+    <p><a href="{% url 'companies' %}">List</a></p>
+
+    <h1>{{ company }}</h1>
+    <p>서류 마감: {{ company.document_deadline }}</p>
+    <p>평균연봉: {{ company.income_mean }}</p>
+
+    <button type="submit" value="Modify company"><a href="{% url 'modify' company.pk %}">Modify</a></button>
+
+    <form action="{% url 'delete' company.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" value="Delete company">Delete</button>
+    </form>
+</body>
+</html>

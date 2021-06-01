@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Day1 자기소개 페이지 만들기</h1>
+    <p>이름: 가재준</p>
+    <p>취미: 운동</p>
+    <p>하고있는 공부: 인공지능</p>
+    <p>취업 준비: <a href="{% url 'companies' %}">view list of companies</a></p>
+    <p>EDA PROJECT: <a href="{% url 'eda_main' %}">BANK CHURNERS</a></p>
+
+    <br>
+    <p><a href="{% url 'admin:index' %}">홈페이지 관리하기</a></p>
+</body>
+</html>
