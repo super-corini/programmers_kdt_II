@@ -5,7 +5,8 @@ db = SQLAlchemy()
 
 class Weapons(db.Model):
     __tablename__ = 'weapons'
-
+    # PUT/DELETE의 편의를 위해 int column id 를 도입하시는 것도 좋습니다.  <- 이부분을 어떻게 처리해야하나...??
+    # id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     name = db.Column(db.String(50), primary_key=True)
     stock = db.Column(db.Integer)
 
