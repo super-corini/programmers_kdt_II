@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <title>
+            아이엠 그라운드 자기소개 하기
+        </title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+            
+            body { font-family: 'Nanum Gothic', sans-serif;}
+            h2 { 
+                color : gold; 
+                background-color: darkslateblue;
+                text-align: center;
+            }
+            .box01 {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            .box01::after {
+                content: "";
+                background: url("/static/images/_SAM3811.JPG");
+                background-size: cover;
+                opacity: 0.3;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: -1;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                text-align: center;
+                vertical-align: auto;
+            }
+        </style>
+    </head>
+
+    <body style="font-family : Nanum Gothic">
+        <div class="box01">
+            <h2 id="-">이름</h2>
+            <ul>
+                <li>손동현</li>
+            </ul>
+
+            <h2 id="-">출신</h2>
+            <ul>
+                <li>울산</li>
+            </ul>
+            
+            <h2 id="-">좋아하는 색</h2>
+            <ul>
+                <li style="color: skyblue; ">
+                    <span style="background-color: black;">
+                        <b>하늘색</b>
+                    </span>
+                </li>
+            </ul>
+            
+            <h2>좋아하는 가수</h2>
+            <ul>
+                <p style="text-align: center;"><img src="/static/images/IU.gif"/></p>
+                <p>아이유 너무 좋아 늘 새로워</p>
+            </ul>
+            
+            <h2 id="-">학교</h2>
+            <ul>
+                <li>울산대학교 IT융합전공</li>
+                <li>집 앞에 있어서 갔음</li>
+                <li><del>사실 경북대도 넣었는데 떨어짐</del></li>
+            </ul>
+
+            <h2 id="-">취미</h2>
+            <ul>
+                <li>게임
+                    <ul>
+                        <li>플스, 스위치, 스팀, 온라인, 모바일 가리지 않음
+                            <ul>
+                                <li><del>엑박은 조금..... PC 게임패스를 쓰는 합리적인 소비자가 되도록 하자</del></li>
+                            </ul>
+                        </li>
+                        <li>플스, 스위치, 스팀 친추 환영(제발 친구해줘요)</li>
+                        <li>플스
+                            <ul>
+                                <li>DJMAX, 철권, 몬헌 등등</li>
+                            </ul>
+                        </li>
+                        <li>스위치
+                            <ul>
+                                <li>몬헌, 태고의 달인, 마리오, 포켓몬 등등</li>
+                            </ul>
+                        </li>
+                        <li>스팀
+                            <ul>
+                                <li>DJMAX, 철권, 몬헌, 배그 등등</li>
+                                <li><del>뭔가 겹치지만 아무튼 아님</del></li>
+                            </ul>
+                        </li>
+                        <li>모바일
+                            <ul>
+                                <li>포켓몬 고, 가디언테일즈, 와일드리프트, 카러플</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            
+                <li>운동
+                    <ul>
+                        <li>태권도 5단</li>
+                        <li>옛날엔 했는데......</li>
+                        <li>개인 사정으로 정 떨어져서 관둠</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h2 id="-">치킨</h2>
+            <ul>
+                <table >
+                    <tr>
+                        <td><img src="/static/images/kfc1.png" width="80%"/></td>
+                        <td><img src="/static/images/kfc2.png" width="80%"/></td>
+                        <td><img src="/static/images/kfc3.png" width="80%"/></td>
+                    </tr>
+                </table>
+                <li>치.킨.조.아</li>
+                <li>치킨 너무 좋아 늘 새로워 짜릿해</li>
+                <li>집 앞에 롯데리아 자리에 KFC 들어오면 좋겠다...</li>
+            </ul>
+        </div>
+    </body>
+
+</html>

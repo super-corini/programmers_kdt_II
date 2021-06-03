@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Django Page</title>
+    </head>
+
+    <body>
+        <h1>Title</h1>
+        <p>Mu Ya Ho</p></br>
+
+        <p> loadParameter + filter </p>
+        <p>{{name | length}}</p>
+        <p>{{name | upper}}</p></br>
+
+        <p> for, if Tag </p>
+        {% for item in nums %}
+            {% if not item|divisibleby:"2" %}
+                <p> {{item}} </p>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>

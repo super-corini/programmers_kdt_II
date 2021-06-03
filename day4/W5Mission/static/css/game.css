@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+            
+body { font-family: 'Nanum Gothic', sans-serif;}
+
+.header1 {
+    background-color: orangered;
+    text-align: center;
+}
+
+.gameTable {
+    width: 80%;
+    border: 2px solid;
+    border-collapse: collapse;
+    background-color: lightblue;
+    margin: auto;
+    text-align: center;
+}
+
+.gameForm {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    vertical-align: center;
+    display: inline-block;
+}
+
+.formTable {
+    border-collapse: collapse;
+}
+
+.formTh, .formTd {
+    border: 0;
+}
+
+.gameTr {
+    height: 35px;
+}
+
+.gameTh, .gameTd {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: center;
+}
