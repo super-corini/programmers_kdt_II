@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Monthly Project - EDA</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="static/assets/spotify-logo.png" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/css/styles.css" rel="stylesheet" />
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="static/js/plotly-latest.min.js"></script>
+    </head>
+
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="static/assets/img/navbar-logo.png" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#data" >Data</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#eda_by_year">EDA by Years</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#eda_corr">Data Correlation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#eda_by_feature">EDA by Features</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Masthead -->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Spotify EDA!</div>
+                <div class="masthead-heading text-uppercase">What kind of Music is Popular?</div>
+            </div>
+        </header>
+
+        <!-- Data -->
+        <section class="page-section bg-light" id="data">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Spotify Data</h2>
+                    <p>Check how the trend of music changed over years. How many music are realeased in a year?</p>
+                    <p>What kind of music is popular? Fast tempo music? Calm music?</p>
+                    <p>Let's look further!</p>
+                    <br>
+                    <a class="btn btn-success btn-xl text-uppercase" href="https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks?select=tracks.csv">Data Reference</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDA by Year-->
+        <section class="page-section" id="eda_by_year">
+            <div class="container px-4 px-lg-5">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">EDA by Year</h2>
+                    <h3 class="section-subheading text-muted">Let's see how the features change over years</h3>
+                </div>
+                
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#released">Number of Released Musics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#popularity">Popularity</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#duration">Duration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#features">Musical Features</a>
+                    </li>
+                </ul>
+
+                <center>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="released">
+                            <div class="chart-area", id="year_plot0", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.year_plot[0] | safe}}                                     
+                                    Plotly.plot('year_plot0',graphs,{});                                                  
+                                </script>  
+                                <p>연도가 지날수록 대체적으로 발매된 음원의 수가 증가하며, 2020년에는 가장 많은 음원이 출시되었다.</p>                  
+                            </div>  
+                        </div>
+                        <div class="tab-pane fade" id="popularity">
+                            <div class="chart-area", id="year_plot1", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.year_plot[1] | safe}}                                     
+                                    Plotly.plot('year_plot1',graphs,{});                                                  
+                                </script>
+                                <p>연도가 지날수록 대체적으로 인기의 평균도 올라간다.</p>          
+                            </div>  
+                        </div>
+                        <div class="tab-pane fade" id="duration">
+                            <div class="chart-area", id="year_plot2", style="height: max-content;"> 
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.year_plot[2] | safe}}                                     
+                                    Plotly.plot('year_plot2',graphs,{});                                                  
+                                </script>       
+                                <p>연도가 지날수록 노래의 시간이 감소할 것이라고 생각했는데, 예상 외로 음원 시간이 증가하고 있다. 하지만, 최근에는 10년동안은 감소하는 추세이다.</p>             
+                            </div>  
+                        </div>
+                        <div class="tab-pane fade" id="features">
+                            <div class="chart-area", id="year_plot3", style="height: max-content;">                    
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.year_plot[3] | safe}}                                     
+                                    Plotly.plot('year_plot3',graphs,{});                                                  
+                                </script>
+                                <ul>
+                                    <li>연도가 지날수록 Accousticness가 감소한다.</li>
+                                    <li>연도가 지날수록 Energy는 증가한다.</li>
+                                    <li>연차에 따른 Danceability와 Valence의 추이가 얼추 비슷하다.</li>
+                                </ul>                
+                            </div>  
+                        </div>                   
+                    </div>
+                </center>
+
+            </div>
+        </section>       
+
+        <!-- EDA Correlation -->
+        <section class="page-section bg-light" id="eda_corr">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Data Correlation</h2>
+                    <h3 class="section-subheading text-muted">Guess relationships between features</h3>
+                </div>
+
+                <center>
+                    <div class="chart-area", id="corr", style="height: max-content;">
+                        <script type="text/javascript">      
+                            var graphs = {{plot.corr | safe}}                                      
+                            Plotly.plot('corr', graphs,{});                                                  
+                        </script>
+                        <br>
+                        <br>
+                        <ul>
+                            <li>Acousticness와 Loudness, Energy 간의 상관관계가 높다.</li>
+                            <li>Danceability와 Valence는 연도별로 분포의 추이와 데이터 간의 상관관계가 높다.</li>
+                        </ul>
+                        <br>
+                        <p>그러면, 이러한 데이터들에 대해 조금 더 알아보는 시간을 갖자!</p>                                      
+                    </div>                                 
+                </center>
+            </div>
+        </section>         
+
+        <!-- EDA by comparing two features -->
+        <section class="page-section" id="eda_by_feature">
+            <div class="container px-4 px-lg-5">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">EDA by Feature</h2>
+                    <h3 class="section-subheading text-muted">Let's see relation between two features</h3>                 
+                </div>   
+                
+                <center>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#acenld">Acousticness vs. Loudness, Energy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#dctpvl">Danceability vs. Valence, Tempo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#keymode">Key vs. Mode</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="acenld">
+                            <div class="chart-area", id="feature_plot0", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{ plot.feature_plot[0] | safe }}                                     
+                                    Plotly.plot('feature_plot0',graphs,{});                                                  
+                                </script>      
+                                <p>Energy가 Loudness가 비례하고, 둘 다의 값이 클수록 popularity가 높다.</p>  
+                            </div> 
+                            <br>
+                            <br>
+                            <div class="chart-area", id="feature_plot1", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.feature_plot[1] | safe}}                                     
+                                    Plotly.plot('feature_plot1',graphs,{});                                                  
+                                </script>  
+                                <p>Acousticness가 낮고 음악이 시끄러우면 Popularity가 높다. Acousticness가 높으면 Loudness가 작은 값에 많은 데이터들이 있다.</p>                  
+                            </div>
+                            <br>
+                            <br>  
+                            <div class="chart-area", id="feature_plot2", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.feature_plot[2] | safe}}                                     
+                                    Plotly.plot('feature_plot2',graphs,{});                                                  
+                                </script>  
+                                <p>Acousticness와 Energy도 Loudness와 비슷한 추이를 보일 것이라고 가정했으나, 골고루 펼쳐 있음을 알 수 있다.</p>                              
+                            </div>  
+                        </div>
+                        <div class="tab-pane fade" id="dctpvl">
+                            <div class="chart-area", id="feature_plot3", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.feature_plot[3] | safe}}                                     
+                                    Plotly.plot('feature_plot3',graphs,{});                                                  
+                                </script>
+                                <ul>
+                                    <li>연도별 추이와, 상관관계가 높았지만, 위 그래프로는 큰 특징을 찾아내기가 어렵다..</li> 
+                                    <li>Danceability와 Popularity가 비례한다.</li>
+                                </ul> 
+                                <br> 
+                                <br>
+                                <p>연도별 추이와, 상관관계가 높았지만, 위 그래프로는 큰 특징을 찾아내기가 어렵다..</p>    
+                                <br>                                                                                                           
+                            </div> 
+                            <div class="chart-area", id="feature_plot4", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.feature_plot[4] | safe}}                                     
+                                    Plotly.plot('feature_plot4',graphs,{});                                                  
+                                </script>   
+                                <ul>
+                                    <li>Tempo와 Danceability는 비례 관계일 것이라고 생각했으나, Tempo가 120 이하 일 때 Danceability와 비례하지만</li> 
+                                    <li>템포가 너무 빨라지면 오히려 Danceability와 반비례한다.</li>
+                                    <li>Tempo가 100-150사이 이며, Danceability가 0.6 이상인 값들이 Popularity가 높음을 알 수 있다.</li>
+                                </ul>
+                            </div>   
+                        </div>
+                        <div class="tab-pane fade" id="keymode">
+                            <div class="chart-area", id="feature_plot5", style="height: max-content;">
+                                <script type="text/javascript">      
+                                    var graphs = {{plot.feature_plot[5] | safe}}                                     
+                                    Plotly.plot('feature_plot5',graphs,{});                                                  
+                                </script>   
+                                <ul>
+                                    <li>Key Column에 대해서는 C 코드와 G코드가 가장 많으며 그 다음으로는 D와 A가 많다.</li>
+                                    <li>Mode에는 Minor, Major의 값을 가지며 Major인 노래가 더 많다.</li>
+                                    <br>
+                                    <p>추가적으로, 그래프에는 나와 있지 않지만, 코드와 Mode별로 Popluarity가 다를 것이라고 예상했는데, Popularity의 값은 별로 차이가 없었다.</p>
+                                </ul>
+                            </div>   
+                        </div>
+
+
+                    </div>
+                <center>
+            </div>
+        </section>              
+
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">
+                        Copyright &copy; Yoosun's EDA
+                        <!-- This script automatically adds the current year to your website footer-->
+                        <!-- (credit: https://updateyourfooter.com/)-->
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="static/js/scripts.js"></script>
+    </body>
+</html>

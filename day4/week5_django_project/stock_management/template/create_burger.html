@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burger Menu</title>
+    </head>
+
+    <body>
+        <h1>My Burger Menu</h1>
+        {% comment %} <p>{{ burger_list }}</p> {% endcomment %}
+
+        <ul>
+            {% for burger in burger_list %}
+                <li>{{ burger.name }}</li>
+            {% endfor %}
+        </ul>
+            
+        <h1>Create Burger Menu</h1>
+
+        <form method="POST">{% csrf_token %}
+            {{ burger_form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+
+    </body>
+</html>
