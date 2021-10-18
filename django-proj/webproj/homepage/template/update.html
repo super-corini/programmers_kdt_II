@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burger Update</title>
+    </head>
+
+    <body>
+        <h1>Update Burger Info</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ burger_form.as_p }}
+            <button type = "submit">Save</button>
+            </form>
+    </body>
+
+
+</html>

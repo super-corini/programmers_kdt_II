@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burger Create</title>
+    </head>
+
+    <body>
+        <h1>New Burger Add</h1>
+        <form method="POST" >
+            {% csrf_token %}
+            {{ burger_form.as_p }}
+            <button type = "submit">Save</button>
+        </form>
+
+
+
+    </body>
+
+
+</html>
